@@ -1,0 +1,183 @@
+﻿@model LetPaintPictures.ViewModels.Bill.Create
+
+@{
+    ViewBag.Title = "Rechnung anlegen";
+}
+
+<h2>Rechnung anlegen</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <input type="hidden" value="@Model.Head.RequestHeadId" name="@Html.NameFor(m=>Model.Head.RequestHeadId)" id="@Html.IdFor(i=>Model.Head.RequestHeadId)" />
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.Head.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Head.FirstName, new
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control",
+                   placeholder = "Pflichtfeld"
+               }
+           })
+                @Html.ValidationMessageFor(model => model.Head.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Head.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Head.LastName, new
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control",
+                   placeholder = "Pflichtfeld"
+               }
+           })
+                @Html.ValidationMessageFor(model => model.Head.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Head.StreetPostOfficeBox, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.Head.StreetPostOfficeBox, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Head.StreetPostOfficeBox, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-1">
+                @Html.EditorFor(model => model.Head.HouseNumber, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div class="col-md-6">
+                @Html.ValidationMessageFor(model => model.Head.StreetPostOfficeBox, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Head.PostalCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.Head.PostalCode, new
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control",
+                   placeholder = "Pflichtfeld"
+               }
+           })
+            </div>
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.Head.City, new
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control",
+                   placeholder = "Pflichtfeld"
+               }
+           })
+            </div>
+            @Html.ValidationMessageFor(model => model.Head.PostalCode, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Head.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Head.Email, new
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control",
+                   placeholder = "Pflichtfeld"
+               }
+           })
+                @Html.ValidationMessageFor(model => model.Head.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Head.Remarks, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Head.Remarks, new
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control",
+                   placeholder = "Pflichtfeld"
+               }
+           })
+                @Html.ValidationMessageFor(model => model.Head.Remarks, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10 col-md-offset-2">
+                <button type="button" class="btn btn-default btn-add">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    Neue Zeile
+                </button>
+                <table class="table table-bordered table-condensed">
+                    <thead>
+                        <tr>
+                            <th class="col-md-1">
+                                @Html.LabelFor(m => m.Items.FirstOrDefault().Id)
+                            </th>
+                            <th class="col-md-4">
+                                @Html.LabelFor(m => m.Items.FirstOrDefault().Name)
+                            </th>
+                            <th class="col-md-1">
+                                @Html.LabelFor(m => m.Items.FirstOrDefault().Amount)
+                            </th>
+                            <th class="col-md-2">
+                                @Html.LabelFor(m => m.Items.FirstOrDefault().Price)
+                            </th>
+                            <th class="col-md-1">
+                                @Html.LabelFor(m => m.Items.FirstOrDefault().RequestItemId)
+                            </th>
+                            <th class="col-md-1"><!--Buttons--></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @Html.EditorFor(model => model.Items, new { htmlAttributes = new { @class = "form-control" } })
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="form-group"></div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-primary">
+                    Rechnung anlegen <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".btn-remove").click(function () {
+                this.parentElement.parentElement.parentElement.removeChild(this.parentElement.parentElement);
+            });
+            $(".btn-add").click(function () {
+                var content = new String("<tr><td><input class=\"form-control text-box single-line\" data-val=\"true\" data-val-maxlength=\"Das Feld &quot;Name&quot; muss ein Zeichenfolgen- oder Arraytyp mit einer maximalen Länge von 64 sein.\" data-val-maxlength-max=\"64\" id=\"Items_0__Name\" name=\"Items[0].Name\" type=\"text\" /><span class=\"field-validation-valid text-danger\" data-valmsg-for=\"Items[0].Name\" data-valmsg-replace=\"true\"></span></td><td><input class=\"form-control text-box single-line\" data-val=\"true\" data-val-number=\"The field Amount must be a number.\" data-val-required=\"Das Feld &quot;Amount&quot; ist erforderlich.\" id=\"Items_0__Amount\" name=\"Items[0].Amount\" type=\"text\" value=\"1\" /><span class=\"field-validation-valid text-danger\" data-valmsg-for=\"Items[0].Amount\" data-valmsg-replace=\"true\"></span></td><td><div class=\"input-group\"><input id=\"Items_0__Price\" name=\"Items[0].Price\" type=\"text\" class=\"form-control text-right\" /><div class=\"input-group-addon\">€</div></div><span class=\"field-validation-valid text-danger\" data-valmsg-for=\"Items[0].Price\" data-valmsg-replace=\"true\"></span></td><td></td><td></td><td></td><td><button type=\"button\" class=\"btn btn-default btn-remove\"><span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></span></button></td></tr>"),
+                    count = @Model.Items.Count;
+
+                content = content.replace('[0]','[' + count + ']');
+                content = content.replace('_0_', '_' + count + '_');
+
+                ++count;
+
+                $("tbody").append(content);
+            });
+        });
+    </script>
+}
+
+

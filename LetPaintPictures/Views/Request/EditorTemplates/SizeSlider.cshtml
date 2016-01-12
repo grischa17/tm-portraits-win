@@ -1,0 +1,13 @@
+﻿@model int
+
+@{ int max = ((IQueryable<LetPaintPictures.ViewModels.Product>)ViewData["Sizes"]).Select(s => s.Id).Max(),
+       min = ((IQueryable<LetPaintPictures.ViewModels.Product>)ViewData["Sizes"]).Select(s => s.Id).Min();}
+
+@Html.TextBoxFor(m => Model, new
+       {
+           @class = "form-control",
+           data_slider_min = min,
+           data_slider_max = max,
+           data_slider_step = 1,
+           data_slider_value = min
+       })

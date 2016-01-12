@@ -1,0 +1,124 @@
+﻿@model LetPaintPictures.ViewModels.Bill.Detail
+
+@{
+    ViewBag.Title = "Rechnung";
+}
+
+<h2>Rechnung #@Model.Head.Id</h2>
+<p>
+    <address>
+        <div class="row">
+            @Html.Label("Name:", new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(model => model.Head.FirstName)&nbsp;
+                @Html.DisplayFor(model => model.Head.LastName)
+            </div>
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(model => model.Head.StreetPostOfficeBox, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(model => model.Head.StreetPostOfficeBox)<text>&nbsp;</text>
+                @Html.DisplayFor(model => model.Head.HouseNumber)
+            </div>
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(model => model.Head.PostalCode, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(model => model.Head.PostalCode)<text>&nbsp;</text>
+                @Html.DisplayFor(model => model.Head.City)
+            </div>
+        </div>
+    </address>
+
+    <div class="row">
+        @Html.LabelFor(model => model.Head.Email, htmlAttributes: new { @class = "control-label col-md-3" })
+        <div class="col-md-9">
+            @Html.DisplayFor(model => model.Head.Email)
+        </div>
+    </div>
+
+    <div class="row">
+        @Html.LabelFor(model => model.Head.Remarks, htmlAttributes: new { @class = "control-label col-md-3" })
+        <div class="col-md-9">
+            @Html.DisplayFor(model => model.Head.Remarks)
+        </div>
+    </div>
+</p>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-condensed">
+            <thead>
+                <tr>
+                    <th class="col-md-1">
+                        @Html.LabelFor(m => m.Items.FirstOrDefault().Id)
+                    </th>
+                    <th class="col-md-5">
+                        @Html.LabelFor(m => m.Items.FirstOrDefault().Name)
+                    </th>
+                    <th class="col-md-1">
+                        @Html.LabelFor(m => m.Items.FirstOrDefault().Amount)
+                    </th>
+                    <th class="col-md-1">
+                        @Html.LabelFor(m => m.Items.FirstOrDefault().RequestItemId)
+                    </th>
+                    <th class="col-md-2">
+                        @Html.LabelFor(m => m.Items.FirstOrDefault().Price)
+                    </th>
+                    <th class="col-md-2">
+                        @Html.LabelFor(m => m.Items.FirstOrDefault().Total)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @Html.DisplayFor(model => model.Items, new { htmlAttributes = new { @class = "form-control" } })
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5"><strong>Gesamt:</strong></td>
+                    <td class="text-right">
+                        @($"{Model.Items.Select(s => s.Total).Sum():F2}")
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10">
+        <button type="submit" formaction="Print" class="btn btn-default">
+            Drucken <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+        </button>
+        <a href="@Url.Action("Index")" class="btn btn-primary">
+            <span class="glyphicon glyphicon-list" aria-hidden="true" ´></span>
+            &nbsp;Zurück zu Liste
+        </a>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".btn-remove").click(function () {
+                this.parentElement.parentElement.parentElement.removeChild(this.parentElement.parentElement);
+            });
+            $(".btn-add").click(function () {
+                var content = new String("<tr><td><input class=\"form-control text-box single-line\" data-val=\"true\" data-val-maxlength=\"Das Feld &quot;Name&quot; muss ein Zeichenfolgen- oder Arraytyp mit einer maximalen Länge von 64 sein.\" data-val-maxlength-max=\"64\" id=\"Items_0__Name\" name=\"Items[0].Name\" type=\"text\" /><span class=\"field-validation-valid text-danger\" data-valmsg-for=\"Items[0].Name\" data-valmsg-replace=\"true\"></span></td><td><input class=\"form-control text-box single-line\" data-val=\"true\" data-val-number=\"The field Amount must be a number.\" data-val-required=\"Das Feld &quot;Amount&quot; ist erforderlich.\" id=\"Items_0__Amount\" name=\"Items[0].Amount\" type=\"text\" value=\"1\" /><span class=\"field-validation-valid text-danger\" data-valmsg-for=\"Items[0].Amount\" data-valmsg-replace=\"true\"></span></td><td><div class=\"input-group\"><input id=\"Items_0__Price\" name=\"Items[0].Price\" type=\"text\" class=\"form-control text-right\" /><div class=\"input-group-addon\">€</div></div><span class=\"field-validation-valid text-danger\" data-valmsg-for=\"Items[0].Price\" data-valmsg-replace=\"true\"></span></td><td></td><td></td><td></td><td><button type=\"button\" class=\"btn btn-default btn-remove\"><span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></span></button></td></tr>"),
+                    count = @Model.Items.Count;
+
+                content = content.replace('[0]','[' + count + ']');
+                content = content.replace('_0_', '_' + count + '_');
+
+                ++count;
+
+                $("tbody").append(content);
+            });
+        });
+    </script>
+}
+
+

@@ -1,0 +1,438 @@
+﻿@model LetPaintPictures.ViewModels.Request.Create
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Anfrage</h2>
+
+<h4>Daten zur Anfrage angeben</h4>
+<hr />
+
+@using (Html.BeginForm("AddFile", "Request", FormMethod.Post, new { enctype = "multipart/form-data", id = "fileUploadForm" } ))
+{
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Files, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <!-- The fileinput-button span is used to style the file input field as button -->
+                <span class="btn btn-default btn-file">
+                    <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
+                    <span>Datei hochladen...</span>
+                    <!-- The file input field used as target for the file upload widget -->
+                    <input id="Files" name="Files" type="file" accept=".gif,.jpg,.jpeg,.png,.bpm,.tiff" />
+                </span>
+                @Html.ValidationMessageFor(model=>model.Files, "", new { @class = "text-danger" })
+                                <!-- The container for the uploaded files -->
+                                <div id="files" class="row"></div>
+            </div>
+        </div>
+    </div>
+
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.ProductId, new
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control"
+               },
+               Products = Model.Products,
+               Name = nameof(Model.ProductId)
+           })
+                @Html.ValidationMessageFor(model => model.ProductId, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-6 col-lg-offset-1">
+                <span id="ProductPrice" name="ProductPrice">@($"+ {Model.Products.First().Price:C}")</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CountSubjects, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.CountSubjects)
+                @Html.ValidationMessageFor(model => model.CountSubjects, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-1">
+                <span id="SubjectValue" name="SubjectValue">@Model.CountSubjects</span>
+            </div>
+            <div class="col-md-6">
+                +&nbsp;<span id="SubjectPrice" name="SubjectPrice">@($"{((Model.CountSubjects - 1) * 20f):C}")</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SizeId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.SizeId, new
+           {
+               htmlAttributes = new { @class = "form-control" },
+               Sizes = Model.Sizes
+           })
+                @Html.ValidationMessageFor(model => model.SizeId, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-1">
+                <span id="SizeValue" name="SizeValue">@Model.Sizes.First().Name</span>
+            </div>
+            <div class="col-md-6">
+                +&nbsp;<span id="SizePrice" name="SizePrice">@($"{Model.Sizes.First().Price:C}")</span>
+            </div>
+        </div>
+
+        @*@if (Model.Files.Count > 0)
+            {
+                <div class="form-group">
+                    @Html.DisplayFor(m=> m.Files)
+                </div>
+            }*@
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstName, new
+                   {
+                       htmlAttributes = new
+                       {
+                           @class = "form-control",
+                           placeholder = "Pflichtfeld"
+                       }
+                   })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastName, new
+                   {
+                       htmlAttributes = new
+                       {
+                           @class = "form-control",
+                           placeholder = "Pflichtfeld"
+                       }
+                   })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StreetPostOfficeBox, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.StreetPostOfficeBox, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.StreetPostOfficeBox, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-1">
+                @Html.EditorFor(model => model.HouseNumber, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div class="col-md-6">
+                @Html.ValidationMessageFor(model => model.StreetPostOfficeBox, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PostalCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.PostalCode, new
+                   {
+                       htmlAttributes = new
+                       {
+                           @class = "form-control",
+                           placeholder = "Pflichtfeld"
+                       }
+                   })
+            </div>
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.City, new
+                   {
+                       htmlAttributes = new
+                       {
+                           @class = "form-control",
+                           placeholder = "Pflichtfeld"
+                       }
+                   })
+            </div>
+            @Html.ValidationMessageFor(model => model.PostalCode, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new
+                   {
+                       htmlAttributes = new
+                       {
+                           @class = "form-control",
+                           placeholder = "Pflichtfeld"
+                       }
+                   })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Remarks, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Remarks, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-2">
+                    <button type="submit" class="btn btn-primary" disabled>
+                        Anfrage absenden <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="col-md-2">
+                    <span class="control-label">Gesamtbetrag:</span>
+                </div>
+                <div class="col-md-6">
+                    <span id="TotalAmount" class="control-label">@($"{Model.TotalAmount:C}")</span>
+                </div>
+            </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        var sizes, products
+
+        sizes = {
+            "Sizes": [
+                @foreach (var item in Model.Sizes)
+                {
+                    <text>{
+                    "Id": @item.Id,
+                    "Name": "@item.Name",
+                    "Price": @item.Price
+                    },</text>
+                } {} ]
+        };
+
+        sizes.Sizes.splice(sizes.Sizes.length - 1, 1);
+
+        products = {
+            "Products": [
+                @foreach (var item in Model.Products)
+            {
+                    <text>{
+                    "Id": @item.Id,
+                    "Name": "@item.Name",
+                    "Price": @item.Price
+                    },</text>
+                } {} ]
+        };
+
+        products.Products.splice(products.Products.length - 1, 1);
+
+        $('#CountSubjects').slider({
+            formatter: function (value) {
+                return 'Aktueller Wert: ' + value;
+            }
+        }).change(function (e) {
+            $('#SubjectValue').text(e.value.newValue);
+            $('#SubjectPrice').text(((e.value.newValue - 1) * @Model.SubjectProduct.Price) + ',00 €');
+            setTimeout(setTotal(e.value.newValue, null));
+
+        });
+
+        $('#SizeId').slider({
+            formatter: function (value) {
+                return 'Aktueller Wert: ' + value;
+            }
+        }).change(function (e) {
+            $('#SizeValue').text(getSize(e.value.newValue).Name);
+            $('#SizePrice').text(getSizePrice(e.value.newValue) + ',00 €');
+            setTimeout(setTotal(null, e.value.newValue));
+        });
+
+
+        $('input[name=ProductId]').change(function(e){
+            switch ($('input[name=ProductId]:checked').val()) {
+                @foreach (var item in Model.Products)
+                {
+                    <Text>
+                case "@item.Id": $('#ProductPrice').text(@item.Price + ',00 €');
+                    break;
+                    </text>
+                }
+                default:
+
+            }
+            setTotal($('#SubjectValue').val(), $('#SizeValue').val());
+        });
+
+        var maxFileSize = @Model.MaxFileSize * 1024,
+            fileCounter = 0;
+        $('document').ready(function(){
+
+            $('input[type=file]').change(function(e){
+                var oReader;
+                var vFD = new FormData(document.forms[0]);
+
+                if (e.target.files[0].size > maxFileSize)
+                {
+                    $("[data-valmsg-for='Files']").text("Die Datei darf nicht größer als @(Model.MaxFileSize / 1024) MB sein");
+                    return;
+                }else {
+                    $("[data-valmsg-for='Files']").text("");
+                }
+
+                oReader = new FileReader();
+
+                $('#files').append(
+                    '<div class="col-md-2">' +
+                        '<img id="' + fileCounter + '" width="100" />' +
+                        '<button id="' + fileCounter + 'close" type="button" class="close" aria-label="Schließen">' +
+                            '<span aria-hidden="true">&times;</span>' +
+                        '</button>' +
+                        '<span id="' + fileCounter + 'msg" class="field-validation-valid text-danger" data-valmsg-replace="true" ' +
+                                                                         'data-valmsg-for="Files"></span>' +
+                        '<div class="progress">'+
+                            '<div id="' + fileCounter + 'progress" class="progress-bar progress-bar-success" aria-valuemin="0" aria-valuemax="100"></div>' +
+                        '</div>' +
+                    '</div>');
+
+                $('#' + fileCounter + 'close').click(function(e){
+                    var id = this.id.replace('close', '');
+                    var oXHR = new XMLHttpRequest();
+                    var data = new FormData();
+
+                    this.parentElement.parentElement.removeChild(this.parentElement);
+
+                    oXHR.open('POST', 'RemoveFile');
+                    data.append('id', id);
+                    oXHR.send(data);
+
+                });
+
+                oReader.onload = function(e){
+                    var oImage;
+                    oImage = getNext();
+
+                    // e.target.result contains the DataURL which we will use as a source of the image
+                    oImage.src = e.target.result;
+                    oImage.state = 1;
+
+                };
+
+                // read selected file as DataURL
+                oReader.readAsDataURL(e.target.files[0]);
+                vFD.append(e.target.files[0].name, e.target.files[0]);
+
+                ++fileCounter;
+
+                //// create XMLHttpRequest object, adding few event listeners, and POSTing our data
+                var oXHR = new XMLHttpRequest();
+                oXHR.progressbar = $('#' + (fileCounter - 1) + 'progress')[0];
+                oXHR.onprogress = function(e){
+                    //console.info('Geladen:' + e.loaded + ' Total:' + $('input[type=file]')[0].files[0].size);
+                    this.progressbar.setAttribute('aria-valuenow', e.loaded * 100 / $('input[type=file]')[0].files[0].size);
+                };
+                oXHR.onloadend = function(e){
+                    if (e.target.status == 200) {
+                        oXHR.progressbar.parentElement.parentElement.removeChild(oXHR.progressbar.parentElement);
+                        $('button[type=submit]')[0].disabled = false;
+
+                    }else {
+                        var id = oXHR.progressbar.id;
+
+                        id = '#' + id.replace('progress', 'msg');
+                        $(id).html(e.target.response);
+
+                    }
+                };
+                oXHR.onerror = function(e){
+                    var id = oXHR.progressbar.id;
+
+                    id = '#' + id.replace('progress', 'msg');
+                    $(id).text(e.error);
+                };
+                oXHR.onabort = function(e){
+                    var id = oXHR.progressbar.id;
+
+                    id = '#' + id.replace('progress', 'msg');
+                    $(id).text(e.error);
+                };
+                oXHR.open('POST', 'AddFile');
+                oXHR.vFD = vFD;
+                setTimeout(function(e){
+                    try {
+                        e.send(e.vFD);
+                    } catch (e) {
+                        var id = e.progressbar.id;
+
+                        id = '#' + id.replace('progress', 'msg');
+                        $(id).text(e.error);
+                    }
+                },
+                1,
+                oXHR);
+
+            });
+        });
+
+        function getNext(state){
+            var images = $('img');
+
+            for (var i = 0; i < images.length; i++) {
+                if (images[i].state == state) {
+                    return images[i];
+                }
+            }
+        }
+
+        function getSize(id){
+            if (!id) {
+                id = $('#SizeId').val();
+            }
+            
+            for (var i = 0; i < sizes.Sizes.length; i++) {
+                if (sizes.Sizes[i].Id == id) {
+                    return sizes.Sizes[i];
+                }
+            }
+        }
+        
+        function getSizePrice(id){
+            return getSize(id).Price;
+        }
+
+        function getProductPrice(){
+            var id = $('input[name=ProductId]:checked').val();
+
+            for (var i = 0; i < products.Products.length; i++) {
+                if (products.Products[i].Id == id) {
+                    return products.Products[i].Price;
+                }
+            }
+
+        }
+
+        function setTotal(countSubjects, sizeValue){
+            if (!countSubjects) {
+                countSubjects = $('#CountSubjects').val();
+            }
+
+            sizeValue = getSizePrice(sizeValue);
+
+            $('#TotalAmount').text(((countSubjects - 1) * @Model.SubjectProduct.Price +
+                                    sizeValue +
+                                    getProductPrice()) + ',00 €');
+        }
+    </script>
+}

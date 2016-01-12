@@ -1,0 +1,121 @@
+﻿@model LetPaintPictures.ViewModels.Request.Detail
+
+<h4>Anfrage #@Model.Head.Id</h4>
+
+<!-- Modal -->
+<div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="meinModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Schließen"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="meinModalLabel">Anfrage löschen</h4>
+            </div>
+            @using (Html.BeginForm("Create", "RequestCancellation"))
+            {
+            @Html.AntiForgeryToken()
+            <div class="modal-body">
+                <p>Möchten Sie die Anfrage #@Model.Head.Id wirklich löschen?</p>
+
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <label for="CancelReason" class="control-label col-md-4">Grund der Stornierung:</label>
+                        <div class="col-md-8">
+                            <input type="hidden" id="RequestId" name="RequestId" value="@Model.Head.Id" />
+                            <textarea id="CancelReason" name="CancelReason" class="form-control" placeholder="Pflichtfeld" required maxlength="256"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Nein</button>
+                        <button type="submit" class="btn btn-primary">Ja</button>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <address>
+        <p>
+            @Model.Head.FirstName<text>&nbsp;</text>@Model.Head.LastName<br />
+            @if (Model.Head.StreetPostOfficeBox.IsInt())
+            {
+                <text>Postfach&nbsp;@Model.Head.StreetPostOfficeBox<br /></text>
+            }
+            else
+            {
+                <text>@Model.Head.StreetPostOfficeBox&nbsp;@Model.Head.HouseNumber<br /></text>
+            }
+            @Model.Head.PostalCode&nbsp;@Model.Head.City
+        </p>
+        <p>
+            <a href="mailto:@Model.Head.Email?Subject=Ihre Anfrage #@Model.Head.Id vom @Model.Head.CreatedOn" target="_top">
+                @Model.Head.Email
+            </a>
+        </p>
+    </address>
+</div>
+<div class="row">
+    <div class="form-group">
+        @Html.LabelFor(l=>l.Head.Remarks, new { @class = "control-label col-md-2" })
+        @Html.DisplayFor(d=>d.Head.Remarks, new { @class = "form-control" })
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>@Html.LabelFor(n => n.Items.FirstOrDefault().Id)</th>
+                    <th>@Html.LabelFor(n => n.Items.FirstOrDefault().Name)</th>
+                    <th>@Html.LabelFor(n => n.Items.FirstOrDefault().Amount)</th>
+                    <th>@Html.LabelFor(n => n.Items.FirstOrDefault().Price)</th>
+                    <th>@Html.LabelFor(n => n.Items.FirstOrDefault().Total)</th>
+                    @*<th>@Html.NameFor(n => n.Items.FirstOrDefault().HeadId)</th>*@
+                </tr>
+            </thead>
+            <tbody>
+                @Html.DisplayFor(d => d.Items)
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4"><strong>Gesamt:</strong></td>
+                    <td>@($"{Model.Items.Select(s => s.Total).Sum():C}")</td>
+                    @*<td></td>*@
+                </tr>
+            </tfoot>
+        </table>
+
+
+    </div>
+</div>
+
+<div class="row">
+    @for (int i = 0; i < Model.Images.Count; i++)
+            {
+        <div class="col-md-3">
+            <a href="@Url.Action("ShowImage", new { Id = Model.Images[i].Id }) " class="thumbnail">
+                <img src="@Url.Action("ShowImage", new { Id = Model.Images[i].Id })" width="300" alt="Bild Nummer @Model.Images[i].Id" />
+            </a>
+        </div>
+    }
+</div>
+
+<p>
+    <a href="@Url.Action("Create", "Bill", new { requestId = Model.Head.Id } )" class="btn btn-default">
+        <span class="glyphicon glyphicon-file" aria-hidden="true" ´></span>
+        &nbsp;Rechnung anlegen
+    </a>
+    <button type="button" data-toggle="modal" data-target="#DeleteModal" class="btn btn-default">
+        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+        &nbsp;Löschen
+    </button>
+    <a href="@Url.Action("Index")" class="btn btn-primary">
+        <span class="glyphicon glyphicon-list" aria-hidden="true" ´></span>
+        &nbsp;Zurück zu Liste
+    </a>
+</p>

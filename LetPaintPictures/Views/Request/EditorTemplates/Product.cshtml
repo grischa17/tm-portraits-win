@@ -1,0 +1,15 @@
+﻿@model int
+
+@{ 
+    IQueryable<LetPaintPictures.ViewModels.Product> products = ViewData["Products"] as IQueryable<LetPaintPictures.ViewModels.Product>;
+    string name = ViewData["Name"] as string;
+ }
+    
+@foreach (var item in products)
+{
+    <div>
+        <input type="radio" name="@name" id="@item.Id" value="@item.Id"
+               @if (Model == item.Id) { <text> checked="checked" </text>  } />
+        <label for="@item.Id">@item.Name</label>
+    </div>
+}

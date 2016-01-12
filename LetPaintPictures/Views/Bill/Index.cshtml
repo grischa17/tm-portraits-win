@@ -1,0 +1,22 @@
+﻿@model List<LetPaintPictures.ViewModels.Bill.Head>
+
+@{
+    ViewBag.Title = "Rechnungen";
+}
+
+<h2>Rechnungen</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>@Html.LabelFor(l=>l.FirstOrDefault().Id)</th>
+            <th><strong>Name</strong></th>
+            <th>@Html.LabelFor(l => l.FirstOrDefault().CreatedOn)</th>
+            <th><strong>Anfrage</strong></th>
+        </tr>
+    </thead>
+    <tbody>
+        @Html.DisplayForModel()
+    </tbody>
+</table>
+

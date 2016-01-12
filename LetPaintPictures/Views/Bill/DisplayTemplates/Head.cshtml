@@ -1,0 +1,18 @@
+﻿@model LetPaintPictures.ViewModels.Bill.Head
+<tr>
+    <td>
+        <a href="@Url.Action("Detail", new { Id = Model.Id })">
+            @Html.DisplayFor(d => d.Id)
+        </a>
+    </td>
+    <td>@Html.DisplayFor(d => d.LastName),&nbsp;@Html.DisplayFor(d => d.FirstName)</td>
+    <td>@Html.DisplayFor(d => d.CreatedOn)</td>
+    <td>
+        @if (Model.RequestHeadId > 0)
+        {
+            <a href="@Url.Action("Detail", "Request", new { Id = Model.RequestHeadId })">
+                @Model.RequestHeadId
+            </a>
+        }
+    </td>
+</tr>
