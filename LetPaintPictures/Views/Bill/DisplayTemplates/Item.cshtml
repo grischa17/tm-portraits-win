@@ -10,7 +10,7 @@
     <td>
         @Html.DisplayFor(m => m.Amount)
     </td>
-    <td>
+    <td class="hidden-print">
         <a href="@Url.Action("Detail", "Request", new { RequestItemId = Model.RequestItemId })">
             @Model.RequestItemId
         </a>
