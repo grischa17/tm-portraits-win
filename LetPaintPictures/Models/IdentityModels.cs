@@ -3,7 +3,6 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using System.Data.Entity.ModelConfiguration.Configuration;
 
 namespace LetPaintPictures.Models
 {
@@ -28,6 +27,7 @@ namespace LetPaintPictures.Models
 
         public virtual DbSet<BillHead> BillHeads { get; set; }
         public virtual DbSet<BillItem> BillItems { get; set; }
+        public virtual DbSet<BillCancellation> BillCancellations { get; set; }
 
         public virtual DbSet<RequestHead> RequestHeads { get; set; }
         public virtual DbSet<RequestItem> RequestItems { get; set; }

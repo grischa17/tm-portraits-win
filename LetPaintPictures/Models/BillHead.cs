@@ -56,5 +56,8 @@ namespace LetPaintPictures.Models
 
         [InverseProperty(nameof(BillItem.Head))]
         public List<BillItem> Items { get; set; }
+
+        [ForeignKey(nameof(Id))]
+        public BillCancellation BillCancellation { get; set; }
     }
 }

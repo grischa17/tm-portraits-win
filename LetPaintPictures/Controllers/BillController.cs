@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace LetPaintPictures.Controllers
 {
+    [Authorize]
     public class BillController : Controller
     {
         // GET: Bill
@@ -82,9 +83,10 @@ namespace LetPaintPictures.Controllers
         {
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                IQueryable<BillHead> heads = db.BillHeads.OrderByDescending(o => o.CreatedOn);
+                List<BillHead> heads = db.Database.SqlQuery<BillHead>("select * from " + nameof(BillHead) + "s "
+                                                                        + "where Id not in (select " + nameof(BillCancellation.Id) + " from " + nameof(BillCancellation) + "s)").AsQueryable().OrderByDescending(o => o.CreatedOn).ToList();
 
-                return View(heads.ProjectTo<Head>().ToList());
+                return View(heads.AsQueryable().ProjectTo<Head>().ToList());
             }
         }
     }

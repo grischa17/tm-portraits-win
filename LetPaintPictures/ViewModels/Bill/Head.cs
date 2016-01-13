@@ -15,7 +15,7 @@ namespace LetPaintPictures.ViewModels.Bill
         [Required]
         public int RequestHeadId { get; set; }
 
-        public RequestHead RequestHead { get; set; }
+        //public RequestHead RequestHead { get; set; }
 
         #region Person
         [Display(Name = "Vorname:")]
@@ -61,6 +61,6 @@ namespace LetPaintPictures.ViewModels.Bill
         [MaxLength(128)]
         public string Email { get; set; }
         
-        public List<Item> Items { get; set; }
+        //public List<Item> Items { get; set; }
     }
 }

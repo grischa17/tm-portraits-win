@@ -69,8 +69,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -191,6 +191,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RequestCancellationController.cs" />
+    <Compile Include="Controllers\BillCancellationController.cs" />
     <Compile Include="Controllers\RequestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -199,6 +200,7 @@
     <Compile Include="Models\BillHead.cs" />
     <Compile Include="Models\BillItem.cs" />
     <Compile Include="Models\PriceAdjustment.cs" />
+    <Compile Include="Models\BillCancellation.cs" />
     <Compile Include="Models\RequetsCancellation.cs" />
     <Compile Include="Other\DBModelInitializer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -349,6 +351,7 @@
     <Content Include="Views\Request\DisplayTemplates\Item.cshtml" />
     <Content Include="Views\Bill\Index.cshtml" />
     <Content Include="Views\Bill\DisplayTemplates\Head.cshtml" />
+    <Content Include="Views\BillCancellation\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
