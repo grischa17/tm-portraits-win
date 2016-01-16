@@ -31,6 +31,8 @@
 
             context.PriceAdjustments.Add(subjectPriceAdjustment);
 
+            context.Database.ExecuteSqlCommand("DBCC CHECKIDENT('" + nameof(context.BillHeads) + "', RESEED, 2)");
+
             context.SaveChanges();
 
             context.Entry<Product>(subjectProduct).Reload();

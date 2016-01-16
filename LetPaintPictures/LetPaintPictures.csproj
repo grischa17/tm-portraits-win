@@ -230,6 +230,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\icon.ico" />
+    <Content Include="Content\images\Hund_Zeichnung.jpg" />
+    <Content Include="Content\images\Pferd_Zeichnung.jpg" />
+    <Content Include="Content\images\Buntstift_Portrait.jpg" />
+    <Content Include="Content\images\Bleistift_Portrait.jpg" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -355,7 +359,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
