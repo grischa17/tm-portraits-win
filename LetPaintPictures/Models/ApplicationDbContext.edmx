@@ -1,0 +1,698 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LetPaintPictures.Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BillCancellations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Reason" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BillHeads">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RequestHeadId" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="StreetPostOfficeBox" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="HouseNumber" Type="nvarchar" MaxLength="8" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="16" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="256" />
+          <Property Name="Email" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BillItems">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HeadId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="64" />
+          <Property Name="RequestItemId" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="real" Nullable="false" />
+          <Property Name="Price" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PriceAdjustmentProducts">
+          <Key>
+            <PropertyRef Name="PriceAdjustment_Id" />
+            <PropertyRef Name="Product_Id" />
+          </Key>
+          <Property Name="PriceAdjustment_Id" Type="int" Nullable="false" />
+          <Property Name="Product_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PriceAdjustments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="Adjustment" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="64" />
+          <Property Name="Price" Type="real" Nullable="false" />
+          <Property Name="ProductCategoryId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RequestCancellations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RequestHeadId" Type="int" Nullable="false" />
+          <Property Name="Reason" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RequestHeads">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="StreetPostOfficeBox" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="HouseNumber" Type="nvarchar" MaxLength="8" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="16" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="256" />
+          <Property Name="Email" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RequestImages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RequestHeadId" Type="int" Nullable="false" />
+          <Property Name="Data" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="RequestItems">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RequestHeadId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="64" />
+          <Property Name="Amount" Type="real" Nullable="false" />
+          <Property Name="Price" Type="real" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_BillCancellations_dbo_BillHeads_Id">
+          <End Role="BillHeads" Type="Self.BillHeads" Multiplicity="1" />
+          <End Role="BillCancellations" Type="Self.BillCancellations" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="BillHeads">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BillCancellations">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_BillHeads_dbo_RequestHeads_RequestHeadId">
+          <End Role="RequestHeads" Type="Self.RequestHeads" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BillHeads" Type="Self.BillHeads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RequestHeads">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BillHeads">
+              <PropertyRef Name="RequestHeadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_BillItems_dbo_BillHeads_HeadId">
+          <End Role="BillHeads" Type="Self.BillHeads" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BillItems" Type="Self.BillItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BillHeads">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BillItems">
+              <PropertyRef Name="HeadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PriceAdjustmentProducts_dbo_PriceAdjustments_PriceAdjustment_Id">
+          <End Role="PriceAdjustments" Type="Self.PriceAdjustments" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PriceAdjustmentProducts" Type="Self.PriceAdjustmentProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PriceAdjustments">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PriceAdjustmentProducts">
+              <PropertyRef Name="PriceAdjustment_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PriceAdjustmentProducts_dbo_Products_Product_Id">
+          <End Role="Products" Type="Self.Products" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PriceAdjustmentProducts" Type="Self.PriceAdjustmentProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PriceAdjustmentProducts">
+              <PropertyRef Name="Product_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Products_dbo_ProductCategories_ProductCategoryId">
+          <End Role="ProductCategories" Type="Self.ProductCategories" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="ProductCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_RequestCancellations_dbo_RequestHeads_RequestHeadId">
+          <End Role="RequestHeads" Type="Self.RequestHeads" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RequestCancellations" Type="Self.RequestCancellations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RequestHeads">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RequestCancellations">
+              <PropertyRef Name="RequestHeadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_RequestImages_dbo_RequestHeads_RequestHeadId">
+          <End Role="RequestHeads" Type="Self.RequestHeads" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RequestImages" Type="Self.RequestImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RequestHeads">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RequestImages">
+              <PropertyRef Name="RequestHeadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_RequestItems_dbo_RequestHeads_RequestHeadId">
+          <End Role="RequestHeads" Type="Self.RequestHeads" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RequestItems" Type="Self.RequestItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RequestHeads">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RequestItems">
+              <PropertyRef Name="RequestHeadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LetPaintPicturesModelsStoreContainer">
+          <EntitySet Name="BillCancellations" EntityType="Self.BillCancellations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BillHeads" EntityType="Self.BillHeads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BillItems" EntityType="Self.BillItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PriceAdjustmentProducts" EntityType="Self.PriceAdjustmentProducts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PriceAdjustments" EntityType="Self.PriceAdjustments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductCategories" EntityType="Self.ProductCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RequestCancellations" EntityType="Self.RequestCancellations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RequestHeads" EntityType="Self.RequestHeads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RequestImages" EntityType="Self.RequestImages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RequestItems" EntityType="Self.RequestItems" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_BillCancellations_dbo_BillHeads_Id" Association="Self.FK_dbo_BillCancellations_dbo_BillHeads_Id">
+            <End Role="BillHeads" EntitySet="BillHeads" />
+            <End Role="BillCancellations" EntitySet="BillCancellations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_BillHeads_dbo_RequestHeads_RequestHeadId" Association="Self.FK_dbo_BillHeads_dbo_RequestHeads_RequestHeadId">
+            <End Role="RequestHeads" EntitySet="RequestHeads" />
+            <End Role="BillHeads" EntitySet="BillHeads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_BillItems_dbo_BillHeads_HeadId" Association="Self.FK_dbo_BillItems_dbo_BillHeads_HeadId">
+            <End Role="BillHeads" EntitySet="BillHeads" />
+            <End Role="BillItems" EntitySet="BillItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PriceAdjustmentProducts_dbo_PriceAdjustments_PriceAdjustment_Id" Association="Self.FK_dbo_PriceAdjustmentProducts_dbo_PriceAdjustments_PriceAdjustment_Id">
+            <End Role="PriceAdjustments" EntitySet="PriceAdjustments" />
+            <End Role="PriceAdjustmentProducts" EntitySet="PriceAdjustmentProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PriceAdjustmentProducts_dbo_Products_Product_Id" Association="Self.FK_dbo_PriceAdjustmentProducts_dbo_Products_Product_Id">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="PriceAdjustmentProducts" EntitySet="PriceAdjustmentProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Products_dbo_ProductCategories_ProductCategoryId" Association="Self.FK_dbo_Products_dbo_ProductCategories_ProductCategoryId">
+            <End Role="ProductCategories" EntitySet="ProductCategories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_RequestCancellations_dbo_RequestHeads_RequestHeadId" Association="Self.FK_dbo_RequestCancellations_dbo_RequestHeads_RequestHeadId">
+            <End Role="RequestHeads" EntitySet="RequestHeads" />
+            <End Role="RequestCancellations" EntitySet="RequestCancellations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_RequestImages_dbo_RequestHeads_RequestHeadId" Association="Self.FK_dbo_RequestImages_dbo_RequestHeads_RequestHeadId">
+            <End Role="RequestHeads" EntitySet="RequestHeads" />
+            <End Role="RequestImages" EntitySet="RequestImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_RequestItems_dbo_RequestHeads_RequestHeadId" Association="Self.FK_dbo_RequestItems_dbo_RequestHeads_RequestHeadId">
+            <End Role="RequestHeads" EntitySet="RequestHeads" />
+            <End Role="RequestItems" EntitySet="RequestItems" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LetPaintPictures.Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BillCancellation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Reason" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="BillHead" Relationship="Self.FK_dbo_BillCancellations_dbo_BillHeads_Id" FromRole="BillCancellations" ToRole="BillHeads" />
+        </EntityType>
+        <EntityType Name="BillHead">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RequestHeadId" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StreetPostOfficeBox" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HouseNumber" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Remarks" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="BillCancellation" Relationship="Self.FK_dbo_BillCancellations_dbo_BillHeads_Id" FromRole="BillHeads" ToRole="BillCancellations" />
+          <NavigationProperty Name="RequestHead" Relationship="Self.FK_dbo_BillHeads_dbo_RequestHeads_RequestHeadId" FromRole="BillHeads" ToRole="RequestHeads" />
+          <NavigationProperty Name="BillItems" Relationship="Self.FK_dbo_BillItems_dbo_BillHeads_HeadId" FromRole="BillHeads" ToRole="BillItems" />
+        </EntityType>
+        <EntityType Name="BillItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HeadId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="RequestItemId" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Single" Nullable="false" />
+          <Property Name="Price" Type="Single" Nullable="false" />
+          <NavigationProperty Name="BillHead" Relationship="Self.FK_dbo_BillItems_dbo_BillHeads_HeadId" FromRole="BillItems" ToRole="BillHeads" />
+        </EntityType>
+        <EntityType Name="PriceAdjustment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adjustment" Type="Single" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="Self.PriceAdjustmentProducts" FromRole="PriceAdjustments" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="ProductCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_dbo_Products_dbo_ProductCategories_ProductCategoryId" FromRole="ProductCategories" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Single" Nullable="false" />
+          <Property Name="ProductCategoryId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ProductCategory" Relationship="Self.FK_dbo_Products_dbo_ProductCategories_ProductCategoryId" FromRole="Products" ToRole="ProductCategories" />
+          <NavigationProperty Name="PriceAdjustments" Relationship="Self.PriceAdjustmentProducts" FromRole="Products" ToRole="PriceAdjustments" />
+        </EntityType>
+        <EntityType Name="RequestCancellation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RequestHeadId" Type="Int32" Nullable="false" />
+          <Property Name="Reason" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="RequestHead" Relationship="Self.FK_dbo_RequestCancellations_dbo_RequestHeads_RequestHeadId" FromRole="RequestCancellations" ToRole="RequestHeads" />
+        </EntityType>
+        <EntityType Name="RequestHead">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StreetPostOfficeBox" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HouseNumber" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Remarks" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="BillHeads" Relationship="Self.FK_dbo_BillHeads_dbo_RequestHeads_RequestHeadId" FromRole="RequestHeads" ToRole="BillHeads" />
+          <NavigationProperty Name="RequestCancellations" Relationship="Self.FK_dbo_RequestCancellations_dbo_RequestHeads_RequestHeadId" FromRole="RequestHeads" ToRole="RequestCancellations" />
+          <NavigationProperty Name="RequestImages" Relationship="Self.FK_dbo_RequestImages_dbo_RequestHeads_RequestHeadId" FromRole="RequestHeads" ToRole="RequestImages" />
+          <NavigationProperty Name="RequestItems" Relationship="Self.FK_dbo_RequestItems_dbo_RequestHeads_RequestHeadId" FromRole="RequestHeads" ToRole="RequestItems" />
+        </EntityType>
+        <EntityType Name="RequestImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RequestHeadId" Type="Int32" Nullable="false" />
+          <Property Name="Data" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="RequestHead" Relationship="Self.FK_dbo_RequestImages_dbo_RequestHeads_RequestHeadId" FromRole="RequestImages" ToRole="RequestHeads" />
+        </EntityType>
+        <EntityType Name="RequestItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RequestHeadId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Single" Nullable="false" />
+          <Property Name="Price" Type="Single" Nullable="false" />
+          <NavigationProperty Name="RequestHead" Relationship="Self.FK_dbo_RequestItems_dbo_RequestHeads_RequestHeadId" FromRole="RequestItems" ToRole="RequestHeads" />
+        </EntityType>
+        <Association Name="FK_dbo_BillCancellations_dbo_BillHeads_Id">
+          <End Role="BillHeads" Type="Self.BillHead" Multiplicity="1" />
+          <End Role="BillCancellations" Type="Self.BillCancellation" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="BillHeads">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BillCancellations">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_BillHeads_dbo_RequestHeads_RequestHeadId">
+          <End Role="RequestHeads" Type="Self.RequestHead" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BillHeads" Type="Self.BillHead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RequestHeads">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BillHeads">
+              <PropertyRef Name="RequestHeadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_BillItems_dbo_BillHeads_HeadId">
+          <End Role="BillHeads" Type="Self.BillHead" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BillItems" Type="Self.BillItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BillHeads">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BillItems">
+              <PropertyRef Name="HeadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Products_dbo_ProductCategories_ProductCategoryId">
+          <End Role="ProductCategories" Type="Self.ProductCategory" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="ProductCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_RequestCancellations_dbo_RequestHeads_RequestHeadId">
+          <End Role="RequestHeads" Type="Self.RequestHead" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RequestCancellations" Type="Self.RequestCancellation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RequestHeads">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RequestCancellations">
+              <PropertyRef Name="RequestHeadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_RequestImages_dbo_RequestHeads_RequestHeadId">
+          <End Role="RequestHeads" Type="Self.RequestHead" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RequestImages" Type="Self.RequestImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RequestHeads">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RequestImages">
+              <PropertyRef Name="RequestHeadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_RequestItems_dbo_RequestHeads_RequestHeadId">
+          <End Role="RequestHeads" Type="Self.RequestHead" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RequestItems" Type="Self.RequestItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RequestHeads">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RequestItems">
+              <PropertyRef Name="RequestHeadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PriceAdjustmentProducts">
+          <End Role="PriceAdjustments" Type="Self.PriceAdjustment" Multiplicity="*" />
+          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="ApplicationDbContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BillCancellations" EntityType="Self.BillCancellation" />
+          <EntitySet Name="BillHeads" EntityType="Self.BillHead" />
+          <EntitySet Name="BillItems" EntityType="Self.BillItem" />
+          <EntitySet Name="PriceAdjustments" EntityType="Self.PriceAdjustment" />
+          <EntitySet Name="ProductCategories" EntityType="Self.ProductCategory" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="RequestCancellations" EntityType="Self.RequestCancellation" />
+          <EntitySet Name="RequestHeads" EntityType="Self.RequestHead" />
+          <EntitySet Name="RequestImages" EntityType="Self.RequestImage" />
+          <EntitySet Name="RequestItems" EntityType="Self.RequestItem" />
+          <AssociationSet Name="FK_dbo_BillCancellations_dbo_BillHeads_Id" Association="Self.FK_dbo_BillCancellations_dbo_BillHeads_Id">
+            <End Role="BillHeads" EntitySet="BillHeads" />
+            <End Role="BillCancellations" EntitySet="BillCancellations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_BillHeads_dbo_RequestHeads_RequestHeadId" Association="Self.FK_dbo_BillHeads_dbo_RequestHeads_RequestHeadId">
+            <End Role="RequestHeads" EntitySet="RequestHeads" />
+            <End Role="BillHeads" EntitySet="BillHeads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_BillItems_dbo_BillHeads_HeadId" Association="Self.FK_dbo_BillItems_dbo_BillHeads_HeadId">
+            <End Role="BillHeads" EntitySet="BillHeads" />
+            <End Role="BillItems" EntitySet="BillItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Products_dbo_ProductCategories_ProductCategoryId" Association="Self.FK_dbo_Products_dbo_ProductCategories_ProductCategoryId">
+            <End Role="ProductCategories" EntitySet="ProductCategories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_RequestCancellations_dbo_RequestHeads_RequestHeadId" Association="Self.FK_dbo_RequestCancellations_dbo_RequestHeads_RequestHeadId">
+            <End Role="RequestHeads" EntitySet="RequestHeads" />
+            <End Role="RequestCancellations" EntitySet="RequestCancellations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_RequestImages_dbo_RequestHeads_RequestHeadId" Association="Self.FK_dbo_RequestImages_dbo_RequestHeads_RequestHeadId">
+            <End Role="RequestHeads" EntitySet="RequestHeads" />
+            <End Role="RequestImages" EntitySet="RequestImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_RequestItems_dbo_RequestHeads_RequestHeadId" Association="Self.FK_dbo_RequestItems_dbo_RequestHeads_RequestHeadId">
+            <End Role="RequestHeads" EntitySet="RequestHeads" />
+            <End Role="RequestItems" EntitySet="RequestItems" />
+          </AssociationSet>
+          <AssociationSet Name="PriceAdjustmentProducts" Association="Self.PriceAdjustmentProducts">
+            <End Role="PriceAdjustments" EntitySet="PriceAdjustments" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LetPaintPicturesModelsStoreContainer" CdmEntityContainer="ApplicationDbContext">
+          <EntitySetMapping Name="BillCancellations">
+            <EntityTypeMapping TypeName="LetPaintPictures.Models.BillCancellation">
+              <MappingFragment StoreEntitySet="BillCancellations">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BillHeads">
+            <EntityTypeMapping TypeName="LetPaintPictures.Models.BillHead">
+              <MappingFragment StoreEntitySet="BillHeads">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RequestHeadId" ColumnName="RequestHeadId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="StreetPostOfficeBox" ColumnName="StreetPostOfficeBox" />
+                <ScalarProperty Name="HouseNumber" ColumnName="HouseNumber" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BillItems">
+            <EntityTypeMapping TypeName="LetPaintPictures.Models.BillItem">
+              <MappingFragment StoreEntitySet="BillItems">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="HeadId" ColumnName="HeadId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="RequestItemId" ColumnName="RequestItemId" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PriceAdjustments">
+            <EntityTypeMapping TypeName="LetPaintPictures.Models.PriceAdjustment">
+              <MappingFragment StoreEntitySet="PriceAdjustments">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Adjustment" ColumnName="Adjustment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductCategories">
+            <EntityTypeMapping TypeName="LetPaintPictures.Models.ProductCategory">
+              <MappingFragment StoreEntitySet="ProductCategories">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="LetPaintPictures.Models.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ProductCategoryId" ColumnName="ProductCategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RequestCancellations">
+            <EntityTypeMapping TypeName="LetPaintPictures.Models.RequestCancellation">
+              <MappingFragment StoreEntitySet="RequestCancellations">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RequestHeadId" ColumnName="RequestHeadId" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RequestHeads">
+            <EntityTypeMapping TypeName="LetPaintPictures.Models.RequestHead">
+              <MappingFragment StoreEntitySet="RequestHeads">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="StreetPostOfficeBox" ColumnName="StreetPostOfficeBox" />
+                <ScalarProperty Name="HouseNumber" ColumnName="HouseNumber" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RequestImages">
+            <EntityTypeMapping TypeName="LetPaintPictures.Models.RequestImage">
+              <MappingFragment StoreEntitySet="RequestImages">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RequestHeadId" ColumnName="RequestHeadId" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RequestItems">
+            <EntityTypeMapping TypeName="LetPaintPictures.Models.RequestItem">
+              <MappingFragment StoreEntitySet="RequestItems">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RequestHeadId" ColumnName="RequestHeadId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="PriceAdjustmentProducts" TypeName="LetPaintPictures.Models.PriceAdjustmentProducts" StoreEntitySet="PriceAdjustmentProducts">
+            <EndProperty Name="PriceAdjustments">
+              <ScalarProperty Name="Id" ColumnName="PriceAdjustment_Id" />
+            </EndProperty>
+            <EndProperty Name="Products">
+              <ScalarProperty Name="Id" ColumnName="Product_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

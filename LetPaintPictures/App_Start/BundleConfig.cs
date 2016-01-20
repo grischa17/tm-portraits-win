@@ -25,9 +25,9 @@ namespace LetPaintPictures
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css",
+                      "~/Content/bootstrap/bootstrap.site.css",
                       "~/css/bootstrap-slider.min.css",
+                      "~/Content/site.css",
                       "~/css/default.css"));
         }
     }

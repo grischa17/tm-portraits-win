@@ -47,11 +47,11 @@ namespace LetPaintPictures.Controllers
                 head = db.RequestHeads.Where(w => w.Id == Id).First();
                 viewModel.Head = Mapper.Map<ViewModels.Request.Head>(head);
 
-                db.Entry(head).Collection(c => c.Items).Load();
-                viewModel.Items = head.Items.AsQueryable().ProjectTo<ViewModels.Request.Item>().ToList();
+                db.Entry(head).Collection(c => c.RequestItems).Load();
+                viewModel.Items = head.RequestItems.AsQueryable().ProjectTo<ViewModels.Request.Item>().ToList();
 
-                db.Entry(head).Collection(c => c.Images).Load();
-                viewModel.Images = Mapper.Map<List<ViewModels.Request.Image>>(head.Images);
+                db.Entry(head).Collection(c => c.RequestImages).Load();
+                viewModel.Images = Mapper.Map<List<ViewModels.Request.Image>>(head.RequestImages);
               
             }
 
@@ -111,8 +111,8 @@ namespace LetPaintPictures.Controllers
                 item = new RequestItem();
                 item.RequestHeadId = head.Id;
                 item.Amount = 1;
-                item.Name = product.PriceAdjustments[i].Name;
-                item.Price = product.PriceAdjustments[i].Adjustment;
+                item.Name = product.PriceAdjustments.ElementAt(i).Name;
+                item.Price = product.PriceAdjustments.ElementAt(i).Adjustment;
 
                 db.RequestItems.Add(item);
             }

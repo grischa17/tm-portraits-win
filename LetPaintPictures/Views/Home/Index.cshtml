@@ -1,22 +1,20 @@
 ﻿@{
     ViewBag.Title = "Startseite";
 }
-<style type="text/css">
-    img {
-        padding:20px;
-    }
-</style>
-<div class="jumbotron">
+<div class="jumbotron text-inverse">
     <h1>Portrait vom Foto</h1>
     <p class="lead">Bestellen Sie in nur wenigen Schritten ein handgezeichnetes Portrait</p>
-    <p>@Html.ActionLink("Bestellprozess starten... \u00bb", "Create", "Request", null, new { @class = "btn btn-primary btn-lg" })</p>
+    <span>@Html.ActionLink("Bestellprozess starten... \u00bb", "Create", "Request", null, new { @class = "btn btn-primary btn-lg"})</span>
 </div>
 
 <div class="row">
     <div class="col-md-12">
-        <img src="~/Content/images/Bleistift_Portrait.jpg" width="200" alt="Bleistift Portrait" />
-        <img src="~/Content/images/Buntstift_Portrait.jpg" width="200" alt="Buntstift Portrait" />
-        <img src="~/Content/images/Hund_Zeichnung.jpg" height="200" alt="Buntstiftzeichnung eines Hundes" />
-        <img src="~/Content/images/Pferd_Zeichnung.jpg" width="200" alt="Bleistiftzeichnung eines Pferdes" />
+        <img src="http://www.tamara-rubbe.de/Data/Portraits/bild7.jpg" width="200" alt="Bleistiftzeichnung eines Babys" class="img-thumbnail"/>
+        <img src="http://www.tamara-rubbe.de/Data/Portraits/bild5.jpg" width="200" alt="Bleistiftzeichnung eines jungen Mannes" class="img-thumbnail"/>
+        <img src="http://www.tamara-rubbe.de/Data/Portraits/bild6.jpg" width="200" alt="Bleistiftzeichnung eines junger Frau" class="img-thumbnail" />
+        <img src="http://www.tamara-rubbe.de/Data/Pictures/bild9.jpg" width="200" alt="Bleistiftzeichnung eines Pferdes" class="img-thumbnail" />
+        <img src="http://www.tamara-rubbe.de/Data/Pictures/bild10.jpg" width="263" alt="Bleistiftzeichnung eines Pferdes" class="img-thumbnail" />
+        <img src="http://www.tamara-rubbe.de/Data/Portraits/bild8.jpg" width="263" alt="Buntstiftzeichnung eines Paares" class="img-thumbnail" />
+        <img src="http://www.tamara-rubbe.de/Data/Portraits/bild9.jpg" width="263" alt="Buntstiftzeichnung eines Paares" class="img-thumbnail" />
     </div>
 </div>

@@ -18,44 +18,44 @@ namespace LetPaintPictures.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
-    {
-        public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<ProductCategory> ProductCategories { get; set; }
+    //public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    //{
+    //    public virtual DbSet<Product> Products { get; set; }
+    //    public virtual DbSet<ProductCategory> ProductCategories { get; set; }
 
-        public virtual DbSet<PriceAdjustment> PriceAdjustments { get; set; }
+    //    public virtual DbSet<PriceAdjustment> PriceAdjustments { get; set; }
 
-        public virtual DbSet<BillHead> BillHeads { get; set; }
-        public virtual DbSet<BillItem> BillItems { get; set; }
-        public virtual DbSet<BillCancellation> BillCancellations { get; set; }
+    //    public virtual DbSet<BillHead> BillHeads { get; set; }
+    //    public virtual DbSet<BillItem> BillItems { get; set; }
+    //    public virtual DbSet<BillCancellation> BillCancellations { get; set; }
 
-        public virtual DbSet<RequestHead> RequestHeads { get; set; }
-        public virtual DbSet<RequestItem> RequestItems { get; set; }
-        public virtual DbSet<RequestImage> RequestImages { get; set; }
-        public virtual DbSet<RequestCancellation> RequestCancellations { get; set; }
+    //    public virtual DbSet<RequestHead> RequestHeads { get; set; }
+    //    public virtual DbSet<RequestItem> RequestItems { get; set; }
+    //    public virtual DbSet<RequestImage> RequestImages { get; set; }
+    //    public virtual DbSet<RequestCancellation> RequestCancellations { get; set; }
 
-        public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
-        {
+    //    public ApplicationDbContext()
+    //        : base("DefaultConnection", throwIfV1Schema: false)
+    //    {
 
-        }
+    //    }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            //DependentNavigationPropertyConfiguration<Bill.BillItem> config;
+    //    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    //    {
+    //        //DependentNavigationPropertyConfiguration<Bill.BillItem> config;
 
-            base.OnModelCreating(modelBuilder);
+    //        base.OnModelCreating(modelBuilder);
 
-            //modelBuilder.Entity<Models.RequestHead>().HasMany(m => m.Bills).WithRequired(r => r.Request).HasForeignKey(fk => fk.RequestId);
+    //        //modelBuilder.Entity<Models.RequestHead>().HasMany(m => m.Bills).WithRequired(r => r.Request).HasForeignKey(fk => fk.RequestId);
 
-            //config = modelBuilder.Entity<Models.RequestItem>().HasMany(m => m.BillItems).WithRequired(r => r.RequestItem);
-            //config.HasForeignKey(fk => new { fk.RequestHeaderId, fk.RequestItemId });
+    //        //config = modelBuilder.Entity<Models.RequestItem>().HasMany(m => m.BillItems).WithRequired(r => r.RequestItem);
+    //        //config.HasForeignKey(fk => new { fk.RequestHeaderId, fk.RequestItemId });
 
-        }
+    //    }
 
-        public static ApplicationDbContext Create()
-        {
-            return new ApplicationDbContext();
-        }
-    }
+    //    public static ApplicationDbContext Create()
+    //    {
+    //        return new ApplicationDbContext();
+    //    }
+    //}
 }

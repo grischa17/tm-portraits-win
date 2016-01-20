@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
 using LetPaintPictures.Models;
-using LetPaintPictures.Other;
-using System.Data.Entity;
 using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -13,7 +11,6 @@ namespace LetPaintPictures
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new DBModelInitializer());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
@@ -38,7 +35,7 @@ namespace LetPaintPictures
 
             Mapper.CreateMap<ViewModels.Bill.Head, BillHead>();
             Mapper.CreateMap<ViewModels.Bill.Item, BillItem>()
-                .ForMember(m => m.Head, o => o.Ignore());
+                .ForMember(m => m.BillHead, o => o.Ignore());
 
             Mapper.CreateMap<ViewModels.Bill.Create, ViewModels.Bill.Detail>();
 

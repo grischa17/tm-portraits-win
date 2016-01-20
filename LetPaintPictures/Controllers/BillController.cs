@@ -57,8 +57,8 @@ namespace LetPaintPictures.Controllers
                     db.BillItems.AddRange(items);
                     db.SaveChanges();
 
-                    db.Entry(head).Collection(n => n.Items).Load();
-                    viewModel.Items = head.Items.AsQueryable().ProjectTo<Item>().ToList();
+                    db.Entry(head).Collection(n => n.BillItems).Load();
+                    viewModel.Items = head.BillItems.AsQueryable().ProjectTo<Item>().ToList();
                 }
 
                 return View("Detail", Mapper.Map<Detail>(viewModel));

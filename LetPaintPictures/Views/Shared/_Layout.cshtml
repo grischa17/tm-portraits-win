@@ -22,7 +22,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Let paint pictures", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Portrait Studio", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -54,12 +54,13 @@
 
         <hr class="hidden-print" />
         <footer class="hidden-print">
-            <p>&copy; @DateTime.Now.Year - Let paint pictures</p>
+            <p>&copy; @DateTime.Now.Year - Portrait Studio</p>
         </footer>
     </div>
+    <div class="version">Pre Alpha Version 0.11</div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        @RenderSection("scripts", required: false)
 </body>
 </html>

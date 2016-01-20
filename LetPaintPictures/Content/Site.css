@@ -1,6 +1,9 @@
-﻿body {
+﻿
+body {
     padding-top: 50px;
     padding-bottom: 20px;
+    /*background-color:beige;
+    color:#621213;*/
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,4 +24,43 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+/*.navbar-inverse {
+    background-color:#621213;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color:beige;
+}
+
+    .navbar-inverse .navbar-brand {
+        color: beige;
+    }
+
+a {
+    color:#892371;
+}*/
+
+/*.jumbotron {
+    background-color:burlywood;
+}
+
+.text-inverse {
+    color:beige;
+}
+
+
+.btn-primary{
+    color:beige;
+    background-color:#621213;
+    border-color:#520203;
+}*/
+    .slider-handle{
+    background-image:linear-gradient(to bottom,#520203 0,#621213 100%);
+    }
+.version {
+    position:absolute;
+    transform:rotate(-45deg);
+    font-size:5em;
+    top:300px;
+    color:red;
 }
