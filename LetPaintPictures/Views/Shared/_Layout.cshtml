@@ -54,10 +54,9 @@
 
         <hr class="hidden-print" />
         <footer class="hidden-print">
-            <p>&copy; @DateTime.Now.Year - Portrait Studio</p>
+            <p>&copy; @DateTime.Now.Year - Portrait Studio @typeof(MvcApplication).Assembly.GetName().Version.ToString().TrimEnd( '0', '.') Pre Alpha</p>
         </footer>
     </div>
-    <div class="version">Pre Alpha Version 0.11</div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

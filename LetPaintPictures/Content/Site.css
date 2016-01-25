@@ -57,10 +57,3 @@ a {
     .slider-handle{
     background-image:linear-gradient(to bottom,#520203 0,#621213 100%);
     }
-.version {
-    position:absolute;
-    transform:rotate(-45deg);
-    font-size:5em;
-    top:300px;
-    color:red;
-}
