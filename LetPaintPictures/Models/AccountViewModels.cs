@@ -48,6 +48,7 @@ namespace LetPaintPictures.Models
 
     public class LoginViewModel
     {
+        [MaxLength(256)]
         [Required]
         [Display(Name = "E-Mail")]
         [EmailAddress]
@@ -64,6 +65,7 @@ namespace LetPaintPictures.Models
 
     public class RegisterViewModel
     {
+        [MaxLength(256)]
         [Required]
         [EmailAddress]
         [Display(Name = "E-Mail")]
@@ -104,6 +106,7 @@ namespace LetPaintPictures.Models
 
     public class ForgotPasswordViewModel
     {
+        [MaxLength(256)]
         [Required]
         [EmailAddress]
         [Display(Name = "E-Mail")]
