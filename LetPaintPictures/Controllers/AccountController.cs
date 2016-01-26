@@ -56,6 +56,7 @@ namespace LetPaintPictures.Controllers
         //
         // GET: /Account/Login
         [AllowAnonymous]
+        [RequireHttps]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
@@ -64,6 +65,7 @@ namespace LetPaintPictures.Controllers
 
         //
         // POST: /Account/Login
+        [RequireHttps]
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -137,6 +139,7 @@ namespace LetPaintPictures.Controllers
 
         //
         // GET: /Account/Register
+        [RequireHttps]
         [AllowAnonymous]
         public ActionResult Register()
         {
@@ -147,7 +150,8 @@ namespace LetPaintPictures.Controllers
 
 
         //POST: /Account/Register
-       [HttpPost]
+        [RequireHttps]
+        [HttpPost]
        [AllowAnonymous]
        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)

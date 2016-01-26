@@ -3,6 +3,7 @@ using System.Web.Mvc;
 
 namespace LetPaintPictures.Controllers
 {
+    [RequireHttps]
     [Authorize]
     public class BillCancellationController : Controller
     {

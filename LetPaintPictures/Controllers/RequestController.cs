@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace LetPaintPictures.Controllers
 {
+    [RequireHttps]
     public class RequestController : Controller
     {
         // GET: Work

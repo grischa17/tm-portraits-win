@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace LetPaintPictures.Controllers
 {
+    [RequireHttps]
     [Authorize]
     public class BillController : Controller
     {
