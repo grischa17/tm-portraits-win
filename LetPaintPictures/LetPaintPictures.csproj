@@ -313,8 +313,7 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
-    <Content Include="css\bootstrap-slider.min.css" />
-    <Content Include="css\default.css" />
+    <Content Include="Content\bootstrap-slider.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -490,7 +489,9 @@
     <Content Include="Views\Bill\DisplayTemplates\Head.cshtml" />
     <Content Include="Views\BillCancellation\Create.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="css\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
