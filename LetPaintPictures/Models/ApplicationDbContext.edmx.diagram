@@ -23,6 +23,13 @@
         <AssociationConnector Association="LetPaintPictures.Models.FK_dbo_RequestImages_dbo_RequestHeads_RequestHeadId" ManuallyRouted="false" />
         <AssociationConnector Association="LetPaintPictures.Models.FK_dbo_RequestItems_dbo_RequestHeads_RequestHeadId" ManuallyRouted="false" />
         <AssociationConnector Association="LetPaintPictures.Models.PriceAdjustmentProducts" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="LetPaintPictures.Models.AspNetRole" Width="1.5" PointX="5.375" PointY="9.5" />
+        <EntityTypeShape EntityType="LetPaintPictures.Models.AspNetUserClaim" Width="1.5" PointX="9.875" PointY="10.625" />
+        <EntityTypeShape EntityType="LetPaintPictures.Models.AspNetUserLogin" Width="1.5" PointX="9.875" PointY="8" />
+        <EntityTypeShape EntityType="LetPaintPictures.Models.AspNetUser" Width="1.5" PointX="7.625" PointY="8.375" />
+        <AssociationConnector Association="LetPaintPictures.Models.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="LetPaintPictures.Models.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="LetPaintPictures.Models.AspNetUserRoles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

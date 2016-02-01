@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using LetPaintPictures.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -41,6 +42,9 @@ namespace LetPaintPictures
 
             Mapper.CreateMap<BillHead, ViewModels.Bill.Head>();
             Mapper.CreateMap<BillItem, ViewModels.Bill.Item>();
+
+            //Mapper.CreateMap<ApplicationUser, IdentityUser>()
+            //    .ForMember(dest => dest.Claims, opt => opt.Ignore());
         }
     }
 }

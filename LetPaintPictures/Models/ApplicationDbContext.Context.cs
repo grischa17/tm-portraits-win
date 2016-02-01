@@ -14,10 +14,10 @@ namespace LetPaintPictures.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
 
-    public partial class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public partial class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext()
-            : base("name=DefaultConnection")
+            : base("name=ApplicationDbContext")
         {
         }
     
@@ -36,5 +36,9 @@ namespace LetPaintPictures.Models
         public virtual DbSet<RequestHead> RequestHeads { get; set; }
         public virtual DbSet<RequestImage> RequestImages { get; set; }
         public virtual DbSet<RequestItem> RequestItems { get; set; }
+        public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
+        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
+        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
+        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
     }
 }

@@ -225,28 +225,40 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ApplicationDbContext.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\ApplicationDbContext.identity.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\AspNetRole.cs">
+      <DependentUpon>ApplicationDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>ApplicationDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaim.cs">
+      <DependentUpon>ApplicationDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogin.cs">
+      <DependentUpon>ApplicationDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BillCancellation.cs">
+      <DependentUpon>ApplicationDbContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\BillHead.cs">
       <DependentUpon>ApplicationDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\BillItem.cs">
       <DependentUpon>ApplicationDbContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\IdentityDbContext.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PriceAdjustment.cs">
       <DependentUpon>ApplicationDbContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BillCancellation.cs">
-      <DependentUpon>ApplicationDbContext.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RequestCancellation.cs">
-      <DependentUpon>ApplicationDbContext.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Product.cs">
       <DependentUpon>ApplicationDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ProductCategory.cs">
+      <DependentUpon>ApplicationDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RequestCancellation.cs">
       <DependentUpon>ApplicationDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RequestHead.cs">
