@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LetPaintPictures", "LetPaintPictures\LetPaintPictures.csproj", "{E0808112-6DD7-42DD-B55D-E6F546A2AF3E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuRM.Portrait.Web", "Web\TuRM.Portrait.csproj", "{E0808112-6DD7-42DD-B55D-E6F546A2AF3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
