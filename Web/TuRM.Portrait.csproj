@@ -289,10 +289,13 @@
     <Content Include="Content\bootstrap\bootstrap.site.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\icon.ico" />
-    <Content Include="Content\images\Hund_Zeichnung.jpg" />
-    <Content Include="Content\images\Pferd_Zeichnung.jpg" />
-    <Content Include="Content\images\Buntstift_Portrait.jpg" />
-    <Content Include="Content\images\Bleistift_Portrait.jpg" />
+    <Content Include="Content\images\picture10.jpg" />
+    <Content Include="Content\images\picture9.jpg" />
+    <Content Include="Content\images\portrait5.jpg" />
+    <Content Include="Content\images\portrait6.jpg" />
+    <Content Include="Content\images\portrait7.jpg" />
+    <Content Include="Content\images\portrait8.jpg" />
+    <Content Include="Content\images\portrait9.jpg" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -502,9 +505,7 @@
     <Content Include="Views\Bill\DisplayTemplates\Head.cshtml" />
     <Content Include="Views\BillCancellation\Create.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="css\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
