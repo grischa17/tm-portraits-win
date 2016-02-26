@@ -6,7 +6,7 @@
 
 <style media="print" type="text/css">
     .container {
-        width:auto;
+        width: auto;
     }
 </style>
 <!-- Modal -->
@@ -17,29 +17,29 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Schließen"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="meinModalLabel">Rechnung löschen</h4>
             </div>
-            @using (Html.BeginForm("Create", "BillCancellation"))
-            {
-            @Html.AntiForgeryToken()
             <div class="modal-body">
                 <p>Möchten Sie die Rechnung #@Model.Head.Id wirklich löschen?</p>
 
                 <div class="form-horizontal">
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        <label for="CancelReason" class="control-label col-md-4">Grund der Stornierung:</label>
-                        <div class="col-md-8">
-                            <input type="hidden" id="BillId" name="BillId" value="@Model.Head.Id" />
-                            <textarea id="CancelReason" name="CancelReason" class="form-control" placeholder="Pflichtfeld" required maxlength="256"></textarea>
+                    @using (Html.BeginForm("Create", "BillCancellation"))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <label for="CancelReason" class="control-label col-md-4">Grund der Stornierung:</label>
+                            <div class="col-md-8">
+                                <input type="hidden" id="BillId" name="BillId" value="@Model.Head.Id" />
+                                <textarea id="CancelReason" name="CancelReason" class="form-control" placeholder="Pflichtfeld" required maxlength="256"></textarea>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Nein</button>
-                        <button type="submit" class="btn btn-primary">Ja</button>
-                    </div>
+                    }
                 </div>
             </div>
-            }
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Nein</button>
+                <button type="submit" class="btn btn-primary">Ja</button>
+            </div>
         </div>
     </div>
 </div>
@@ -84,20 +84,20 @@
 <h4 style="padding:40px 0px">Rechnung #@Model.Head.Id</h4>
 
 @*<p class="hidden-print">
-    <div class="row">
-        @Html.LabelFor(model => model.Head.Email, htmlAttributes: new { @class = "control-label col-md-3" })
-        <div class="col-md-9">
-            @Html.DisplayFor(model => model.Head.Email)
+        <div class="row">
+            @Html.LabelFor(model => model.Head.Email, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(model => model.Head.Email)
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        @Html.LabelFor(model => model.Head.Remarks, htmlAttributes: new { @class = "control-label col-md-3" })
-        <div class="col-md-9">
-            @Html.DisplayFor(model => model.Head.Remarks)
+        <div class="row">
+            @Html.LabelFor(model => model.Head.Remarks, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DisplayFor(model => model.Head.Remarks)
+            </div>
         </div>
-    </div>
-</p>*@
+    </p>*@
 
 <div class="row">
     <div class="col-xs-12 col-md-12">
@@ -146,7 +146,7 @@
             Das Rechnungsdatum entspricht dem Leistungsdatum. Als Kleinunternehmer im Sinne von §19 Abs. 1 UStG wird Umsatzsteuer nicht berechnet!
         </p>
         <p>
-            Vielen Dank für Ihren Auftrag. Bitte überweisen Sie den gesamten Betrag von @($"{Model.Items.Select(s => s.Total).Sum():F2}") 
+            Vielen Dank für Ihren Auftrag. Bitte überweisen Sie den gesamten Betrag von @($"{Model.Items.Select(s => s.Total).Sum():F2}")
             bis zum @($"{Model.Head.CreatedOn.AddDays(14d):d}") auf mein Konto.
         </p>
         <p>
