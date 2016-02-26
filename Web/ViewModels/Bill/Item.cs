@@ -21,6 +21,7 @@ namespace LetPaintPictures.ViewModels.Bill
         //public Request.Item RequestItem { get; set; }
 
         [Display(Name = "Menge")]
+        [Range(0, int.MaxValue)]
         public float Amount { get; set; }
 
         [Display(Name = "Einzelpreis €")]

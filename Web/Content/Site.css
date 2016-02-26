@@ -5,6 +5,15 @@ body {
     /*background-color:beige;
     color:#621213;*/
 }
+@media screen and (min-width: 750px) and (max-width: 970px) {
+    body { padding-top: 101px; }
+}
+
+@media print {
+    .print-headRow {
+        top:-40px
+    }
+}
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
