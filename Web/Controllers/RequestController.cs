@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using LetPaintPictures.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,10 +22,14 @@ namespace LetPaintPictures.Controllers
 
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
+                MapperConfiguration config = new MapperConfiguration(cfg =>
+                {
+                    cfg.CreateMap<RequestHead, ViewModels.Request.Head>();
+                });
                 viewModel.Header = db.Database.SqlQuery<RequestHead>("select * from " + nameof(RequestHead) + "s "
                                                                         + "where Id not in (select " + nameof(RequestCancellation.RequestHeadId) + " from RequestCancellations)")
                     .AsQueryable()
-                    .ProjectTo<ViewModels.Request.Head>()
+                    .ProjectTo<ViewModels.Request.Head>(config)
                     .ToList();
             }
 
@@ -40,19 +45,28 @@ namespace LetPaintPictures.Controllers
 
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
+                MapperConfiguration config = new MapperConfiguration(cfg =>
+                {
+                    cfg.CreateMap<RequestHead, ViewModels.Request.Head>();
+                    cfg.CreateMap<RequestItem, ViewModels.Request.Item>();
+                    cfg.CreateMap<RequestImage, ViewModels.Request.Image>()
+                        .ForMember(dest => dest.Data, opt => opt.MapFrom(src => new WebImage(src.Data))); ;
+                });
+                IMapper mapper = config.CreateMapper();
+
                 if (RequestItemId.HasValue)
                 {
                     Id = db.RequestItems.Where(w => w.Id == RequestItemId).Select(s => s.RequestHeadId).First();
                 }
 
                 head = db.RequestHeads.Where(w => w.Id == Id).First();
-                viewModel.Head = Mapper.Map<ViewModels.Request.Head>(head);
+                viewModel.Head = mapper.Map<ViewModels.Request.Head>(head);
 
                 db.Entry(head).Collection(c => c.RequestItems).Load();
-                viewModel.Items = head.RequestItems.AsQueryable().ProjectTo<ViewModels.Request.Item>().ToList();
+                viewModel.Items = head.RequestItems.AsQueryable().ProjectTo<ViewModels.Request.Item>(config).ToList();
 
                 db.Entry(head).Collection(c => c.RequestImages).Load();
-                viewModel.Images = Mapper.Map<List<ViewModels.Request.Image>>(head.RequestImages);
+                viewModel.Images = mapper.Map<List<ViewModels.Request.Image>>(head.RequestImages);
               
             }
 
@@ -80,17 +94,23 @@ namespace LetPaintPictures.Controllers
 
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
+                MapperConfiguration config = new MapperConfiguration(cfg =>
+                {
+                    cfg.CreateMap<Product, ViewModels.Product>();
+                });
+                IMapper mapper = config.CreateMapper();
+
                 viewModel = new ViewModels.Request.Create();
 
                 collection = db.Products.Where(w => w.ProductCategoryId == 1);
-                viewModel.Products = collection.ProjectTo<ViewModels.Product>().ToList().AsQueryable();
+                viewModel.Products = collection.ProjectTo<ViewModels.Product>(config).ToList().AsQueryable();
                 viewModel.ProductId = viewModel.Products.First().Id;
 
                 collection = db.Products.Where(w => w.ProductCategoryId == 2);
-                viewModel.Sizes = collection.ProjectTo<ViewModels.Product>().ToList().AsQueryable();
+                viewModel.Sizes = collection.ProjectTo<ViewModels.Product>(config).ToList().AsQueryable();
                 viewModel.SizeId = viewModel.Sizes.First().Id;
 
-                viewModel.SubjectProduct = Mapper.Map<ViewModels.Product>(db.Products.Where(w => w.ProductCategoryId == 3).First());
+                viewModel.SubjectProduct = mapper.Map<ViewModels.Product>(db.Products.Where(w => w.ProductCategoryId == 3).First());
 
                 viewModel.TotalAmount = viewModel.Products.First().Price
                     + viewModel.Sizes.First().Price
@@ -125,7 +145,13 @@ namespace LetPaintPictures.Controllers
             {
                 using (ApplicationDbContext db = new ApplicationDbContext())
                 {
-                    RequestHead head = Mapper.Map<RequestHead>(viewModel);
+                    MapperConfiguration config = new MapperConfiguration(cfg =>
+                    {
+                        cfg.CreateMap<ViewModels.Request.Create, RequestHead>()
+                            .ForMember(m=>m.CreatedOn, opt=> opt.UseValue(DateTime.Now));
+                    });
+                    IMapper mapper = config.CreateMapper();
+                    RequestHead head = mapper.Map<RequestHead>(viewModel);
                     RequestItem item;
                     RequestImage image;
                     Product product;
