@@ -179,7 +179,25 @@
 
         $(document).ready(function () {
             $(".btn-remove").click(function () {
-                this.parentElement.parentElement.parentElement.removeChild(this.parentElement.parentElement);
+                var id = this.name.replace('Items_', '').replace('__remove', ''),
+                    idNext = parseInt(id) + 1,
+                    area = this.parentElement.parentElement.parentElement;
+
+                //Deleting the Row
+                area.removeChild(this.parentElement.parentElement);
+
+                //Check for next Rows
+                var children = $('[id^=Items_' + idNext + '__]');
+                while (children.length > 0) {
+                    //Updating the Ids
+                    for (var i = 0; i < children.length; i++) {
+                        children[i].id = children[i].id.replace(idNext, id );
+                        children[i].name = children[i].name.replace(idNext, id);
+                    }
+
+                    id = idNext++;
+                    var children = $('[id^=Items_' + idNext + '__]');
+                }
             });
             $(".btn-add").click(function () {
                 var split;

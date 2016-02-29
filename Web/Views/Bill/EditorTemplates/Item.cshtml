@@ -34,7 +34,7 @@
         <input type="hidden" value="@Model.RequestItemId" name="@Html.NameFor(m=>Model.RequestItemId)" id="@Html.IdFor(i=>Model.RequestItemId)" />
     </td>
     <td>
-        <button type="button" class="btn btn-default btn-remove">
+        <button type="button" class="btn btn-default btn-remove" name="@Html.Id("remove")" >
             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
         </button>
     </td>
