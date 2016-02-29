@@ -23,6 +23,7 @@ namespace LetPaintPictures.ViewModels.Bill
         [Display(Name = "Einzelpreis €")]
         public float Price { get; set; }
 
+        [Required]
         [MaxLength(64)]
         public string Name { get; set; }
 

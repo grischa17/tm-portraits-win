@@ -25,7 +25,6 @@
                 <input id="@Html.IdFor(i=>Model.Price)" name="@Html.NameFor(i=>Model.Price)" type="text" value="@($"{Model.Price:F2}")" class="form-control text-right" />
                 <div class="input-group-addon">€</div>
             </div>
-            @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
     </td>
     <td class="hidden-xs">
         <a href="@Url.Action("Detail", "Request", new { RequestItemId = Model.RequestItemId })">
