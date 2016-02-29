@@ -5,20 +5,16 @@ namespace LetPaintPictures.ViewModels.Bill
 {
     public class Item
     {
+        [Display(Name="#")]
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required]
         public int HeadId { get; set; }
-
-        //[ForeignKey(nameof(HeadId))]
-        //public Head Head { get; set; }
-
+        
         [Display(Name = "Anfrage-Pos.")]
         public int RequestItemId { get; set; }
-
-        //public Request.Item RequestItem { get; set; }
 
         [Display(Name = "Menge")]
         [Range(0, int.MaxValue)]
