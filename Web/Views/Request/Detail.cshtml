@@ -10,35 +10,37 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Schließen"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="meinModalLabel">Anfrage löschen</h4>
             </div>
-            @using (Html.BeginForm("Create", "RequestCancellation"))
-            {
-            @Html.AntiForgeryToken()
             <div class="modal-body">
                 <p>Möchten Sie die Anfrage #@Model.Head.Id wirklich löschen?</p>
 
-                <div class="form-horizontal">
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        <label for="CancelReason" class="control-label col-md-4">Grund der Stornierung:</label>
-                        <div class="col-md-8">
-                            <input type="hidden" id="RequestId" name="RequestId" value="@Model.Head.Id" />
-                            <textarea id="CancelReason" name="CancelReason" class="form-control" placeholder="Pflichtfeld" required maxlength="256"></textarea>
+                @using (Html.BeginForm("Create", "RequestCancellation"))
+            {
+                    @Html.AntiForgeryToken()
+                    <p class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                                <div>
+                                    <label for="CancelReason" class="control-label">Grund der Stornierung:</label>
+                                </div>
+                                <div>
+                                    <input type="hidden" id="RequestId" name="RequestId" value="@Model.Head.Id" />
+                                    <textarea id="CancelReason" name="CancelReason" class="form-control" placeholder="Pflichtfeld" required maxlength="256"></textarea>
+                                </div>
                         </div>
-                    </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Nein</button>
-                        <button type="submit" class="btn btn-primary">Ja</button>
-                    </div>
-                </div>
+                    </p>
+                }
             </div>
-            }
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Nein</button>
+                <button type="submit" class="btn btn-primary">Ja</button>
+            </div>
         </div>
     </div>
 </div>
 
 <div class="row">
-    <address>
+    <address class="col-md-12">
         <p>
             @Model.Head.FirstName<text>&nbsp;</text>@Model.Head.LastName<br />
             @if (Model.Head.StreetPostOfficeBox.IsInt())
@@ -58,12 +60,12 @@
         </p>
     </address>
 </div>
-<div class="row">
     <div class="form-group">
-        @Html.LabelFor(l=>l.Head.Remarks, new { @class = "control-label col-md-2" })
-        @Html.DisplayFor(d=>d.Head.Remarks, new { @class = "form-control" })
+        <div class="row">
+            @Html.LabelFor(l => l.Head.Remarks, new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(d => d.Head.Remarks, new { @class = "form-control col-md-10" })
+        </div>
     </div>
-</div>
 
 <div class="row">
     <div class="col-md-12">
