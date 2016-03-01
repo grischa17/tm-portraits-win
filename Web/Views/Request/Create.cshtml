@@ -16,12 +16,12 @@
             @Html.LabelFor(model => model.Files, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <!-- The fileinput-button span is used to style the file input field as button -->
-                <span class="btn btn-default btn-file">
+                <label class="btn btn-default btn-file">
                     <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
                     <span>Datei hochladen...</span>
                     <!-- The file input field used as target for the file upload widget -->
                     <input id="Files" name="Files" type="file" accept=".gif,.jpg,.jpeg,.png,.bpm,.tiff" />
-                </span>
+                </label>
                 @Html.ValidationMessageFor(model=>model.Files, "", new { @class = "text-danger" })
                                 <!-- The container for the uploaded files -->
                                 <div id="files" class="row"></div>
@@ -282,11 +282,15 @@
 
             $('input[type=file]').change(function(e){
                 var oReader;
-                var vFD = new FormData(document.forms[0]);
+                var vFD = new FormData();
+
+                if (!e.target.files[0]) {
+                    return;
+                }
 
                 if (e.target.files[0].size > maxFileSize)
                 {
-                    $("[data-valmsg-for='Files']").text("Die Datei darf nicht größer als @(Model.MaxFileSize / 1024) MB sein");
+                    $("[data-valmsg-for='Files']").text("Die Datei darf nicht größer als @($" {Model.MaxFileSize / 1024:F1}") MB sein");
                     return;
                 }else {
                     $("[data-valmsg-for='Files']").text("");
@@ -300,12 +304,11 @@
                         '<button id="' + fileCounter + 'close" type="button" class="close" aria-label="Schließen">' +
                             '<span aria-hidden="true">&times;</span>' +
                         '</button>' +
-                        '<span id="' + fileCounter + 'msg" class="field-validation-valid text-danger" data-valmsg-replace="true" ' +
-                                                                         'data-valmsg-for="Files"></span>' +
                         '<div class="progress">'+
                             '<div id="' + fileCounter + 'progress" class="progress-bar progress-bar-success" aria-valuemin="0" aria-valuemax="100"></div>' +
                         '</div>' +
-                    '</div>');
+                    '</div>'
+                );
 
                 $('#' + fileCounter + 'close').click(function(e){
                     var id = this.id.replace('close', '');
@@ -333,6 +336,7 @@
                 // read selected file as DataURL
                 oReader.readAsDataURL(e.target.files[0]);
                 vFD.append(e.target.files[0].name, e.target.files[0]);
+                console.info(e.target.files[0].name);
 
                 ++fileCounter;
 

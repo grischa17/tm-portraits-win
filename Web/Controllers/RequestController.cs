@@ -225,9 +225,12 @@ namespace LetPaintPictures.Controllers
                 file = Request.Files[i];
                 if (viewModel.Files.ContainsKey(Request.Files.GetKey(i)))
                 {
-                    viewModel.Files = new SortedList<string, WebImage>();
+                    viewModel.Files[Request.Files.GetKey(i)] = new WebImage(file.InputStream);
                 }
-                viewModel.Files.Add(Request.Files.GetKey(i), new WebImage(file.InputStream));
+                else
+                {
+                    viewModel.Files.Add(Request.Files.GetKey(i), new WebImage(file.InputStream));
+                }
             }
 
             HttpContext.Session["Files"] = viewModel.Files;
