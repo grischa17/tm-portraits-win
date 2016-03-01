@@ -9,7 +9,7 @@
 <h4>Daten zur Anfrage angeben</h4>
 <hr />
 
-@using (Html.BeginForm("AddFile", "Request", FormMethod.Post, new { enctype = "multipart/form-data", id = "fileUploadForm" } ))
+@using (Html.BeginForm("AddFile", "Request", FormMethod.Post, new { enctype = "multipart/form-data", id = "fileUploadForm" }))
 {
     <div class="form-horizontal">
         <div class="form-group">
@@ -22,9 +22,9 @@
                     <!-- The file input field used as target for the file upload widget -->
                     <input id="Files" name="Files" type="file" accept=".gif,.jpg,.jpeg,.png,.bpm,.tiff" />
                 </label>
-                @Html.ValidationMessageFor(model=>model.Files, "", new { @class = "text-danger" })
-                                <!-- The container for the uploaded files -->
-                                <div id="files" class="row"></div>
+                @Html.ValidationMessageFor(model => model.Files, "", new { @class = "text-danger" })
+                <!-- The container for the uploaded files -->
+                <div id="files" class="row"></div>
             </div>
         </div>
     </div>
@@ -100,13 +100,13 @@
             @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.FirstName, new
-                   {
-                       htmlAttributes = new
-                       {
-                           @class = "form-control",
-                           placeholder = "Pflichtfeld"
-                       }
-                   })
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control",
+                   placeholder = "Pflichtfeld"
+               }
+           })
                 @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -115,67 +115,81 @@
             @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.LastName, new
-                   {
-                       htmlAttributes = new
-                       {
-                           @class = "form-control",
-                           placeholder = "Pflichtfeld"
-                       }
-                   })
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control",
+                   placeholder = "Pflichtfeld"
+               }
+           })
                 @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.StreetPostOfficeBox, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-3">
-                @Html.EditorFor(model => model.StreetPostOfficeBox, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.StreetPostOfficeBox, "", new { @class = "text-danger" })
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-sm-9 col-xs-8">
+                        @Html.EditorFor(model => model.StreetPostOfficeBox, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    <div class="col-sm-3 col-xs-4">
+                        @Html.EditorFor(model => model.HouseNumber, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
             </div>
-            <div class="col-md-1">
-                @Html.EditorFor(model => model.HouseNumber, new { htmlAttributes = new { @class = "form-control" } })
-            </div>
-            <div class="col-md-6">
-                @Html.ValidationMessageFor(model => model.StreetPostOfficeBox, "", new { @class = "text-danger" })
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.ValidationMessageFor(model => model.StreetPostOfficeBox, "", new { @class = "text-danger" })
+                </div>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.PostalCode, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-2">
-                @Html.EditorFor(model => model.PostalCode, new
-                   {
-                       htmlAttributes = new
-                       {
-                           @class = "form-control",
-                           placeholder = "Pflichtfeld"
-                       }
-                   })
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-sm-3 col-xs-4">
+                        @Html.EditorFor(model => model.PostalCode, new
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control",
+                   placeholder = "Pflichtfeld"
+               }
+           })
+                    </div>
+                    <div class="col-sm-9 col-xs-8">
+                        @Html.EditorFor(model => model.City, new
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control",
+                   placeholder = "Pflichtfeld"
+               }
+           })
+                    </div>
+
+                </div>
             </div>
-            <div class="col-md-8">
-                @Html.EditorFor(model => model.City, new
-                   {
-                       htmlAttributes = new
-                       {
-                           @class = "form-control",
-                           placeholder = "Pflichtfeld"
-                       }
-                   })
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.ValidationMessageFor(model => model.PostalCode, "", new { @class = "text-danger" })
+                </div>
             </div>
-            @Html.ValidationMessageFor(model => model.PostalCode, "", new { @class = "text-danger" })
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Email, new
-                   {
-                       htmlAttributes = new
-                       {
-                           @class = "form-control",
-                           placeholder = "Pflichtfeld"
-                       }
-                   })
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control",
+                   placeholder = "Pflichtfeld"
+               }
+           })
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -188,19 +202,19 @@
             </div>
         </div>
 
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-2">
-                    <button type="submit" class="btn btn-primary" disabled>
-                        Bestellen <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
-                    </button>
-                </div>
-                <div class="col-md-2">
-                    <span class="control-label">Gesamtbetrag:</span>
-                </div>
-                <div class="col-md-6">
-                    <span id="TotalAmount" class="control-label">@($"{Model.TotalAmount:C}")</span>
-                </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-2">
+                <button type="submit" class="btn btn-primary" disabled>
+                    Bestellen <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+                </button>
             </div>
+            <div class="col-md-2">
+                <span class="control-label">Gesamtbetrag:</span>
+            </div>
+            <div class="col-md-6">
+                <span id="TotalAmount" class="control-label">@($"{Model.TotalAmount:C}")</span>
+            </div>
+        </div>
     </div>
 }
 
@@ -404,14 +418,14 @@
             if (!id) {
                 id = $('#SizeId').val();
             }
-            
+
             for (var i = 0; i < sizes.Sizes.length; i++) {
                 if (sizes.Sizes[i].Id == id) {
                     return sizes.Sizes[i];
                 }
             }
         }
-        
+
         function getSizePrice(id){
             return getSize(id).Price;
         }
