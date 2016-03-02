@@ -1,4 +1,4 @@
-﻿using LetPaintPictures.Models;
+﻿using TuRM.Portrait.Models;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Configuration;
@@ -7,7 +7,7 @@ using System.Web.Configuration;
 using System.Web.Helpers;
 using System.Web.Mvc;
 
-namespace LetPaintPictures.ViewModels.Request
+namespace TuRM.Portrait.ViewModels.Request
 {
     public class Create
     {
@@ -33,28 +33,34 @@ namespace LetPaintPictures.ViewModels.Request
 
         [Required]
         [Display(Name = "Vorname:")]
+        [MaxLength(64)]
         public string FirstName { get; set; }
 
         [Display(Name = "Nachname:")]
         [Required]
+        [MaxLength(64)]
         public string LastName { get; set; }
 
         [Required]
         [Display(Name = "Strasse/Postfach, Hausnummer:")]
+        [MaxLength(64)]
         public string StreetPostOfficeBox { get; set; }
 
+        [MaxLength(8)]
         public string HouseNumber { get; set; }
 
         [Display(Name = "Postleitzahl, Ort:")]
         [Required]
         [DataType(DataType.PostalCode)]
+        [MaxLength(16)]
         public string PostalCode { get; set; }
 
         [Required]
+        [MaxLength(64)]
         public string City { get; set; }
 
         [DataType(DataType.EmailAddress)]
-        [MaxLength(128)]
+        [MaxLength(256)]
         [Required]
         public string Email { get; set; }
 

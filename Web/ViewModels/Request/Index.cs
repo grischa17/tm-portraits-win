@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace LetPaintPictures.ViewModels.Request
+namespace TuRM.Portrait.ViewModels.Request
 {
     public class Index
     {

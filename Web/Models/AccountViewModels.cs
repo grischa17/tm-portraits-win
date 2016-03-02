@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace LetPaintPictures.Models
+namespace TuRM.Portrait.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
         [Display(Name = "E-Mail")]
+        [MaxLength(256)]
         public string Email { get; set; }
     }
 
@@ -43,6 +44,7 @@ namespace LetPaintPictures.Models
     {
         [Required]
         [Display(Name = "E-Mail")]
+        [MaxLength(256)]
         public string Email { get; set; }
     }
 
@@ -88,6 +90,7 @@ namespace LetPaintPictures.Models
         [Required]
         [EmailAddress]
         [Display(Name = "E-Mail")]
+        [MaxLength(256)]
         public string Email { get; set; }
 
         [Required]

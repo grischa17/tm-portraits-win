@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LetPaintPictures.ViewModels.Request
+namespace TuRM.Portrait.ViewModels.Request
 {
     public class Head
     {
@@ -45,7 +45,7 @@ namespace LetPaintPictures.ViewModels.Request
         public string Remarks { get; set; }
 
         [Required]
-        [MaxLength(128)]
+        [MaxLength(256)]
         public string Email { get; set; }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(LetPaintPictures.Startup))]
-namespace LetPaintPictures
+[assembly: OwinStartupAttribute(typeof(TuRM.Portrait.Startup))]
+namespace TuRM.Portrait
 {
     public partial class Startup
     {

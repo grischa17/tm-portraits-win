@@ -7,13 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LetPaintPictures.Models
+namespace TuRM.Portrait.Models
 {
-    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
+    
     public partial class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext()

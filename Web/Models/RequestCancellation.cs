@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LetPaintPictures.Models
+namespace TuRM.Portrait.Models
 {
     using System;
     using System.Collections.Generic;

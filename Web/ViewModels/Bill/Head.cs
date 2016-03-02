@@ -1,10 +1,10 @@
-﻿using LetPaintPictures.Models;
+﻿using TuRM.Portrait.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LetPaintPictures.ViewModels.Bill
+namespace TuRM.Portrait.ViewModels.Bill
 {
     public class Head
     {
@@ -58,7 +58,7 @@ namespace LetPaintPictures.ViewModels.Bill
 
         [Display(Name = "Email:")]
         [Required]
-        [MaxLength(128)]
+        [MaxLength(256)]
         public string Email { get; set; }
         
         //public List<Item> Items { get; set; }

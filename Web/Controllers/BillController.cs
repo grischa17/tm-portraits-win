@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using LetPaintPictures.Models;
-using LetPaintPictures.ViewModels.Bill;
+using TuRM.Portrait.Models;
+using TuRM.Portrait.ViewModels.Bill;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
-namespace LetPaintPictures.Controllers
+namespace TuRM.Portrait.Controllers
 {
     [RequireHttps]
     [Authorize]

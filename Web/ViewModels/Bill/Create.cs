@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace LetPaintPictures.ViewModels.Bill
+namespace TuRM.Portrait.ViewModels.Bill
 {
     public class Create
     {

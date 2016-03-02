@@ -1,4 +1,4 @@
-﻿@model LetPaintPictures.ViewModels.Bill.Item
+﻿@model TuRM.Portrait.ViewModels.Bill.Item
 
 <tr>
     <td class="hidden-xs">
@@ -7,7 +7,7 @@
     <td>
         <div class="row">
             <div class="col-md-12">
-                @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-control", maxlength = 64 } })
             </div>
         </div>
         <div class="row">

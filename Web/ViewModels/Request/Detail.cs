@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace LetPaintPictures.ViewModels.Request
+namespace TuRM.Portrait.ViewModels.Request
 {
     public class Detail
     {

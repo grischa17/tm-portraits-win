@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace LetPaintPictures.Models
+namespace TuRM.Portrait.Models
 {
     public class ApplicationIdentityDbContext : IdentityDbContext<ApplicationUser>
     {

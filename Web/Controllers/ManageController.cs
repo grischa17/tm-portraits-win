@@ -6,9 +6,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using LetPaintPictures.Models;
+using TuRM.Portrait.Models;
 
-namespace LetPaintPictures.Controllers
+namespace TuRM.Portrait.Controllers
 {
     [Authorize]
     public class ManageController : Controller
@@ -64,7 +64,7 @@ namespace LetPaintPictures.Controllers
                 : "";
 
             var userId = User.Identity.GetUserId();
-            var model = new _RequestListViewModel
+            var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
                 PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),

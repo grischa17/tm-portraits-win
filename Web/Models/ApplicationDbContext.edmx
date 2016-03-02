@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="LetPaintPictures.Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TuRM.Portrait.Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AspNetRoles">
           <Key>
             <PropertyRef Name="Id" />
@@ -77,7 +77,7 @@
           <Property Name="City" Type="nvarchar" MaxLength="64" Nullable="false" />
           <Property Name="CreatedOn" Type="datetime" Nullable="false" />
           <Property Name="Remarks" Type="nvarchar" MaxLength="256" />
-          <Property Name="Email" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
         <EntityType Name="BillItems">
           <Key>
@@ -143,7 +143,7 @@
           <Property Name="City" Type="nvarchar" MaxLength="64" Nullable="false" />
           <Property Name="CreatedOn" Type="datetime" Nullable="false" />
           <Property Name="Remarks" Type="nvarchar" MaxLength="256" />
-          <Property Name="Email" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
         <EntityType Name="RequestImages">
           <Key>
@@ -343,7 +343,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="LetPaintPicturesModelsStoreContainer">
+        <EntityContainer Name="TuRMPortraitModelsStoreContainer">
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
@@ -416,7 +416,7 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="LetPaintPictures.Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="TuRM.Portrait.Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="BillCancellation">
           <Key>
             <PropertyRef Name="Id" />
@@ -439,7 +439,7 @@
           <Property Name="City" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Remarks" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="BillCancellation" Relationship="Self.FK_dbo_BillCancellations_dbo_BillHeads_Id" FromRole="BillHeads" ToRole="BillCancellations" />
           <NavigationProperty Name="RequestHead" Relationship="Self.FK_dbo_BillHeads_dbo_RequestHeads_RequestHeadId" FromRole="BillHeads" ToRole="RequestHeads" />
           <NavigationProperty Name="BillItems" Relationship="Self.FK_dbo_BillItems_dbo_BillHeads_HeadId" FromRole="BillHeads" ToRole="BillItems" />
@@ -506,7 +506,7 @@
           <Property Name="City" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Remarks" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="BillHeads" Relationship="Self.FK_dbo_BillHeads_dbo_RequestHeads_RequestHeadId" FromRole="RequestHeads" ToRole="BillHeads" />
           <NavigationProperty Name="RequestCancellations" Relationship="Self.FK_dbo_RequestCancellations_dbo_RequestHeads_RequestHeadId" FromRole="RequestHeads" ToRole="RequestCancellations" />
           <NavigationProperty Name="RequestImages" Relationship="Self.FK_dbo_RequestImages_dbo_RequestHeads_RequestHeadId" FromRole="RequestHeads" ToRole="RequestImages" />
@@ -675,19 +675,19 @@
             <End Role="PriceAdjustments" EntitySet="PriceAdjustments" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
-          <EntitySet Name="AspNetRoles" EntityType="LetPaintPictures.Models.AspNetRole" />
-          <EntitySet Name="AspNetUserClaims" EntityType="LetPaintPictures.Models.AspNetUserClaim" />
-          <EntitySet Name="AspNetUserLogins" EntityType="LetPaintPictures.Models.AspNetUserLogin" />
-          <EntitySet Name="AspNetUsers" EntityType="LetPaintPictures.Models.AspNetUser" />
-          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="LetPaintPictures.Models.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <EntitySet Name="AspNetRoles" EntityType="TuRM.Portrait.Models.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="TuRM.Portrait.Models.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="TuRM.Portrait.Models.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="TuRM.Portrait.Models.AspNetUser" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="TuRM.Portrait.Models.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
           </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="LetPaintPictures.Models.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="TuRM.Portrait.Models.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
           </AssociationSet>
-          <AssociationSet Name="AspNetUserRoles" Association="LetPaintPictures.Models.AspNetUserRoles">
+          <AssociationSet Name="AspNetUserRoles" Association="TuRM.Portrait.Models.AspNetUserRoles">
             <End Role="AspNetRole" EntitySet="AspNetRoles" />
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
           </AssociationSet>
@@ -698,7 +698,7 @@
           </Key>
           <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUsers" Relationship="LetPaintPictures.Models.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+          <NavigationProperty Name="AspNetUsers" Relationship="TuRM.Portrait.Models.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="AspNetUserClaim">
           <Key>
@@ -708,7 +708,7 @@
           <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUser" Relationship="LetPaintPictures.Models.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+          <NavigationProperty Name="AspNetUser" Relationship="TuRM.Portrait.Models.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="AspNetUserLogin">
           <Key>
@@ -719,7 +719,7 @@
           <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUser" Relationship="LetPaintPictures.Models.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+          <NavigationProperty Name="AspNetUser" Relationship="TuRM.Portrait.Models.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="AspNetUser">
           <Key>
@@ -737,15 +737,15 @@
           <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
           <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUserClaims" Relationship="LetPaintPictures.Models.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
-          <NavigationProperty Name="AspNetUserLogins" Relationship="LetPaintPictures.Models.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
-          <NavigationProperty Name="AspNetRoles" Relationship="LetPaintPictures.Models.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="TuRM.Portrait.Models.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="TuRM.Portrait.Models.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+          <NavigationProperty Name="AspNetRoles" Relationship="TuRM.Portrait.Models.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-          <End Type="LetPaintPictures.Models.AspNetUser" Role="AspNetUser" Multiplicity="1">
+          <End Type="TuRM.Portrait.Models.AspNetUser" Role="AspNetUser" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="LetPaintPictures.Models.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+          <End Type="TuRM.Portrait.Models.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AspNetUser">
               <PropertyRef Name="Id" />
@@ -756,10 +756,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-          <End Type="LetPaintPictures.Models.AspNetUser" Role="AspNetUser" Multiplicity="1">
+          <End Type="TuRM.Portrait.Models.AspNetUser" Role="AspNetUser" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Type="LetPaintPictures.Models.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+          <End Type="TuRM.Portrait.Models.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AspNetUser">
               <PropertyRef Name="Id" />
@@ -770,17 +770,17 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="AspNetUserRoles">
-          <End Type="LetPaintPictures.Models.AspNetRole" Role="AspNetRole" Multiplicity="*" />
-          <End Type="LetPaintPictures.Models.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+          <End Type="TuRM.Portrait.Models.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+          <End Type="TuRM.Portrait.Models.AspNetUser" Role="AspNetUser" Multiplicity="*" />
         </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="LetPaintPicturesModelsStoreContainer" CdmEntityContainer="ApplicationDbContext">
+        <EntityContainerMapping StorageEntityContainer="TuRMPortraitModelsStoreContainer" CdmEntityContainer="ApplicationDbContext">
           <EntitySetMapping Name="BillCancellations">
-            <EntityTypeMapping TypeName="LetPaintPictures.Models.BillCancellation">
+            <EntityTypeMapping TypeName="TuRM.Portrait.Models.BillCancellation">
               <MappingFragment StoreEntitySet="BillCancellations">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Reason" ColumnName="Reason" />
@@ -788,7 +788,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BillHeads">
-            <EntityTypeMapping TypeName="LetPaintPictures.Models.BillHead">
+            <EntityTypeMapping TypeName="TuRM.Portrait.Models.BillHead">
               <MappingFragment StoreEntitySet="BillHeads">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="RequestHeadId" ColumnName="RequestHeadId" />
@@ -805,7 +805,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BillItems">
-            <EntityTypeMapping TypeName="LetPaintPictures.Models.BillItem">
+            <EntityTypeMapping TypeName="TuRM.Portrait.Models.BillItem">
               <MappingFragment StoreEntitySet="BillItems">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="HeadId" ColumnName="HeadId" />
@@ -817,7 +817,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PriceAdjustments">
-            <EntityTypeMapping TypeName="LetPaintPictures.Models.PriceAdjustment">
+            <EntityTypeMapping TypeName="TuRM.Portrait.Models.PriceAdjustment">
               <MappingFragment StoreEntitySet="PriceAdjustments">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -826,7 +826,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductCategories">
-            <EntityTypeMapping TypeName="LetPaintPictures.Models.ProductCategory">
+            <EntityTypeMapping TypeName="TuRM.Portrait.Models.ProductCategory">
               <MappingFragment StoreEntitySet="ProductCategories">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -834,7 +834,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="LetPaintPictures.Models.Product">
+            <EntityTypeMapping TypeName="TuRM.Portrait.Models.Product">
               <MappingFragment StoreEntitySet="Products">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -844,7 +844,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RequestCancellations">
-            <EntityTypeMapping TypeName="LetPaintPictures.Models.RequestCancellation">
+            <EntityTypeMapping TypeName="TuRM.Portrait.Models.RequestCancellation">
               <MappingFragment StoreEntitySet="RequestCancellations">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="RequestHeadId" ColumnName="RequestHeadId" />
@@ -853,7 +853,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RequestHeads">
-            <EntityTypeMapping TypeName="LetPaintPictures.Models.RequestHead">
+            <EntityTypeMapping TypeName="TuRM.Portrait.Models.RequestHead">
               <MappingFragment StoreEntitySet="RequestHeads">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -869,7 +869,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RequestImages">
-            <EntityTypeMapping TypeName="LetPaintPictures.Models.RequestImage">
+            <EntityTypeMapping TypeName="TuRM.Portrait.Models.RequestImage">
               <MappingFragment StoreEntitySet="RequestImages">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="RequestHeadId" ColumnName="RequestHeadId" />
@@ -878,7 +878,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RequestItems">
-            <EntityTypeMapping TypeName="LetPaintPictures.Models.RequestItem">
+            <EntityTypeMapping TypeName="TuRM.Portrait.Models.RequestItem">
               <MappingFragment StoreEntitySet="RequestItems">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="RequestHeadId" ColumnName="RequestHeadId" />
@@ -888,7 +888,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="PriceAdjustmentProducts" TypeName="LetPaintPictures.Models.PriceAdjustmentProducts" StoreEntitySet="PriceAdjustmentProducts">
+          <AssociationSetMapping Name="PriceAdjustmentProducts" TypeName="TuRM.Portrait.Models.PriceAdjustmentProducts" StoreEntitySet="PriceAdjustmentProducts">
             <EndProperty Name="PriceAdjustments">
               <ScalarProperty Name="Id" ColumnName="PriceAdjustment_Id" />
             </EndProperty>
@@ -897,7 +897,7 @@
             </EndProperty>
           </AssociationSetMapping>
           <EntitySetMapping Name="AspNetRoles">
-            <EntityTypeMapping TypeName="LetPaintPictures.Models.AspNetRole">
+            <EntityTypeMapping TypeName="TuRM.Portrait.Models.AspNetRole">
               <MappingFragment StoreEntitySet="AspNetRoles">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -905,7 +905,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserClaims">
-            <EntityTypeMapping TypeName="LetPaintPictures.Models.AspNetUserClaim">
+            <EntityTypeMapping TypeName="TuRM.Portrait.Models.AspNetUserClaim">
               <MappingFragment StoreEntitySet="AspNetUserClaims">
                 <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
                 <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
@@ -915,7 +915,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserLogins">
-            <EntityTypeMapping TypeName="LetPaintPictures.Models.AspNetUserLogin">
+            <EntityTypeMapping TypeName="TuRM.Portrait.Models.AspNetUserLogin">
               <MappingFragment StoreEntitySet="AspNetUserLogins">
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
@@ -924,7 +924,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUsers">
-            <EntityTypeMapping TypeName="LetPaintPictures.Models.AspNetUser">
+            <EntityTypeMapping TypeName="TuRM.Portrait.Models.AspNetUser">
               <MappingFragment StoreEntitySet="AspNetUsers">
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
@@ -941,7 +941,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="AspNetUserRoles" TypeName="LetPaintPictures.Models.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="TuRM.Portrait.Models.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
             <EndProperty Name="AspNetUser">
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>

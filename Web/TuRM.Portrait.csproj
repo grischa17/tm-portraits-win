@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LetPaintPictures</RootNamespace>
-    <AssemblyName>LetPaintPictures</AssemblyName>
+    <RootNamespace>TuRM.Portrait</RootNamespace>
+    <AssemblyName>TuRM.Portrait</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -43,8 +43,8 @@
       <Objects>
         <ObjectGroup Name="NewConnection1-Bereitstellung" Order="1">
           <Destination Path="" />
-          <Object Type="DbFullSql" Enabled="True">
-            <PreSource Path="Data Source=%28LocalDb%29\MSSQLLocalDB%3bAttachDbFilename=|DataDirectory|\aspnet-LetPaintPictures-20150921102355.mdf%3bInitial Catalog=aspnet-LetPaintPictures-20150921102355%3bIntegrated Security=True" ScriptSchema="True" ScriptData="True" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+          <Object Type="DbFullSql" Enabled="False">
+            <PreSource Path="" ScriptSchema="True" ScriptData="True" CopyAllFullTextCatalogs="False" DriDefaults="True" />
             <Source Path="obj\Debug\AutoScripts\NewConnection1-Bereitstellung_SchemaAndData.sql" Transacted="True" />
           </Object>
         </ObjectGroup>

@@ -10,9 +10,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using LetPaintPictures.Models;
+using TuRM.Portrait.Models;
 
-namespace LetPaintPictures
+namespace TuRM.Portrait
 {
     public class EmailService : IIdentityMessageService
     {

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using LetPaintPictures.Models;
+using TuRM.Portrait.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +8,7 @@ using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
 
-
-namespace LetPaintPictures.Controllers
+namespace TuRM.Portrait.Controllers
 {
     [RequireHttps]
     public class RequestController : Controller

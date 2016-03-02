@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LetPaintPictures.ViewModels.Request
+namespace TuRM.Portrait.ViewModels.Request
 {
     public class Item
     {

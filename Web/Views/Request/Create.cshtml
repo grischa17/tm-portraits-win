@@ -1,4 +1,4 @@
-﻿@model LetPaintPictures.ViewModels.Request.Create
+﻿@model TuRM.Portrait.ViewModels.Request.Create
 
 @{
     ViewBag.Title = "Create";
@@ -88,13 +88,6 @@
             </div>
         </div>
 
-        @*@if (Model.Files.Count > 0)
-            {
-                <div class="form-group">
-                    @Html.DisplayFor(m=> m.Files)
-                </div>
-            }*@
-
 
         <div class="form-group">
             @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -104,7 +97,8 @@
                htmlAttributes = new
                {
                    @class = "form-control",
-                   placeholder = "Pflichtfeld"
+                   placeholder = "Pflichtfeld",
+                   maxlength = 64
                }
            })
                 @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
@@ -119,7 +113,8 @@
                htmlAttributes = new
                {
                    @class = "form-control",
-                   placeholder = "Pflichtfeld"
+                   placeholder = "Pflichtfeld",
+                   maxlength = 64
                }
            })
                 @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
@@ -131,10 +126,24 @@
             <div class="col-md-10">
                 <div class="row">
                     <div class="col-sm-9 col-xs-8">
-                        @Html.EditorFor(model => model.StreetPostOfficeBox, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.StreetPostOfficeBox, new
+                   {
+                       htmlAttributes = new
+                       {
+                           @class = "form-control",
+                           maxlength = 64
+                       }
+                   })
                     </div>
                     <div class="col-sm-3 col-xs-4">
-                        @Html.EditorFor(model => model.HouseNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.HouseNumber, new
+                   {
+                       htmlAttributes = new
+                       {
+                           @class = "form-control",
+                           maxlength = 8
+                       }
+                   })
                     </div>
                 </div>
             </div>
@@ -151,23 +160,25 @@
                 <div class="row">
                     <div class="col-sm-3 col-xs-4">
                         @Html.EditorFor(model => model.PostalCode, new
-           {
-               htmlAttributes = new
-               {
-                   @class = "form-control",
-                   placeholder = "Pflichtfeld"
-               }
-           })
+                   {
+                       htmlAttributes = new
+                       {
+                           @class = "form-control",
+                           placeholder = "Pflichtfeld",
+                           maxlength = 16
+                       }
+                   })
                     </div>
                     <div class="col-sm-9 col-xs-8">
                         @Html.EditorFor(model => model.City, new
-           {
-               htmlAttributes = new
-               {
-                   @class = "form-control",
-                   placeholder = "Pflichtfeld"
-               }
-           })
+                   {
+                       htmlAttributes = new
+                       {
+                           @class = "form-control",
+                           placeholder = "Pflichtfeld",
+                           maxlength = 64
+                       }
+                   })
                     </div>
 
                 </div>
@@ -187,7 +198,8 @@
                htmlAttributes = new
                {
                    @class = "form-control",
-                   placeholder = "Pflichtfeld"
+                   placeholder = "Pflichtfeld",
+                   maxlength = 256
                }
            })
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
@@ -197,7 +209,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Remarks, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Remarks, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Remarks, new
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control",
+                   maxlength = 256
+               }
+           })
                 @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
             </div>
         </div>

@@ -1,7 +1,7 @@
 ﻿@model int
 
-@{ int max = ((IQueryable<LetPaintPictures.ViewModels.Product>)ViewData["Sizes"]).Select(s => s.Id).Max(),
-       min = ((IQueryable<LetPaintPictures.ViewModels.Product>)ViewData["Sizes"]).Select(s => s.Id).Min();}
+@{ int max = ((IQueryable<TuRM.Portrait.ViewModels.Product>)ViewData["Sizes"]).Select(s => s.Id).Max(),
+       min = ((IQueryable<TuRM.Portrait.ViewModels.Product>)ViewData["Sizes"]).Select(s => s.Id).Min();}
 
 @Html.TextBoxFor(m => Model, new
        {

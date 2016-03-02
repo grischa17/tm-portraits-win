@@ -8,10 +8,10 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using LetPaintPictures.Models;
+using TuRM.Portrait.Models;
 using System.Diagnostics.Contracts;
 
-namespace LetPaintPictures.Controllers
+namespace TuRM.Portrait.Controllers
 {
     [Authorize]
     public class AccountController : Controller

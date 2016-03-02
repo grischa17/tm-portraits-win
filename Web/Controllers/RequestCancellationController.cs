@@ -1,9 +1,9 @@
-﻿using LetPaintPictures.Models;
+﻿using TuRM.Portrait.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
-namespace LetPaintPictures.Controllers
+namespace TuRM.Portrait.Controllers
 {
     [Authorize]
     public class RequestCancellationController : Controller

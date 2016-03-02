@@ -1,7 +1,7 @@
-﻿using LetPaintPictures.Models;
+﻿using TuRM.Portrait.Models;
 using System.Web.Mvc;
 
-namespace LetPaintPictures.Controllers
+namespace TuRM.Portrait.Controllers
 {
     [RequireHttps]
     [Authorize]

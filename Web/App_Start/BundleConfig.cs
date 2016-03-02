@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace LetPaintPictures
+namespace TuRM.Portrait
 {
     public class BundleConfig
     {

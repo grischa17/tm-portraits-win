@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace LetPaintPictures.Models
+namespace TuRM.Portrait.Models
 {
-    public class _RequestListViewModel
+    public class IndexViewModel
     {
         public bool HasPassword { get; set; }
         public IList<UserLoginInfo> Logins { get; set; }
