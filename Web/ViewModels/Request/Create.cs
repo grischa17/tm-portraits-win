@@ -15,7 +15,7 @@ namespace TuRM.Portrait.ViewModels.Request
         [Display(Name = "Portrait-Typ:")]
         public int ProductId { get; set; }
 
-        public IQueryable<Product> Products { get; set; } = new List<Product>().AsQueryable();
+        public IQueryable<Product.Product> Products { get; set; } = new List<Product.Product>().AsQueryable();
 
         [UIHint("Slider")]
         [AdditionalMetadata("Min", 1)]
@@ -29,7 +29,7 @@ namespace TuRM.Portrait.ViewModels.Request
         [Display(Name = "Größe:")]
         public int SizeId { get; set; }
 
-        public IQueryable<Product> Sizes { get; set; } = new List<Product>().AsQueryable();
+        public IQueryable<Product.Product> Sizes { get; set; } = new List<Product.Product>().AsQueryable();
 
         [Required]
         [Display(Name = "Vorname:")]
@@ -74,7 +74,7 @@ namespace TuRM.Portrait.ViewModels.Request
 
         public float TotalAmount { get; set; }
 
-        public Product SubjectProduct { get; set; }
+        public Product.Product SubjectProduct { get; set; }
 
         public int MaxFileSize
         {

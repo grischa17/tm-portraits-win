@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e134a5d480754983a4c123e5eda5912c" Name="Diagram1" ZoomLevel="64">
+      <Diagram DiagramId="e134a5d480754983a4c123e5eda5912c" Name="Diagram1" ZoomLevel="95">
         <EntityTypeShape EntityType="TuRM.Portrait.Models.BillCancellation" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="TuRM.Portrait.Models.BillHead" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="TuRM.Portrait.Models.BillItem" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />

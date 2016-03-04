@@ -30,6 +30,7 @@ body {
 
 .jumbotron {
     padding:30px;
+    min-width:350px;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */

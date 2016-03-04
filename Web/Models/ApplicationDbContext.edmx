@@ -118,9 +118,11 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="64" />
+          <Property Name="Name" Type="nvarchar" MaxLength="64" Nullable="false" />
           <Property Name="Price" Type="real" Nullable="false" />
           <Property Name="ProductCategoryId" Type="int" Nullable="false" />
+          <Property Name="Image" Type="varbinary(max)" />
+          <Property Name="DisplayWidth" Type="smallint" />
         </EntityType>
         <EntityType Name="RequestCancellations">
           <Key>
@@ -478,11 +480,13 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Price" Type="Single" Nullable="false" />
           <Property Name="ProductCategoryId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ProductCategory" Relationship="Self.FK_dbo_Products_dbo_ProductCategories_ProductCategoryId" FromRole="Products" ToRole="ProductCategories" />
           <NavigationProperty Name="PriceAdjustments" Relationship="Self.PriceAdjustmentProducts" FromRole="Products" ToRole="PriceAdjustments" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="DisplayWidth" Type="Int16" />
         </EntityType>
         <EntityType Name="RequestCancellation">
           <Key>
@@ -836,6 +840,8 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="TuRM.Portrait.Models.Product">
               <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="DisplayWidth" ColumnName="DisplayWidth" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Price" ColumnName="Price" />

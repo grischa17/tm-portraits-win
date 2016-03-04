@@ -27,6 +27,7 @@ namespace TuRM.Portrait.Controllers
                 });
                 viewModel.Header = db.Database.SqlQuery<RequestHead>("select * from " + nameof(RequestHead) + "s "
                                                                         + "where Id not in (select " + nameof(RequestCancellation.RequestHeadId) + " from RequestCancellations)")
+                                                                        .ToList()
                     .AsQueryable()
                     .ProjectTo<ViewModels.Request.Head>(config)
                     .ToList();
@@ -62,7 +63,7 @@ namespace TuRM.Portrait.Controllers
                 viewModel.Head = mapper.Map<ViewModels.Request.Head>(head);
 
                 db.Entry(head).Collection(c => c.RequestItems).Load();
-                viewModel.Items = head.RequestItems.AsQueryable().ProjectTo<ViewModels.Request.Item>(config).ToList();
+                viewModel.Items = head.RequestItems.ToList().AsQueryable().ProjectTo<ViewModels.Request.Item>(config).ToList();
 
                 db.Entry(head).Collection(c => c.RequestImages).Load();
                 viewModel.Images = mapper.Map<List<ViewModels.Request.Image>>(head.RequestImages);
@@ -95,21 +96,22 @@ namespace TuRM.Portrait.Controllers
             {
                 MapperConfiguration config = new MapperConfiguration(cfg =>
                 {
-                    cfg.CreateMap<Product, ViewModels.Product>();
+                    cfg.CreateMap<Product, ViewModels.Product.Product>()
+                        .ForMember(m => m.Image, opt => opt.MapFrom(src => src.Image == null ? null : new WebImage(src.Image)));
                 });
                 IMapper mapper = config.CreateMapper();
 
                 viewModel = new ViewModels.Request.Create();
 
                 collection = db.Products.Where(w => w.ProductCategoryId == 1);
-                viewModel.Products = collection.ProjectTo<ViewModels.Product>(config).ToList().AsQueryable();
+                viewModel.Products = collection.ToList().AsQueryable().ProjectTo<ViewModels.Product.Product>(config).ToList().AsQueryable();
                 viewModel.ProductId = viewModel.Products.First().Id;
 
                 collection = db.Products.Where(w => w.ProductCategoryId == 2);
-                viewModel.Sizes = collection.ProjectTo<ViewModels.Product>(config).ToList().AsQueryable();
+                viewModel.Sizes = collection.ToList().AsQueryable().ProjectTo<ViewModels.Product.Product>(config).ToList().AsQueryable();
                 viewModel.SizeId = viewModel.Sizes.First().Id;
 
-                viewModel.SubjectProduct = mapper.Map<ViewModels.Product>(db.Products.Where(w => w.ProductCategoryId == 3).First());
+                viewModel.SubjectProduct = mapper.Map<ViewModels.Product.Product>(db.Products.Where(w => w.ProductCategoryId == 3).First());
 
                 viewModel.TotalAmount = viewModel.Products.First().Price
                     + viewModel.Sizes.First().Price

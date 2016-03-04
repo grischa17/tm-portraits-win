@@ -1,0 +1,82 @@
+﻿@model TuRM.Portrait.ViewModels.Product.Product
+
+@Html.HiddenFor(h => h.ProductCategoryId);
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="@Html.IdFor(i=>i.Id)" class="col-xs-4 text-right">@Html.DisplayNameFor(d => d.Id):</label>
+            <div class="col-xs-8">
+                @Html.EditorFor(e => e.Id, new { @class = "form-control col-xs-8", htmlAttributes = new { @readonly = "readonly" } })
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="@Html.IdFor(i=>i.Name)" class="col-xs-4 text-right">@Html.DisplayNameFor(d => d.Name):</label>
+            <div class="col-xs-8">
+                @Html.EditorFor(e => e.Name, new { @class = "form-control col-xs-8" })
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="@Html.IdFor(i=>i.Price)" class="col-xs-4 text-right">@Html.DisplayNameFor(d => d.Price):</label>
+            <div class="col-xs-8">
+                <div class="input-group">
+                    <input id="@Html.IdFor(i=>i.Price)" name="@Html.NameFor(n=>n.Price)" class="form-control text-right" value="@($"{Model.Price:F2}")" type="text" />
+                    <div class="input-group-addon">€</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="@Html.IdFor(i=>i.DisplayWidth)" class="col-xs-4 text-right">@Html.DisplayNameFor(d => d.DisplayWidth):</label>
+            <div class="col-xs-8">
+                @Html.EditorFor(e => e.DisplayWidth, new { @class = "form-control col-xs-8" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                @Html.ValidationMessageFor(model => model.DisplayWidth, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-offset-3 col-sm-offset-0">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="@(Model.Image != null?$"data:image/{Model.Image.ImageFormat};base64,{Convert.ToBase64String(Model.Image.GetBytes())}":string.Empty)"
+                     width="@(Model.DisplayWidth > 0 ? Model.DisplayWidth : 200)"
+                     id="@Html.IdFor(i=>i.Image)" name="@Html.NameFor(n=>n.Image)"
+                     alt="@(Model.Image != null?Model.Name:"kein Bild")" class="img-thumbnail" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- The fileinput-button span is used to style the file input field as button -->
+                        <label class="btn btn-default btn-file">
+                            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
+                            <span>Bild ändern...</span>
+                            <!-- The file input field used as target for the file upload widget -->
+                            <input id="ImageUpload" name="ImageUpload" type="file" accept=".gif,.jpg,.jpeg,.png,.bpm,.tiff" />
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

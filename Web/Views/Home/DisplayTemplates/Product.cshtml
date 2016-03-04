@@ -1,0 +1,10 @@
+﻿@model TuRM.Portrait.ViewModels.Product.Product
+
+@if (Model.Image != null && Model.DisplayWidth > 0)
+{
+    <img src="@(Model.Image != null? $"data:image/{Model.Image.ImageFormat};base64,{Convert.ToBase64String(Model.Image.GetBytes())}" : string.Empty)" 
+         width="@Model.DisplayWidth.ToString()" alt="@(Model.Image != null?Model.Name:"kein Bild")" class="img-thumbnail" />
+}
+else {
+    <div>@Model.Name</div>
+}

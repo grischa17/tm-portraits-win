@@ -203,6 +203,7 @@
     <Compile Include="Controllers\BillController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RequestCancellationController.cs" />
     <Compile Include="Controllers\BillCancellationController.cs" />
     <Compile Include="Controllers\RequestController.cs" />
@@ -276,7 +277,7 @@
     <Compile Include="ViewModels\Bill\Create.cs" />
     <Compile Include="ViewModels\Bill\Head.cs" />
     <Compile Include="ViewModels\Bill\Item.cs" />
-    <Compile Include="ViewModels\Product.cs" />
+    <Compile Include="ViewModels\Product\Product.cs" />
     <Compile Include="ViewModels\Request\Create.cs" />
     <Compile Include="ViewModels\Request\Detail.cs" />
     <Compile Include="ViewModels\Request\Header.cs" />
@@ -504,6 +505,13 @@
     <Content Include="Views\Bill\Index.cshtml" />
     <Content Include="Views\Bill\DisplayTemplates\Head.cshtml" />
     <Content Include="Views\BillCancellation\Create.cshtml" />
+    <Content Include="Views\Home\DisplayTemplates\Product.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\DisplayTemplates\ProductListItem.cshtml" />
+    <Content Include="Views\Product\DisplayTemplates\Product.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Product\EditorTemplates\Product.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
