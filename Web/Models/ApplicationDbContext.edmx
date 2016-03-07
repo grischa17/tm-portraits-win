@@ -123,6 +123,7 @@
           <Property Name="ProductCategoryId" Type="int" Nullable="false" />
           <Property Name="Image" Type="varbinary(max)" />
           <Property Name="DisplayWidth" Type="smallint" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
         </EntityType>
         <EntityType Name="RequestCancellations">
           <Key>
@@ -487,6 +488,7 @@
           <NavigationProperty Name="PriceAdjustments" Relationship="Self.PriceAdjustmentProducts" FromRole="Products" ToRole="PriceAdjustments" />
           <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="DisplayWidth" Type="Int16" />
+          <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="RequestCancellation">
           <Key>
@@ -840,6 +842,7 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="TuRM.Portrait.Models.Product">
               <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="DisplayWidth" ColumnName="DisplayWidth" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

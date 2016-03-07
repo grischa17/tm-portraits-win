@@ -87,7 +87,7 @@ namespace TuRM.Portrait.Controllers
         }
 
         [HttpGet]
-        public ActionResult Create()
+        public ActionResult Create(int? productId)
         {
             ViewModels.Request.Create viewModel;
             IQueryable<Product> collection; 
@@ -104,6 +104,10 @@ namespace TuRM.Portrait.Controllers
                 viewModel = new ViewModels.Request.Create();
 
                 collection = db.Products.Where(w => w.ProductCategoryId == 1);
+                if (productId != null)
+                {
+                    collection = collection.Where(w => w.Id == productId);
+                }
                 viewModel.Products = collection.ToList().AsQueryable().ProjectTo<ViewModels.Product.Product>(config).ToList().AsQueryable();
                 viewModel.ProductId = viewModel.Products.First().Id;
 

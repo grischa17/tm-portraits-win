@@ -31,6 +31,11 @@ namespace TuRM.Portrait.ViewModels.Product
         [Display(Name = "Anzeige-Breite")]
         public short? DisplayWidth { get; set; }
 
+        [Display(Name = "Beschreibung")]
+        [MaxLength(256)]
+        [DataType(DataType.MultilineText)]
+        public string Description { get; set; }
+
         public int MaxFileSize
         {
             get

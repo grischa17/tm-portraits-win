@@ -26,6 +26,7 @@ namespace TuRM.Portrait.Models
         public int ProductCategoryId { get; set; }
         public byte[] Image { get; set; }
         public Nullable<short> DisplayWidth { get; set; }
+        public string Description { get; set; }
     
         public virtual ProductCategory ProductCategory { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
