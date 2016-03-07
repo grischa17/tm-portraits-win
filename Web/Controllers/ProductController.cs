@@ -120,5 +120,56 @@ namespace TuRM.Portrait.Controllers
 
             return View(viewModel);
         }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View(new ViewModels.Product.Product());
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Create(ViewModels.Product.Product viewModel)
+        {
+                    Product product;
+
+            if (viewModel.DisplayWidth == 0)
+            {
+                ModelState.AddModelError(nameof(viewModel.DisplayWidth), "Geben Sie die Anzeige-Breite ein");
+            }
+            if (ModelState.IsValid)
+            {
+                using (ApplicationDbContext db = new ApplicationDbContext())
+                {
+                    WebImage image;
+                    MapperConfiguration config = new MapperConfiguration(cfg =>
+                    {
+                        cfg.CreateMap<ViewModels.Product.Product, Product>()
+                        .ForMember(m => m.Image, opt => opt.Ignore())
+                        .ForMember(m => m.ProductCategoryId, opt => opt.UseValue(1));
+                    });
+                    IMapper mapper = config.CreateMapper();
+
+                    if (Request.Files["ImageUpload"] == null)
+                    {
+                        ModelState.AddModelError(nameof(viewModel.Image), "Laden Sie ein Bild hoch");
+                        return View(viewModel);
+                    }
+
+                    product = mapper.Map<Product>(viewModel);
+                    image = WebImage.GetImageFromRequest("ImageUpload");
+                    product.Image = image.GetBytes();
+
+                    db.Products.Add(product);
+
+                    await db.SaveChangesAsync();
+
+                    await db.Entry(product).ReloadAsync();
+                }
+
+                return RedirectToAction(nameof(Detail), "Product", new { Id = product.Id });
+            }
+
+            return View(viewModel);
+        }
     }
 }

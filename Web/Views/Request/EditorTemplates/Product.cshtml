@@ -5,25 +5,17 @@
     string name = ViewData["Name"] as string;
 }
 
-@foreach (var item in products)
+@if (products.Count() <= 1)
 {
-    if (products.Count() <= 1)
+    <text>@(products.FirstOrDefault()?.Name)</text>
+}
+else
+{
+    foreach (var item in products)
     {
-        <text>@(products.FirstOrDefault()?.Name)</text>
-    }
-    else
-    {
-        <text>
-            < div >
-            < input type = "radio" name = "@name" id = "@item.Id" value = "@item.Id"
-            @if (Model == item.Id)
-            { < text > checked= "checked" </ text >   } />
-
-
-            < label for= "@item.Id" > @item.Name </ label >
-
-
-            </ div >
-        </text>
+        <div>
+            <input type="radio" name="@name" id="@item.Id" value="@item.Id" @if (Model == item.Id) {  <text> checked="checked" </text>   } />
+            <label for="@item.Id"> @item.Name </label>
+        </div>
     }
 }

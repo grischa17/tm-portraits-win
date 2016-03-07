@@ -512,6 +512,7 @@
     <Content Include="Views\Product\Detail.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\EditorTemplates\Product.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

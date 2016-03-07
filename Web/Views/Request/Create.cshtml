@@ -452,6 +452,10 @@
         function getProductPrice(){
             var id = $('input[name=ProductId]:checked').val();
 
+            if (products.Products.length == 1) {
+                return products.Products[0].Price;
+            }
+
             for (var i = 0; i < products.Products.length; i++) {
                 if (products.Products[i].Id == id) {
                     return products.Products[i].Price;
