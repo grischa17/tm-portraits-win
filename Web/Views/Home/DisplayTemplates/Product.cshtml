@@ -19,6 +19,11 @@
                 <p>@Model.Description</p>
             }
 
+            @if(Model.Price != null)
+            {
+                <h6 class="text-right">ab @($"{Model.Price:C}")</h6>
+            }
+
             <p>@Html.ActionLink("Jetzt bestellen »", "Create", "Request", new { productId = Model.Id }, new { @class = "btn btn-default", role = "button" })</p>
         </div>
     </div>
