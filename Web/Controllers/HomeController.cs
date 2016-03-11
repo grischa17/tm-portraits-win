@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
 using TuRM.Portrait.Models;
@@ -12,27 +10,44 @@ namespace TuRM.Portrait.Controllers
 {
     public class HomeController : Controller
     {
+        private IApplicationDbContext db;
+
+        public HomeController(IApplicationDbContext db)
+        {
+            this.db = db;
+        }
+
         public async Task<ActionResult> Index()
         {
             List<ViewModels.Product.Product> viewModels = new List<ViewModels.Product.Product>();
+            IQueryable<ProductCategory> categories = db.ProductCategories.Where(w => w.Name == "Portrait");
+            ProductCategory category;
+            ViewModels.Product.Product viewModel;
+            MapperConfiguration config;
+            IMapper mapper;
 
-            using (ApplicationDbContext db = new ApplicationDbContext())
+            //init mapper
+            config = new MapperConfiguration(cfg =>
             {
-                ProductCategory category = db.ProductCategories.Where(w => w.Name == "Portrait").First();
-                ViewModels.Product.Product viewModel;
-                MapperConfiguration config = new MapperConfiguration(cfg => {
-                    cfg.CreateMap<Product, ViewModels.Product.Product>()
-                    .ForMember(m => m.Image, opt => opt.MapFrom(src => src.Image == null ? null : new WebImage(src.Image)));
-                });
-                IMapper mapper = config.CreateMapper();
+                cfg.CreateMap<Product, ViewModels.Product.Product>()
+                .ForMember(m => m.Image, opt => opt.MapFrom(src => src.Image == null ? null : new WebImage(src.Image)));
+            });
+            mapper = config.CreateMapper();
 
-                await db.Entry(category).Collection(r => r.Products).LoadAsync();
+            if (categories.Count() == 0)
+            {
+                //Database is not initialized
+                return View(viewModels);
+            }
 
-                foreach (var item in category.Products)
-                {
-                    viewModel = mapper.Map<ViewModels.Product.Product>(item);
-                    viewModels.Add(viewModel);
-                }
+            category = categories.First();
+
+            await db.LoadCollectionAsync(category, r => r.Products);
+
+            foreach (var item in category.Products)
+            {
+                viewModel = mapper.Map<ViewModels.Product.Product>(item);
+                viewModels.Add(viewModel);
             }
 
             return View(viewModels);
