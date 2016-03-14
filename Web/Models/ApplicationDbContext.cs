@@ -10,7 +10,7 @@ namespace TuRM.Portrait.Models
         public ApplicationDbContext()
             : base("name=DefaultConnection")
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<ApplicationIdentityDbContext>());
+
         }
 
         public virtual DbSet<BillCancellation> BillCancellations { get; set; }
