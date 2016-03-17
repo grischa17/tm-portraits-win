@@ -149,6 +149,9 @@
     <Reference Include="System.Web.Optimization">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
+    <Reference Include="TuRM.Config">
+      <HintPath>..\..\turm.config\TuRMConfig\TuRM.Config\bin\TuRM.Config.dll</HintPath>
+    </Reference>
     <Reference Include="TuRM.User, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\turm.user\TuRM.User\bin\TuRM.User.dll</HintPath>
