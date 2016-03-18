@@ -266,6 +266,7 @@
   <ItemGroup>
     <Content Include="App_Data\MySqlData.sql" />
     <Content Include="App_Data\script.sql" />
+    <Content Include="BingSiteAuth.xml" />
     <Content Include="Content\bootstrap\bootstrap.site.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\icon.ico" />
@@ -313,6 +314,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="googlea3f37bae6695c597.html" />
     <Content Include="Scripts\bootstrap-slider.min.js" />
     <Content Include="Content\bootstrap\variables.less" />
     <Content Include="Content\bootstrap\bootstrap.site.less" />
@@ -473,6 +475,7 @@
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\EditorTemplates\Product.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Sitemap.xml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
