@@ -10,11 +10,11 @@ using TuRM.Portrait.Models;
 namespace TuRM.Portrait.Controllers
 {
     [Authorize]
-    [RequireHttps]
     public class ProductController : Controller
     {
         // GET: Product
-        
+
+        [RequireHttps]
         public async Task<ActionResult> Index()
         {
             List<ViewModels.Product.Product> viewModels = new List<ViewModels.Product.Product>();
@@ -41,6 +41,20 @@ namespace TuRM.Portrait.Controllers
             return View(viewModels.AsEnumerable());
         }
 
+        [AllowAnonymous]
+        public ActionResult ShowImage(int Id)
+        {
+            Product image;
+
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                image = db.Products.Where(w => w.Id == Id).First();
+            }
+
+            return File(image.Image, new WebImage(image.Image).ImageFormat);
+        }
+
+        [RequireHttps]
         public ActionResult Detail(int Id)
         {
             ViewModels.Product.Product viewModel;
@@ -61,6 +75,7 @@ namespace TuRM.Portrait.Controllers
         }
 
         [HttpGet]
+        [RequireHttps]
         public ActionResult Edit(int Id)
         {
             ViewModels.Product.Product viewModel;
@@ -81,6 +96,7 @@ namespace TuRM.Portrait.Controllers
         }
 
         [HttpPost]
+        [RequireHttps]
         public async Task<ActionResult> Edit(ViewModels.Product.Product viewModel)
         {
             if (viewModel.DisplayWidth == 0)
@@ -122,12 +138,14 @@ namespace TuRM.Portrait.Controllers
         }
 
         [HttpGet]
+        [RequireHttps]
         public ActionResult Create()
         {
             return View(new ViewModels.Product.Product());
         }
 
         [HttpPost]
+        [RequireHttps]
         public async Task<ActionResult> Create(ViewModels.Product.Product viewModel)
         {
                     Product product;
