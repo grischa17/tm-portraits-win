@@ -16,7 +16,7 @@ namespace TuRM.Portrait.Controllers
         {
             this.db = db;
         }
-
+        
         public async Task<ActionResult> Index()
         {
             List<ViewModels.Product.Product> viewModels = new List<ViewModels.Product.Product>();
