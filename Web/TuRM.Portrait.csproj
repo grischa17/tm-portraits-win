@@ -157,13 +157,6 @@
     <Reference Include="System.Web.Optimization">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
-    <Reference Include="TuRM.Config">
-      <HintPath>..\..\turm.config\TuRMConfig\TuRM.Config\bin\TuRM.Config.dll</HintPath>
-    </Reference>
-    <Reference Include="TuRM.User, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\turm.user\TuRM.User\bin\TuRM.User.dll</HintPath>
-    </Reference>
     <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
       <Private>True</Private>
@@ -220,21 +213,27 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Areas\Config\ConfigAreaRegistration.cs" />
-    <Compile Include="Areas\User\UserAreaRegistration.cs" />
+    <Compile Include="App_Start\User\IdentityConfig.cs" />
+    <Compile Include="App_Start\User\Startup.Auth.cs" />
     <Compile Include="Controllers\BillController.cs" />
+    <Compile Include="Controllers\EntityController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RequestCancellationController.cs" />
     <Compile Include="Controllers\BillCancellationController.cs" />
     <Compile Include="Controllers\RequestController.cs" />
+    <Compile Include="Controllers\User\AccountController.cs" />
+    <Compile Include="Controllers\User\ManageController.cs" />
+    <Compile Include="Controllers\User\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\ApplicationDbContext.extension.cs" />
     <Compile Include="Models\BillCancellation.cs" />
     <Compile Include="Models\BillHead.cs" />
     <Compile Include="Models\BillItem.cs" />
+    <Compile Include="Models\IApplicationDbContext.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PriceAdjustment.cs" />
     <Compile Include="Models\Product.cs" />
@@ -243,6 +242,7 @@
     <Compile Include="Models\RequestHead.cs" />
     <Compile Include="Models\RequestImage.cs" />
     <Compile Include="Models\RequestItem.cs" />
+    <Compile Include="Models\User\IdentityModels.cs" />
     <Compile Include="Other\AutofacConfig.cs" />
     <Compile Include="Other\DataModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -258,6 +258,9 @@
     <Compile Include="ViewModels\Request\Image.cs" />
     <Compile Include="ViewModels\Request\Index.cs" />
     <Compile Include="ViewModels\Request\Item.cs" />
+    <Compile Include="ViewModels\User\AccountViewModels.cs" />
+    <Compile Include="ViewModels\User\ExternalLoginConfirmationViewModel.cs" />
+    <Compile Include="ViewModels\User\ManageViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\MySqlData.sql" />
@@ -388,11 +391,26 @@
     <Content Include="Content\bootstrap\bootstrap.less" />
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
-    <Content Include="Areas\User\Views\web.config">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Areas\User\Views\Shared\Lockout.cshtml" />
-    <Content Include="Areas\Config\Views\web.config" />
+    <Content Include="Areas\User\Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Areas\User\Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Areas\User\Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Areas\User\Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Areas\User\Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Areas\User\Views\Account\Login.cshtml" />
+    <Content Include="Areas\User\Views\Account\Register.cshtml" />
+    <Content Include="Areas\User\Views\Account\ResetPassword.cshtml" />
+    <Content Include="Areas\User\Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Areas\User\Views\Account\SendCode.cshtml" />
+    <Content Include="Areas\User\Views\Account\VerifyCode.cshtml" />
+    <Content Include="Areas\User\Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Areas\User\Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Areas\User\Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Areas\User\Views\Manage\Index.cshtml" />
+    <Content Include="Areas\User\Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Areas\User\Views\Manage\SetPassword.cshtml" />
+    <Content Include="Areas\User\Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Areas\User\Views\_ViewStart.cshtml" />
     <None Include="Properties\PublishProfiles\Datei.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -457,13 +475,12 @@
     <Content Include="Views\Product\EditorTemplates\Product.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Sitemap.xml" />
+    <Content Include="Views\Entity\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\Config\Controllers\" />
-    <Folder Include="Areas\Config\Models\" />
-    <Folder Include="Areas\Config\Views\Shared\" />
     <Folder Include="Areas\User\Controllers\" />
     <Folder Include="Areas\User\Models\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -508,8 +525,8 @@
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.1.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.1.1\build\Microsoft.Net.Compilers.props'))" />
   </Target>
   <PropertyGroup>
-    <PreBuildEvent>xcopy /C /E /F /R /Y /I "..\..\..\turm.user\TuRMUser\Views" "..\Areas\User\Views"
-xcopy /C /E /F /R /Y /I "..\..\..\turm.config\TuRMConfig\Views" "..\Areas\Config\Views"</PreBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
