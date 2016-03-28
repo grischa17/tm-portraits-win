@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /bin/
+Disallow: /old/
+Disallow: /BingSiteAuth.xml
+Disallow: /*.config

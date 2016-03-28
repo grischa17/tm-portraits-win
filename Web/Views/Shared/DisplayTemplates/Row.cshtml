@@ -1,0 +1,16 @@
+﻿@model object
+
+@{
+    IQueryable<System.Reflection.PropertyInfo> collumns = ViewData["Collumns"] as IQueryable<System.Reflection.PropertyInfo>;
+    object itemValue;
+}
+
+    @foreach (var item in collumns)
+    {
+        <td>
+            @{ 
+                itemValue = item.GetMethod.Invoke(Model, null);
+            }
+            @Html.DisplayFor(f=> itemValue)
+        </td>
+    }

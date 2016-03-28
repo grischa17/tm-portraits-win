@@ -11,7 +11,6 @@ namespace TuRM.Portrait
         protected void Application_Start()
         {
             AutofacConfig<DataModule<ApplicationDbContext>>.ConfigureContainer();
-            AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
