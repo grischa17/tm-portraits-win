@@ -112,9 +112,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Web\TuRM.Portrait.csproj">
+    <ProjectReference Include="..\Web\TuRM.Portrait.old.csproj">
       <Project>{e0808112-6dd7-42dd-b55d-e6f546a2af3e}</Project>
-      <Name>TuRM.Portrait</Name>
+      <Name>TuRM.Portrait.old</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
