@@ -5,6 +5,10 @@ using Microsoft.Data.Entity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.OptionsModel;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
+using TuRM.User.Controllers;
 using TuRM.User.Models;
 using TuRM.User.Services;
 
@@ -32,8 +36,10 @@ namespace TuRM.User
                 .AddDefaultTokenProviders();
         }
 
-        public void AddServices(IServiceCollection services)
+        public void AddServices(IMvcBuilder builder, IServiceCollection services)
         {
+            //builder.InitializeTagHelper<Microsoft.AspNet.Mvc.TagHelpers.AnchorTagHelper>(a => { retu })
+
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
         }
@@ -55,9 +61,9 @@ namespace TuRM.User
 
             
 
-            IOptions<RazorViewEngineOptions> options = app.ApplicationServices.GetService<IOptions<RazorViewEngineOptions>>();
+            //IOptions<RazorViewEngineOptions> options = app.ApplicationServices.GetService<IOptions<RazorViewEngineOptions>>();
 
-            options.Value.FileProvider
+            //options.Value.FileProvider
         }
     }
 }

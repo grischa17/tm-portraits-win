@@ -32,13 +32,14 @@ namespace TuRM.Portrait
         public void ConfigureServices(IServiceCollection services)
         {
             UserStartup userStartup = new UserStartup();
-
+            IMvcBuilder builder;
+                
             userStartup.ConfigureServices(services, Configuration);
 
-            services.AddMvc();
+            builder = services.AddMvc();
 
             // Add application services.
-            userStartup.AddServices(services);
+            userStartup.AddServices(builder, services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -76,6 +77,9 @@ namespace TuRM.Portrait
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            
+            
         }
 
         // Entry point for the application.
