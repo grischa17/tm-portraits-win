@@ -29,7 +29,7 @@ namespace TuRM.Portrait
             //          "~/Scripts/respond.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap/bootstrap.site.css",
+                      "~/Content/bootstrap.min.css",
                       "~/Content/bootstrap-slider.min.css",
                       "~/Content/site.css"));
         }

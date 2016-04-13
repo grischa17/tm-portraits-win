@@ -14,34 +14,62 @@ body {
         top:-40px
     }
 }
+.navbar-inverse {
+    background-color:#318D8A;
+    border-color:#217D7A;
+}
+    .navbar-inverse .navbar-nav > li > a {
+        color: black;
+        font-weight:600;
+    }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.way {
+    border-color:#318D8A;
+    border-width:10px;
+    margin:0px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+.img-stroke {
+    height: 251px;
+    background-image: url('images/movie.jpg');
 }
 
-.jumbotron {
-    padding:30px;
-    min-width:350px;
+.list-checked {
+    list-style-type:none;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-/*input,
-select,
-textarea {
-    max-width: 280px;
-}*/
+.list-checked li:before
+{
+    content: '✔';   
+    margin-left: 1em;
+    margin-right:1em;
+}
+.carousel-caption {
+    top:20%;
+    left:10%;
+    color:maroon;
+    right:initial;
+}
+
+    .carousel-caption h2 {
+        font-style:italic;
+    }
 
 .slider-handle {
     background-image: linear-gradient(to bottom,#520203 0,#621213 100%);
+}
+
+.freeStyle {
+    float:left;
+    margin:3% 10%;
+}
+
+.btn-order {
+    transform:rotate(90deg);
+    float:left;
+    margin-left:-15px;
+    margin-top:4%;
+    font-size:20px;
 }
 
 .btn-file {
