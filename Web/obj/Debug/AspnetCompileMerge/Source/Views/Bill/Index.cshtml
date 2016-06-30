@@ -1,0 +1,22 @@
+﻿@model List<TuRM.Portrait.ViewModels.Bill.Head>
+
+@{
+    ViewBag.Title = "Rechnungen";
+}
+
+<h2>Rechnungen</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>@Html.Label("#")</th>
+            <th>@Html.Label("Name")</th>
+            <th>@Html.LabelFor(l => l.FirstOrDefault().CreatedOn)</th>
+            <th>@Html.Label("Anfrage")</th>
+        </tr>
+    </thead>
+    <tbody>
+        @Html.DisplayForModel()
+    </tbody>
+</table>
+

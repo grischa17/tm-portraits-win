@@ -1,0 +1,8 @@
+﻿@model TuRM.Portrait.ViewModels.Product.Product
+
+<tr>
+    <td><a href="@Url.Action("Detail", new { Id = Model.Id })">@Model.Id</a></td>
+    <td>@Model.Name</td>
+    <td>@($"{Model.Price:C}")</td>
+    <td>@Model.DisplayWidth</td>
+</tr>

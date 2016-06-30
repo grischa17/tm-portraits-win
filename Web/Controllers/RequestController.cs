@@ -7,6 +7,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using System.Threading.Tasks;
+using System.Net.Mail;
+using System.Net;
 
 namespace TuRM.Portrait.Controllers
 {
@@ -144,7 +147,7 @@ namespace TuRM.Portrait.Controllers
             }
         }
 
-        public ActionResult Create(ViewModels.Request.Create viewModel)
+        public async Task<ActionResult> Create(ViewModels.Request.Create viewModel)
         {
             if (ModelState.IsValid)
             {
@@ -206,17 +209,53 @@ namespace TuRM.Portrait.Controllers
                         db.RequestImages.Add(image);
                     }
 
-                    db.SaveChanges();
+                    await db.SaveChangesAsync();
 
                 }
                 HttpContext.Session["Files"] = null;
 
                 RedirectToAction(nameof(Index));
+
+                sendNotificationEmail(viewModel.FirstName, viewModel.LastName);
             }
 
             return View("CreateConfirm");
         }
+
+        private void sendNotificationEmail(string firstName, string secondName)
+        {
+            try
+            {
+                using (SmtpClient client = new SmtpClient())// ("smtp.strato.de", 465))
+                {
+                    MailMessage message = new MailMessage();
+
+                    //message.From = new MailAddress("no-reply@tm-portraits.de");
+                    message.To.Add("kontakt@tm-portraits.de");
+                    message.Subject = "Neue Bestellung eingetroffen";
+                    message.Body = $"{Server.MachineName}: Es ist eine neue Bestellung von {firstName} {secondName} eingetroffen";
+                    message.IsBodyHtml = false;
+
+                    client.UseDefaultCredentials = false;
+                    //client.Credentials = new NetworkCredential("webmaster@tm-portraits.de", "architekTur25");
+                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    client.EnableSsl = true;
+                    //client.SendCompleted += Client_SendCompleted;
+
+                    client.Send(message);
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
         
+        private void Client_SendCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
+        {
+            return;
+        }
+
         [HttpPost]
         public void AddFile()
         {

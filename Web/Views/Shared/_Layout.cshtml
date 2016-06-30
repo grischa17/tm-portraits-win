@@ -35,10 +35,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("TM Portraits", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("TM Porträtstudio", "Index", "Home")</li>
                     <li>@Html.ActionLink("Startseite", "Index", "Home")</li>
                     @if (Request.IsAuthenticated)
                     {
@@ -68,7 +68,7 @@
 
         <hr class="hidden-print" />
         <footer class="hidden-print">
-            <p>&copy; @DateTime.Now.Year - TM Portraits @typeof(MvcApplication).Assembly.GetName().Version.ToString().TrimEnd( '0', '.') Beta</p>
+            <p>&copy; @DateTime.Now.Year - Tamara Martens Porträtstudio @typeof(MvcApplication).Assembly.GetName().Version.ToString().TrimEnd( '0', '.')</p>
         </footer>
     </div>
 

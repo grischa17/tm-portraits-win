@@ -1,66 +1,130 @@
 ﻿@model List<TuRM.Portrait.ViewModels.Product.Product>
-    @{
-    ViewBag.Title = "Portrait vom Foto. Die Geschnekidee mit Errinnerungswert.";
-    }
+@{
+    ViewBag.Title = "Porträt vom Foto. Die Geschnekidee mit Errinnerungswert.";
+}
 
-    @section Head{
-    <meta name="description" content="Handgezeichnetes Portrait vom Foto. Schenken Sie Erinnerung. Portraits schon ab 60,- €" />
+@section Head{
+    <meta name="description" content="Handgezeichnetes Porträt vom Foto. Schenken Sie Erinnerung. Portraits schon ab 60,- €" />
     <meta name="keywords" content="geschenke, geschenkideen, geschenk, geschenkidee, schenken, geschenk ideen, ausgefallene geschenke, geschenk idee">
-    }
-    <div class="row">
-        <div class="col-xs-12">
-            <img src="~/Content/images/mama.JPG" alt="Tamara Martens - Portraitstudio" class="img-responsive" />
-            <div class="carousel-caption">
-                <h1>Tamara Martens</h1>
-                <h2>Portraitstudio</h2>
-            </div>
-        </div>
+}
+<div class="row">
+    <div class="col-xs-12">
+        <img src="/Content/images/carousel.JPG" alt="Tamara Martens - Portraitstudio" class="img-responsive" />
     </div>
+</div>
 
-    <div class="row">
-        <div class="col-xs-12">
-            <button type="button" class="btn btn-danger btn-group-lg btn-order">Bestellen</button>
-            <div class="freeStyle">
-                <p>Liebevoll handgezeichnete Portraits nach Ihrer Fotovorlage!</p>
-                <ul class="list-checked">
-                    <li>Handgezeichnet</li>
-                    <li>Individuell</li>
-                    <li>Foto-realistisch</li>
-                </ul>
-            </div>
-        </div>
+<div class="row  row-single">
+    <div class="col-xs-2 col-sm-1">
+        <a href="/Request/Create" role="button" class="btn btn-danger btn-lg left-docked">Bestellen</a>
+
     </div>
-
-    <div class="row">
-        <div class="col-xs-12">
-            <hr class="way" />
-            <div class="img-stroke">
-            </div>
-            <hr class="way" />
-        </div>
+    <div class="col-xs-10 col-sm-11">
+        <h4>Liebevoll handgezeichnete Portraits nach Ihrer Fotovorlage!</h4>
+        <p>Sind Sie auf der Suche nach einem ausgefallenen Geschenk? Wissen Sie nicht was Sie schenken sollen? Sie sehen sich tausende Geschenkideen, aber keine sagt Ihnen zu? Wie wäre es mit etwas Persönlichem, einer einzigartigen Geschenkidee?</p>
+        <p>Mit einem handgezeichnetem Portrait können Sie nichts falsch machen. Eine Zeichnung eines geliebten Menschen oder eines geschätzten Kollegen, ist eine Geschenkidee, an die man nicht sofort denkt. Genau deshalb, wird der Geschenkte positiv und angenehm überrascht sein. Sie sollten allerdings mindestens eine Woche im Voraus bestellen, denn je nach Auftragslage kann sich die Fertigstellung Ihres Portraits etwas hinausziehen.</p>
     </div>
-
-
-    <div class="row center-block">
-        <div class="col-sm-3">
-            <ul>
-                <li>Bleistift</li>
-            </ul>
-        </div>
-        <div class="col-sm-3">
-            <ul>
-                <li>Pastel</li>
-            </ul>
-        </div>
-        <div class="col-sm-3">
-            <ul>
-                <li>Buntstift</li>
-            </ul>
-        </div>
-        <div class="col-sm-3">
-            <ul>
-                <li>Kohle</li>
-            </ul>
-        </div>
+</div>
+ 
+  <div class="row hidden-xs">
+         <div class="col-sm-4">
+                 <img src="~/Content/images/Bleistift1.jpg"
+                        width="360" alt="Bleistiftporträt" class="img-thumbnail" />
+        
     </div>
+         <div class="col-sm-4">
+                 <img src="~/Content/images/Buntstift2.jpg"
+                        width="200" alt="Buntstift-Portrait" class="img-thumbnail" />
+        
+    </div>
+         <div class="col-sm-4">
+                 <img src="~/Content/images/Pastel3.jpg" width="200" alt="Pastell-Zeichnung" class="img-thumbnail" />
+        
+    </div>
+</div>
+ 
+  <div class="row hidden-xs">
+         <div class="col-sm-4">
+                 <h4>Bleistiftporträt</h4>
+                 <p>Bei einer Portr&#228;tzeichnung arbeitet man mit Bleistiften verschiedener Graut&#246;ne. Das Ergebnis ist eine schwarz-wei&#223;e Zeichnung.</p>
+        
+    </div>
+         <div class="col-sm-4">
+                 <h4>Buntstift-Portr&auml;t</h4>
+                 <p>Mit einer breiten Palette an farbigen Buntstiften kommt man der Vorlage erstaunlich nahe.</p>
+                 <p>Hier wurde auf einem grauen Papier gezeichnet.</p>
+        
+    </div>
+         <div class="col-sm-4">
+                 <h4>Pastell-Zeichnung</h4>
+                 <p>Leuchtende und lebendige Farben zeichnen ein Pastell-Portr&#228;t aus.</p>
+        
+    </div>
+    
+</div>
+ 
+  <div class="row hidden-xs">
+         <div class="col-sm-4">
+                 <h6 class="text-right">ab 60,00 €</h6>
+        
+                 <p><a class="btn btn-danger" href="/Request/Create?productId=1" role="button">Jetzt bestellen &#187;</a></p>
+        
+    </div>
+         <div class="col-sm-4 hidden-xs">
+                 <h6 class="text-right">ab 80,00 €</h6>
+        
+                 <p><a class="btn btn-danger" href="/Request/Create?productId=2" role="button">Jetzt bestellen &#187;</a></p>
+        
+    </div>
+         <div class="col-sm-4 hidden-xs">
+                 <h6 class="text-right">ab 100,00 €</h6>
+        
+                 <p><a class="btn btn-danger" href="/Request/Create?productId=3" role="button">Jetzt bestellen &#187;</a></p>
+        
+        
+    </div>
+    
+</div>
+ 
+  <div class="row hidden-sm hidden-md hidden-lg">
+         <div class="col-sm-4">
+                 <img src="~/Content/images/Bleistift1.jpg"
+                        width="360" alt="Bleistiftporträt" class="img-thumbnail" />
+                 <h4>Bleistiftporträt</h4>
+                 <p>Bei einer Portr&#228;tzeichnung arbeitet man mit Bleistiften verschiedener Graut&#246;ne. Das Ergebnis ist eine schwarz-wei&#223;e Zeichnung.</p>
+        
+                 <h6 class="text-right">ab 60,00 €</h6>
+        
+                 <p><a class="btn btn-danger" href="/Request/Create?productId=5" role="button">Jetzt bestellen &#187;</a></p>
+        
+    </div>
+         <div class="col-sm-4">
+                 <img src="~/Content/images/Buntstift2.jpg"
+                        width="200" alt="Buntstift-Portrait" class="img-thumbnail" />
+                 <h4>Buntstift-Portr&auml;t</h4>
+                 <p>Mit einer breiten Palette an farbigen Buntstiften kommt man der Vorlage erstaunlich nahe.</p>
+                 <p>Hier wurde auf einem grauen Papier gezeichnet.</p>
+        
+                 <h6 class="text-right">ab 80,00 €</h6>
+        
+                 <p><a class="btn btn-danger" href="/Request/Create?productId=6" role="button">Jetzt bestellen &#187;</a></p>
+        
+    </div>
+         <div class="col-sm-4">
+                 <img src="~/Content/images/Pastel3.jpg" width="200" alt="Pastell-Zeichnung" class="img-thumbnail" />
+                 <h4>Pastell-Zeichnung</h4>
+                 <p>Leuchtende und lebendige Farben zeichnen ein Pastell-Portr&#228;t aus.</p>
+        
+                 <h6 class="text-right">ab 100,00 €</h6>
+        
+                 <p><a class="btn btn-danger" href="/Request/Create?productId=7" role="button">Jetzt bestellen &#187;</a></p>
+        
+    </div>
+    
+</div>
 
+
+<div class="row row-single">
+    <div class="col-xs-12">
+        <img src="~/Content/images/movie.jpg" alt="Galerie" class="img-responsive" />
+    </div>
+</div>

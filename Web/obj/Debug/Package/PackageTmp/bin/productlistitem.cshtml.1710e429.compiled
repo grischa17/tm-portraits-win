@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/Views/Product/DisplayTemplates/ProductListItem.cshtml" hash="62dd92a8" filehash="ffffdc7e89ed2a13" flags="110000" assembly="App_Web_4svuywx2" type="ASP._Page_Views_Product_DisplayTemplates_ProductListItem_cshtml">
+    <filedeps>
+        <filedep name="/Views/Product/DisplayTemplates/ProductListItem.cshtml" />
+    </filedeps>
+</preserve>

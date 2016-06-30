@@ -1,0 +1,25 @@
+﻿@model TuRM.Portrait.ViewModels.Bill.Item
+
+<tr>
+    <td>
+        @Html.DisplayFor(m => m.Id)
+    </td>
+    <td>
+        @Html.DisplayFor(m=>m.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(m => m.Amount)
+    </td>
+    <td class="hidden-print">
+        <a href="@Url.Action("Detail", "Request", new { RequestItemId = Model.RequestItemId })">
+            @Model.RequestItemId
+        </a>
+    </td>
+    <td class="text-right">
+        @($"{Model.Price:F2}")
+    </td>
+    <td class="text-right">
+        @($"{Model.Total:F2}")
+    </td>
+</tr>
+
