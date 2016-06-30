@@ -226,6 +226,7 @@ namespace TuRM.Portrait.Controllers
         {
             try
             {
+                Object token = new object();
                 using (SmtpClient client = new SmtpClient())// ("smtp.strato.de", 465))
                 {
                     MailMessage message = new MailMessage();
@@ -240,9 +241,9 @@ namespace TuRM.Portrait.Controllers
                     //client.Credentials = new NetworkCredential("webmaster@tm-portraits.de", "architekTur25");
                     client.DeliveryMethod = SmtpDeliveryMethod.Network;
                     client.EnableSsl = true;
-                    //client.SendCompleted += Client_SendCompleted;
+                    client.SendCompleted += Client_SendCompleted;
 
-                    client.Send(message);
+                    client.SendAsync(message, token);
                 }
             }
             catch (Exception)
