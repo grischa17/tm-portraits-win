@@ -216,29 +216,29 @@ namespace TuRM.Portrait.Controllers
 
                 RedirectToAction(nameof(Index));
 
-                sendNotificationEmail(viewModel.FirstName, viewModel.LastName);
+                Task.Run(new Action(sendNotificationEmail));
             }
 
             return View("CreateConfirm");
         }
 
-        private void sendNotificationEmail(string firstName, string secondName)
+        private void sendNotificationEmail()//string firstName, string secondName
         {
             try
             {
                 Object token = new object();
-                using (SmtpClient client = new SmtpClient())// ("smtp.strato.de", 465))
+                using (SmtpClient client = new SmtpClient("smtp.1und1.de", 465))
                 {
                     MailMessage message = new MailMessage();
 
-                    //message.From = new MailAddress("no-reply@tm-portraits.de");
+                    message.From = new MailAddress("richard.martens@online.de");
                     message.To.Add("kontakt@tm-portraits.de");
                     message.Subject = "Neue Bestellung eingetroffen";
-                    message.Body = $"{Server.MachineName}: Es ist eine neue Bestellung von {firstName} {secondName} eingetroffen";
+                    message.Body = $"{Server.MachineName}: Es ist eine neue Bestellung eingetroffen";//von {firstName} {secondName} 
                     message.IsBodyHtml = false;
 
                     client.UseDefaultCredentials = false;
-                    //client.Credentials = new NetworkCredential("webmaster@tm-portraits.de", "architekTur25");
+                    client.Credentials = new NetworkCredential("richard.martens@online.de", "blockbrief");
                     client.DeliveryMethod = SmtpDeliveryMethod.Network;
                     client.EnableSsl = true;
                     client.SendCompleted += Client_SendCompleted;
