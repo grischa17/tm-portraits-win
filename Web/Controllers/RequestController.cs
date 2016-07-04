@@ -216,7 +216,7 @@ namespace TuRM.Portrait.Controllers
 
                 RedirectToAction(nameof(Index));
 
-                Task.Run(new Action(sendNotificationEmail));
+                sendNotificationEmail();
             }
 
             return View("CreateConfirm");
@@ -227,26 +227,26 @@ namespace TuRM.Portrait.Controllers
             try
             {
                 Object token = new object();
-                using (SmtpClient client = new SmtpClient("smtp.1und1.de", 465))
+                using (SmtpClient client = new SmtpClient("smtp.strato.de", 587))
                 {
                     MailMessage message = new MailMessage();
 
-                    message.From = new MailAddress("richard.martens@online.de");
+                    message.From = new MailAddress("webmaster@tm-portraits.de");
                     message.To.Add("kontakt@tm-portraits.de");
                     message.Subject = "Neue Bestellung eingetroffen";
                     message.Body = $"{Server.MachineName}: Es ist eine neue Bestellung eingetroffen";//von {firstName} {secondName} 
                     message.IsBodyHtml = false;
 
                     client.UseDefaultCredentials = false;
-                    client.Credentials = new NetworkCredential("richard.martens@online.de", "blockbrief");
+                    client.Credentials = new NetworkCredential("webmaster@tm-portraits.de", "architekTur25");
                     client.DeliveryMethod = SmtpDeliveryMethod.Network;
                     client.EnableSsl = true;
                     client.SendCompleted += Client_SendCompleted;
 
-                    client.SendAsync(message, token);
+                    client.Send(message);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 
             }
