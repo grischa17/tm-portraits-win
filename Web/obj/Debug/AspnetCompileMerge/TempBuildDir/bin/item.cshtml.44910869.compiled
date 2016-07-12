@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<preserve resultType="2" virtualPath="/Views/Bill/EditorTemplates/Item.cshtml" hash="62dd92a8" filehash="ffffd5f88acef8b7" flags="110000" assembly="App_Web_x5ala0ve" type="ASP._Page_Views_Bill_EditorTemplates_Item_cshtml">
+<preserve resultType="2" virtualPath="/Views/Bill/EditorTemplates/Item.cshtml" hash="62dd92a8" filehash="ffffd6dfa1728d7e" flags="110000" assembly="App_Web_doiwd2wo" type="ASP._Page_Views_Bill_EditorTemplates_Item_cshtml">
     <filedeps>
         <filedep name="/Views/Bill/EditorTemplates/Item.cshtml" />
     </filedeps>
