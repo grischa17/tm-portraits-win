@@ -112,3 +112,4 @@ C:\Users\Richard\Documents\Projects\turm.portrait\Web\bin\de\Microsoft.Owin.Secu
 C:\Users\Richard\Documents\Projects\turm.portrait\Web\bin\de\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 C:\Users\Richard\Documents\Projects\turm.portrait\Web\obj\Debug\TuRM.Portrait.dll
 C:\Users\Richard\Documents\Projects\turm.portrait\Web\obj\Debug\TuRM.Portrait.pdb
+C:\Users\Richard\Documents\Projects\turm.portrait\Web\obj\Debug\TuRM.Portrait.csprojResolveAssemblyReference.cache

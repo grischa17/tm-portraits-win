@@ -42,40 +42,38 @@
         cursor: inherit;
         display: block;
     }
-    
-.navbar > .container > .navbar-collapse {
-    background-color: #318D8A;
-    border-color: #217D7A;
-    border-color:#217D7A;
-    border-width:0px 1px 1px 1px;
-    border-style:solid;
+
+h1, .h1 {
+    font-size:61px;/*36 original*/
 }
-.navbar > .container > .navbar-header {
-    background-color: #318D8A;
-    border-color: #217D7A;
-    margin-left:0px;
-    margin-right:0px;
-    border-color:#217D7A;
-    border-width:0px 1px 1px 1px;
-    border-style:solid;
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+    font-family:Britannic;
+    text-transform:uppercase;
+    color:#02AFB5;
+    line-height:0.6;
+    padding:10px 0px;
 }
-    .navbar-inverse .navbar-nav > li > a {
-        color: white;
-        font-weight: 600;
+
+    h1 > small, h2 > small, h3 > small, h4 > small, h5 > small, h6 > small {
+        color:#147179;
+        font-size:38%;
     }
-
 .navbar {
- background-color:transparent;
- border-color:transparent;
-}
-
-.navbar-right {
+    border-radius:unset;
     margin:0;
 }
-
-body {
-    margin-top: 36px;
+.navbar-inverse {
+    background-color:#02AFB5;
+    border-color:#177179;
 }
+    .navbar-inverse .navbar-nav > li > a {
+        color:white;
+        font-family:Arial;
+        font-size:21px;
+        font-weight:bold;
+    }
+
 
 .left-docked {
     transform:rotate(270deg);
