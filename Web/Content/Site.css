@@ -38,7 +38,7 @@
         filter: alpha(opacity=0);
         opacity: 0;
         outline: none;
-        background: whitesmoke;
+        background: white;
         cursor: inherit;
         display: block;
     }
@@ -68,7 +68,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     border-color:#177179;
 }
     .navbar-inverse .navbar-nav > li > a {
-        color:whitesmoke;
+        color:white;
         font-family:Arial;
         font-size:21px;
         font-weight:bold;
@@ -81,11 +81,30 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     min-height:524px;
 }
 
+.carousel-row {
+    margin-top:25px;
+}
+
+    .carousel-row > .col-xs-8 > ul > li {
+        font-family:Britannic;
+        color:white;
+        text-wrap:normal;
+        font-size:30px;
+        text-align:justify;
+        padding-right:85px;
+    }
+    
+    .carousel-row > .col-xs-8 > ul > li > u {
+        color:#90D7CF;
+    }
+
 .author {
-    color:whitesmoke;
+    color:white;
     font-family:Rage;
     font-style:italic;
     font-size:100px;
+    text-shadow:5px 5px 5px black;
+    margin-left:30px;
 }
 
 .left-docked {
