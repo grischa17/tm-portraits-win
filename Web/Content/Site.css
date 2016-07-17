@@ -38,7 +38,7 @@
         filter: alpha(opacity=0);
         opacity: 0;
         outline: none;
-        background: white;
+        background: whitesmoke;
         cursor: inherit;
         display: block;
     }
@@ -68,12 +68,25 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     border-color:#177179;
 }
     .navbar-inverse .navbar-nav > li > a {
-        color:white;
+        color:whitesmoke;
         font-family:Arial;
         font-size:21px;
         font-weight:bold;
     }
 
+.container-carousel {
+    background-image:url('/Content/images/carousel.jpg');
+    background-position-x:center;
+    background-repeat:no-repeat;
+    min-height:524px;
+}
+
+.author {
+    color:whitesmoke;
+    font-family:Rage;
+    font-style:italic;
+    font-size:100px;
+}
 
 .left-docked {
     transform:rotate(270deg);
