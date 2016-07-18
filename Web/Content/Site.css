@@ -9,11 +9,13 @@
     .print-headRow {
         top: -40px;
     }
-    body{
-        padding-left:60px;
+
+    body {
+        padding-left: 60px;
     }
+
     .sign-name {
-        margin-top:60px;
+        margin-top: 60px;
     }
 }
 
@@ -44,76 +46,161 @@
     }
 
 h1, .h1 {
-    font-size:61px;/*36 original*/
+    font-size: 41px; /*36 original*/
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-    font-family:Britannic;
-    text-transform:uppercase;
-    color:#02AFB5;
-    line-height:0.6;
-    padding:10px 0px;
+    font-family: Britannic;
+    text-transform: uppercase;
+    color: #02AFB5;
+    line-height: 0.6;
+    padding: 10px 0px;
 }
 
     h1 > small, h2 > small, h3 > small, h4 > small, h5 > small, h6 > small {
-        color:#147179;
-        font-size:38%;
+        color: #147179;
+        font-size: 38%;
     }
+
 .navbar {
-    border-radius:unset;
-    margin:0;
+    border-radius: unset;
+    margin: 0;
 }
+
 .navbar-inverse {
-    background-color:#02AFB5;
-    border-color:#177179;
+    background-color: #02AFB5;
+    border-color: #177179;
 }
+
     .navbar-inverse .navbar-nav > li > a {
-        color:white;
-        font-family:Arial;
-        font-size:21px;
-        font-weight:bold;
+        color: white;
+        font-family: Arial;
+        font-size: 21px;
+        font-weight: bold;
     }
 
-.container-carousel {
-    background-image:url('/Content/images/carousel.jpg');
-    background-position-x:center;
-    background-repeat:no-repeat;
-    min-height:524px;
+.carousel-label {
+    background-image: url('images/carousel.jpg');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: cover;
+    min-height: 330.95px;
 }
-
-.carousel-row {
-    margin-top:25px;
-}
-
-    .carousel-row > .col-xs-8 > ul > li {
-        font-family:Britannic;
-        color:white;
-        text-wrap:normal;
-        font-size:30px;
-        text-align:justify;
-        padding-right:85px;
-    }
-    
-    .carousel-row > .col-xs-8 > ul > li > u {
-        color:#90D7CF;
-    }
 
 .author {
-    color:white;
-    font-family:Rage;
-    font-style:italic;
-    font-size:100px;
-    text-shadow:5px 5px 5px black;
-    margin-left:30px;
+    color: white;
+    font-family: Rage;
+    font-style: italic;
+    text-shadow: 5px 5px 5px black;
+    margin-left: 30px;
+    font-size: 45px;
+}
+
+.carousel-label > .row > .col-xs-12 > ul > li {
+    font-family: Britannic;
+    color: white;
+    text-wrap: normal;
+    text-align: justify;
+    font-size: 20px;
+    padding-right: 35px;
+}
+
+    .carousel-label > .row > .col-xs-12 > ul > li > u {
+        color: #90D7CF;
+    }
+
+@media(min-width:768px) {
+    
+    h1, .h1 {
+        font-size: 61px; /*36 original*/
+    }
+
+    .carousel-label > .row > .col-sm-8 > ul > li {
+    }
+
+    .author {
+        font-size: 65px;
+    }
+}
+
+@media(min-width:992px) {
+    .carousel-label {
+        min-height: 432.07px;
+    }
+
+        .carousel-label > .row > .col-sm-8 > ul > li {
+            font-size: 30px;
+            padding-right: 35px;
+        }
+
+    .author {
+        font-size: 90px;
+    }
+}
+
+@media(min-width:1200px) {
+    .carousel-label {
+        min-height: 524px;
+    }
+
+        .carousel-label > .row > .col-sm-8 > ul > li {
+            font-size: 30px;
+            padding-right: 85px;
+        }
+
+    .author {
+        font-size: 100px;
+    }
+}
+
+
+.galery-wrapper {
+    padding: 30px 60px;
+}
+
+    .galery-wrapper:hover {
+        background-color: whitesmoke;
+    }
+
+.galery {
+    overflow: hidden;
+}
+
+    .galery > ul {
+        list-style-type: none;
+        white-space: nowrap;
+        padding: 0px;
+    }
+
+        .galery > ul > li {
+            display: inline-block;
+            margin: 10px;
+        }
+
+            .galery > ul > li > img {
+                max-height: 200px;
+                border-radius: 10px;
+                border: none;
+            }
+
+#next {
+    position: absolute;
+    top: 115px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    font-weight: bold;
+    color: #02AFB5;
 }
 
 .left-docked {
-    transform:rotate(270deg);
-    margin-left:-31px;
-    margin-top:31px;
+    transform: rotate(270deg);
+    margin-left: -31px;
+    margin-top: 31px;
 }
 
 .row-single {
     margin-top: 30px;
-    margin-bottom:30px;
+    margin-bottom: 30px;
 }
