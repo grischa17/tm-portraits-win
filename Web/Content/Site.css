@@ -45,9 +45,9 @@
         display: block;
     }
 
-h1, .h1 {
-    font-size: 41px; /*36 original*/
-}
+/*h1, .h1 {
+    font-size: 41px; 
+}*/
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     font-family: Britannic;
@@ -93,34 +93,132 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     font-style: italic;
     text-shadow: 5px 5px 5px black;
     margin-left: 30px;
-    font-size: 45px;
+    font-size: 35px;
 }
 
-.carousel-label > .row > .col-xs-12 > ul > li {
+.carousel-label > .row > .col-xs-11 > ul > li {
     font-family: Britannic;
     color: white;
     text-wrap: normal;
     text-align: justify;
-    font-size: 20px;
-    padding-right: 35px;
+    font-size: 15px;
+    padding-right: 20px;
 }
 
-    .carousel-label > .row > .col-xs-12 > ul > li > u {
+    .carousel-label > .row > .col-xs-11 > ul > li > u {
         color: #90D7CF;
     }
 
+.galery-wrapper {
+    padding: 10px 20px;
+}
+
+    .galery-wrapper:hover {
+        background-color: whitesmoke;
+    }
+
+.galery {
+    overflow: hidden;
+}
+
+    .galery > ul {
+        list-style-type: none;
+        white-space: nowrap;
+        padding: 0px;
+    }
+
+        .galery > ul > li {
+            display: inline-block;
+            margin: 3px;
+        }
+
+            .galery > ul > li > img {
+                max-height: 66px;
+                border-radius: 3px;
+                border: none;
+            }
+
+.galery-wrapper > button {
+    position: absolute;
+    top: 38px;
+    background-color: transparent;
+    border: none;
+    font-size: 10px;
+    font-weight: bold;
+    color: #02AFB5;
+}
+
+#next {
+    right: 3px;
+}
+
+#previous {
+    left: 3px;
+    display: none;
+}
+
+.left-docked {
+    position:absolute;
+    transform: rotate(270deg);
+    margin-left: -41px;
+    margin-top: 62px;
+    background-color:#E6BF98;
+    text-transform:uppercase;
+    border-radius:unset;
+    border-color:wheat;
+}
+
+    .left-docked:hover {
+        background-color:#C8A17A;
+        border-color:white;
+    }
+
 @media(min-width:768px) {
-    
+
     h1, .h1 {
         font-size: 61px; /*36 original*/
     }
 
     .carousel-label > .row > .col-sm-8 > ul > li {
+        font-size: 20px;
+        padding-right: 30px;
     }
 
     .author {
         font-size: 65px;
     }
+
+    .galery-wrapper {
+        padding: 15px 30px;
+    }
+
+    .galery > ul > li {
+        margin: 5px;
+    }
+
+        .galery > ul > li > img {
+            max-height: 100px;
+            border-radius: 5px;
+        }
+
+    .galery-wrapper > button {
+        top: 57px;
+        font-size: 15px;
+    }
+
+    #next {
+        right: 5px;
+    }
+
+    #previous {
+        left: 5px;
+    }
+
+.left-docked {
+    margin-left: -45px;
+    margin-top: 62px;
+}
+
 }
 
 @media(min-width:992px) {
@@ -135,6 +233,31 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 
     .author {
         font-size: 90px;
+    }
+    .galery-wrapper {
+        padding: 30px 60px;
+    }
+
+    .galery > ul > li {
+        margin: 10px;
+    }
+
+        .galery > ul > li > img {
+            max-height: 200px;
+            border-radius: 10px;
+        }
+
+    .galery-wrapper > button {
+        top: 115px;
+        font-size: 30px;
+    }
+
+    #next {
+        right: 10px;
+    }
+
+    #previous {
+        left: 10px;
     }
 }
 
@@ -154,51 +277,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 }
 
 
-.galery-wrapper {
-    padding: 30px 60px;
-}
 
-    .galery-wrapper:hover {
-        background-color: whitesmoke;
-    }
-
-.galery {
-    overflow: hidden;
-}
-
-    .galery > ul {
-        list-style-type: none;
-        white-space: nowrap;
-        padding: 0px;
-    }
-
-        .galery > ul > li {
-            display: inline-block;
-            margin: 10px;
-        }
-
-            .galery > ul > li > img {
-                max-height: 200px;
-                border-radius: 10px;
-                border: none;
-            }
-
-#next {
-    position: absolute;
-    top: 115px;
-    right: 10px;
-    background-color: transparent;
-    border: none;
-    font-size: 30px;
-    font-weight: bold;
-    color: #02AFB5;
-}
-
-.left-docked {
-    transform: rotate(270deg);
-    margin-left: -31px;
-    margin-top: 31px;
-}
 
 .row-single {
     margin-top: 30px;
