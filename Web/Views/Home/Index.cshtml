@@ -223,19 +223,14 @@
             var oTabPages = $('.tabs-content > li'),
                 oSelectedPage = $('#' + oEvent.target.id.substring(0,4) + 'img')[0];
 
-
-            //$(oSelectedPage.firstChild).animate({
-            //    scrollLeft: $(oSelectedPage.firstChild).width()
-            //},
-            //            'slow',
-            //            function () {
-            //                if (!oGalery.scrollLeft) {
-            //                    $('#previous').hide();
-            //                }
-            //                $('#next').show();
-            //            });
-            $(oSelectedPage.firstChild).width(oSelectedPage.originalSize.width);
-            $(oSelectedPage.firstChild).height(oSelectedPage.originalSize.height);
+            $(oSelectedPage.firstChild).animate({
+                width: oSelectedPage.originalSize.width
+            }, 'slow');
+            $(oSelectedPage.firstChild).animate({
+                height: oSelectedPage.originalSize.height
+            }, 'slow');
+            //$(oSelectedPage.firstChild).width(oSelectedPage.originalSize.width);
+            //$(oSelectedPage.firstChild).height(oSelectedPage.originalSize.height);
             $(oSelectedPage.firstChild).css("margin-left", 0);
             $(oSelectedPage.firstChild).css("margin-top", 0);
             $(oSelectedPage).css('z-index', 3);
@@ -244,8 +239,16 @@
                 if (oTabPages[i] != oSelectedPage) {
                     $(oTabPages[i].firstChild).css("margin-left", ++j * 10);
                     $(oTabPages[i].firstChild).css("margin-top", j * 10);
-                    $(oTabPages[i].firstChild).width($(oSelectedPage.firstChild).width());
-                    $(oTabPages[i].firstChild).height($(oSelectedPage.firstChild).height());
+
+                    $(oTabPages[i].firstChild).animate({
+                        width: oSelectedPage.originalSize.width
+                    }, 'slow');
+                    $(oTabPages[i].firstChild).animate({
+                        height: oSelectedPage.originalSize.height
+                    }, 'slow');
+
+                    //$(oTabPages[i].firstChild).width($(oSelectedPage.firstChild).width());
+                    //$(oTabPages[i].firstChild).height($(oSelectedPage.firstChild).height());
                     $(oTabPages[i]).css('z-index', 3 - j);
 
                 }
