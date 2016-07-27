@@ -276,8 +276,70 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     }
 }
 
+.examples-container {
+    background-color:#02AFB5;
+}
+.tabs-buttons {
+    list-style-type:none;
+    transform:rotate(270deg);
+    padding:0px;
+    margin:130px 0px 0px -92px;
+    display:inline-flex;
+    position:absolute;
+}
+        .tabs-buttons > li > button {
+            color:white;
+            text-transform:uppercase;
+            font-weight:bold;
+            font-size:10px;
+            border-style:inset;
+            border-width:medium;
+        }
+    .examples-container > .row > .col-sm-4 > ul > li > h4 {
+        color:#147179;
+    }
 
+#bleibtn {
+    background-color:#74E1E9;
+    border-color:#A4FFFF;
+    margin-left:-5px;
+}
+#buntbtn {
+    background-color:#44B1B9;
+    border-color:#74E1E9;
+    margin-left:-5px;
+}
+#pastbtn {
+    background-color:#147179;
+    border-color:#44B1B9;
+}
 
+.tabs-content {
+    list-style-type:none;
+    display:inline-flex;
+    width:226px;
+    height:262px;
+    margin-top:20px;
+}
+
+    .tabs-content > li {
+        position:absolute;
+    }
+        .tabs-content > li > img {
+            border-bottom:3px solid black;
+            border-right:3px solid black;
+        }
+
+#bleiimg {
+    z-index:3;
+}
+
+#buntimg {
+    z-index:2;
+}
+#pastbtn {
+    z-index:1;
+}
 
 .row-single {
     margin-top: 30px;
