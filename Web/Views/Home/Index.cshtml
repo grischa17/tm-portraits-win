@@ -51,44 +51,44 @@
     </div>
 </div>
 
-<div class="container examples-container">
-    <div class="row">
+<div class="container">
+    <div class="row examples-container">
         <div class="col-sm-4">
             <ul class="tabs-buttons">
                 <li><button id="pastbtn" class="btn">Pastell</button></li><li>
                     <button id="buntbtn" class="btn">Buntstift</button></li><li>
                     <button id="bleibtn" class="btn">Bleistift</button></li>
             </ul>
-            <ul class="tabs-content">
+            <ul class="tabs-content blei">
                 <li id="bleiimg"><img src="~/Content/images/Bleistift1.jpg" alt="Bleistift" /></li>
                 <li id="buntimg"><img src="~/Content/images/Buntstift2.jpg" alt="Buntstift" /></li>
                 <li id="pastimg"><img src="~/Content/images/Pastel3.jpg" alt="Pastel" /></li>
             </ul>
         </div>
         <div class="col-sm-4">
-            <ul>
-                <li>
+            <ul class="blei">
+                <li id="bleitext" class="selectedText">
                     <h4>Bleistifporträt</h4>
                     <p>Bei einer Bleistiftzeichnung arbeitet man mit Bleistiften verschiedener Grautöne.</p>
                 </li>
-                <li>
+                <li id="bunttext" class="hidden">
                     <h4>Buntstiftporträt</h4>
                     <p>Mit einer breiten Palette an farbigen Buntstiften kommt man der Vorlage erstaunlich nahe.</p>
                 </li>
-                <li>
+                <li id="pasttext" class="hidden">
                     <h4>Pastellporträt</h4>
                     <p>Leuchtende und lebendige Farben zeichnen ein Pastell-Porträt aus</p>
                 </li>
             </ul>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4 text-center">
             <a href="/Request/Create" role="button" class="btn btn-danger btn-lg">Bestellen &#187;</a>
         </div>
     </div>
 </div>
 
 @section Scripts{
-    <script type="text/javascript">
+    <script type="text/javascript" async>
         var oWrapper = $('.galery-wrapper')[0],
             oGalery = $('.galery')[0],
             oImages = $('.galery > ul > li > img');
@@ -192,67 +192,23 @@
                         });
         });
 
-        function initTabs() {
-            var oTabPages = $('.tabs-content > li'),
-                oSelectedPage = oTabPages.filter(function () {
-                    return $(this).css('z-index') == 3;
-                })[0];
-
-            oSelectedPage.originalSize = {
-                width: $(oSelectedPage.firstChild).width(),
-                height: $(oSelectedPage.firstChild).height()
-            };
-
-            for (var i = 0, j = 0; i < oTabPages.length; i++) {
-                if (oTabPages[i] != oSelectedPage) {
-                    oTabPages[i].originalSize = {
-                        width: $(oTabPages[i].firstChild).width(),
-                        height: $(oTabPages[i].firstChild).height()
-                    };
-                    $(oTabPages[i].firstChild).css("margin-left", ++j * 10);
-                    $(oTabPages[i].firstChild).css("margin-top", j * 10);
-                    $(oTabPages[i].firstChild).width($(oSelectedPage.firstChild).width());
-                    $(oTabPages[i].firstChild).height($(oSelectedPage.firstChild).height());
-                }
-            }
-        }
-
-        initTabs();
+        var sSelected = 'blei';
 
         $('.tabs-buttons > li > button').click(function (oEvent) {
-            var oTabPages = $('.tabs-content > li'),
-                oSelectedPage = $('#' + oEvent.target.id.substring(0,4) + 'img')[0];
+            var oTabPages = $('.tabs-content')[0],
+                oTextOld = $('#' + sSelected + 'text')[0],
+                oSelectedText = $('#' + oEvent.target.id.substring(0, 4) + 'text')[0];
 
-            $(oSelectedPage.firstChild).animate({
-                width: oSelectedPage.originalSize.width
-            }, 'slow');
-            $(oSelectedPage.firstChild).animate({
-                height: oSelectedPage.originalSize.height
-            }, 'slow');
-            //$(oSelectedPage.firstChild).width(oSelectedPage.originalSize.width);
-            //$(oSelectedPage.firstChild).height(oSelectedPage.originalSize.height);
-            $(oSelectedPage.firstChild).css("margin-left", 0);
-            $(oSelectedPage.firstChild).css("margin-top", 0);
-            $(oSelectedPage).css('z-index', 3);
+            $(oTabPages).removeClass(sSelected);
+            $(oTextOld).addClass('hidden');
+            $(oTextOld).removeClass('selectedText');
 
-            for (var i = 0, j = 0; i < oTabPages.length; i++) {
-                if (oTabPages[i] != oSelectedPage) {
-                    $(oTabPages[i].firstChild).css("margin-left", ++j * 10);
-                    $(oTabPages[i].firstChild).css("margin-top", j * 10);
+            sSelected = oEvent.target.id.substring(0, 4);
 
-                    $(oTabPages[i].firstChild).animate({
-                        width: oSelectedPage.originalSize.width
-                    }, 'slow');
-                    $(oTabPages[i].firstChild).animate({
-                        height: oSelectedPage.originalSize.height
-                    }, 'slow');
+            $(oTabPages).addClass(sSelected);
+            $(oSelectedText).addClass('selectedText');
+            $(oSelectedText).removeClass('hidden');
 
-                    //$(oTabPages[i].firstChild).width($(oSelectedPage.firstChild).width());
-                    //$(oTabPages[i].firstChild).height($(oSelectedPage.firstChild).height());
-                    $(oTabPages[i]).css('z-index', 3 - j);
-
-                }
-            }
         });
     </script>
 }
