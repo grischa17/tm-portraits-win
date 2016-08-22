@@ -6,3 +6,5 @@ LetPaintPictures/obj/
 *.ldf
 LetPaintPictures/Scripts/jquery-2*
 .vs/config/applicationhost.config
+bin
+obj

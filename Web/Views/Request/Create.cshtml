@@ -42,30 +42,45 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ProductId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-3">
-                @Html.EditorFor(model => model.ProductId, new
-           {
-               htmlAttributes = new
-               {
-                   @class = "form-control"
-               },
-               Products = Model.Products,
-               Name = nameof(Model.ProductId)
-           })
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-default active">
+                        <input type="radio" name="@Html.NameFor(model => model.ProductId)" id="0" value="0" autocomplete="off" checked> Bleistiftporträt
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" name="@Html.NameFor(model => model.ProductId)" id="1" value="1" autocomplete="off"> Buntstiftporträt
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" name="@Html.NameFor(model => model.ProductId)" id="2" value="2" autocomplete="off"> Pastellporträt
+                    </label>
+                </div>
                 @Html.ValidationMessageFor(model => model.ProductId, "", new { @class = "text-danger" })
             </div>
-            <div class="col-md-6 col-lg-offset-1">
-                <span id="ProductPrice" name="ProductPrice">@($"+ {Model.Products.First().Price:C}")</span>
+            <div class="col-md-6 col-md-offset-1 col-lg-offset-1">
+                <span id="ProductPrice" name="ProductPrice">60,00 €</span>
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.CountSubjects, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-3">
-                @Html.EditorFor(model => model.CountSubjects)
+            <div class="col-md-4">
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-default active">
+                        <input type="radio" name="@Html.NameFor(model => model.CountSubjects)" id="1" value="1" autocomplete="off" checked> 1
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" name="@Html.NameFor(model => model.CountSubjects)" id="2" value="2" autocomplete="off"> 2
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" name="@Html.NameFor(model => model.CountSubjects)" id="3" value="3" autocomplete="off"> 3
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" name="@Html.NameFor(model => model.CountSubjects)" id="4" value="4" autocomplete="off"> 4
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" name="@Html.NameFor(model => model.CountSubjects)" id="5" value="5" autocomplete="off"> 5
+                    </label>
+                </div>
                 @Html.ValidationMessageFor(model => model.CountSubjects, "", new { @class = "text-danger" })
-            </div>
-            <div class="col-md-1">
-                <span id="SubjectValue" name="SubjectValue">@Model.CountSubjects</span>
             </div>
             <div class="col-md-6">
                 +&nbsp;<span id="SubjectPrice" name="SubjectPrice">@($"{((Model.CountSubjects - 1) * 20f):C}")</span>
@@ -74,19 +89,22 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.SizeId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-3">
-                @Html.EditorFor(model => model.SizeId, new
-           {
-               htmlAttributes = new { @class = "form-control" },
-               Sizes = Model.Sizes
-           })
+            <div class="col-md-4">
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-default active">
+                        <input type="radio" name="@Html.NameFor(model => model.SizeId)" id="0" value="0" autocomplete="off" checked> A4
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" name="@Html.NameFor(model => model.SizeId)" id="1" value="1" autocomplete="off"> A3
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="radio" name="@Html.NameFor(model => model.SizeId)" id="2" value="2" autocomplete="off"> A2
+                    </label>
+                </div>
                 @Html.ValidationMessageFor(model => model.SizeId, "", new { @class = "text-danger" })
             </div>
-            <div class="col-md-1">
-                <span id="SizeValue" name="SizeValue">@Model.Sizes.First().Name</span>
-            </div>
             <div class="col-md-6">
-                +&nbsp;<span id="SizePrice" name="SizePrice">@($"{Model.Sizes.First().Price:C}")</span>
+                +&nbsp;<span id="SizePrice" name="SizePrice">0,00 €</span>
             </div>
         </div>
 
@@ -243,71 +261,24 @@
 @section Scripts {
     @*@Scripts.Render("~/bundles/jqueryval")*@
 
-    <script type="text/javascript">
-        var sizes, products
+    <script type="text/javascript" async>
 
-        sizes = {
-            "Sizes": [
-                @foreach (var item in Model.Sizes)
-                {
-                    <text>{
-                    "Id": @item.Id,
-                    "Name": "@item.Name",
-                    "Price": @item.Price
-                    },</text>
-                } {} ]
-        };
-
-        sizes.Sizes.splice(sizes.Sizes.length - 1, 1);
-
-        products = {
-            "Products": [
-                @foreach (var item in Model.Products)
-            {
-                    <text>{
-                    "Id": @item.Id,
-                    "Name": "@item.Name",
-                    "Price": @item.Price
-                    },</text>
-                } {} ]
-        };
-
-        products.Products.splice(products.Products.length - 1, 1);
-
-        $('#CountSubjects').slider({
-            formatter: function (value) {
-                return 'Aktueller Wert: ' + value;
-            }
-        }).change(function (e) {
-            $('#SubjectValue').text(e.value.newValue);
-            $('#SubjectPrice').text(((e.value.newValue - 1) * @Model.SubjectProduct.Price) + ',00 €');
-            setTimeout(setTotal(e.value.newValue, null));
+        $('input[name="CountSubjects"]').change(function (e) {
+            $('#SubjectValue').text(e.target.id);
+            $('#SubjectPrice').text(((e.target.id - 1) * 20) + ',00 €');
+            setTimeout(setTotal(e.target.id, null));
 
         });
 
-        $('#SizeId').slider({
-            formatter: function (value) {
-                return 'Aktueller Wert: ' + value;
-            }
-        }).change(function (e) {
-            $('#SizeValue').text(getSize(e.value.newValue).Name);
-            $('#SizePrice').text(getSizePrice(e.value.newValue) + ',00 €');
-            setTimeout(setTotal(null, e.value.newValue));
+        $('input[name="SizeId"]').change(function (e) {
+            $('#SizePrice').text(getSizePrice(e.target.id) + ',00 €');
+            setTimeout(setTotal(null, e.target.id));
         });
 
 
         $('input[name=ProductId]').change(function(e){
-            switch ($('input[name=ProductId]:checked').val()) {
-                @foreach (var item in Model.Products)
-                {
-                    <Text>
-                case "@item.Id": $('#ProductPrice').text(@item.Price + ',00 €');
-                    break;
-                    </text>
-                }
-                default:
-
-            }
+            
+            $('#ProductPrice').text(60 + 20 * e.target.id + ',00 €');
             setTotal($('#SubjectValue').val(), $('#SizeValue').val());
         });
 
@@ -435,45 +406,26 @@
             }
         }
 
-        function getSize(id){
-            if (!id) {
-                id = $('#SizeId').val();
-            }
+        function getSizePrice(){
+            var id = $('input[name=SizeId]:checked')[0].id;
 
-            for (var i = 0; i < sizes.Sizes.length; i++) {
-                if (sizes.Sizes[i].Id == id) {
-                    return sizes.Sizes[i];
-                }
-            }
-        }
-
-        function getSizePrice(id){
-            return getSize(id).Price;
+            return id * 30;
         }
 
         function getProductPrice(){
-            var id = $('input[name=ProductId]:checked').val();
+            var id = $('input[name=ProductId]:checked')[0].id;
 
-            if (products.Products.length == 1) {
-                return products.Products[0].Price;
-            }
-
-            for (var i = 0; i < products.Products.length; i++) {
-                if (products.Products[i].Id == id) {
-                    return products.Products[i].Price;
-                }
-            }
-
+            return 60 + 20 * id;
         }
 
         function setTotal(countSubjects, sizeValue){
             if (!countSubjects) {
-                countSubjects = $('#CountSubjects').val();
+                countSubjects = $('input[name="CountSubjects"]:checked')[0].id;
             }
 
             sizeValue = getSizePrice(sizeValue);
 
-            $('#TotalAmount').text(((countSubjects - 1) * @Model.SubjectProduct.Price +
+            $('#TotalAmount').text(((countSubjects - 1) * 20 +
                                     sizeValue +
                                     getProductPrice()) + ',00 €');
         }

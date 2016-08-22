@@ -1,9 +1,9 @@
 ﻿
 
-/*@media (min-width: 768px){
-.navbar > .container {
-    width: 750px;
-}*/
+body {
+    font-family: Britannic;
+    color: #147179;
+}
 
 @media print {
     .print-headRow {
@@ -50,7 +50,6 @@
 }*/
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-    font-family: Britannic;
     text-transform: uppercase;
     color: #02AFB5;
     line-height: 0.6;
@@ -106,7 +105,6 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 }
 
 .carousel-label > .row > .col-xs-11 > ul > li {
-    font-family: Britannic;
     color: white;
     text-wrap: normal;
     text-align: justify;
@@ -168,14 +166,36 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     display: none;
 }
 
-.btn-danger {
-    background-color:#E6BF98;
+.btn {
     text-transform:uppercase;
     border-radius:unset;
+    border-style:inset;
+    border-width:medium;
+}
+
+.btn-default {
+    color:#147179;
+    background-color:#90D7CF;
+    border-color:#70B7AF;
+}
+
+
+.btn-primary {
+    color:white;
+    background-color:#147179;
+    border-color:#045159;
+}
+.bnt-primary:hover, .btn-primary[disabled]:hover {
+    background-color:#02AFB5;
+    border-color:#008F95;
+}
+
+.btn-danger {
+    background-color:#E6BF98;
     border-color:wheat;
 }
 
-    .btn-danger:hover {
+    .btn-danger:hover, btn-danger[disabled]:hover {
         background-color:#C8A17A;
         border-color:white;
     }
@@ -295,7 +315,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     background-color:#02AFB5;
 }
     .examples-container > .col-sm-4 {
-        min-height:200px;
+        min-height:330px;
     }
 
     .examples-container > .col-sm-4 > ul > li > h4 {
@@ -305,7 +325,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     list-style-type:none;
     transform:rotate(270deg);
     padding:0px;
-    margin:130px 0px 0px -92px;
+    margin:130px 0px 0px -108px;
     display:inline-flex;
     position:absolute;
 }
@@ -313,15 +333,14 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
             color:white;
             text-transform:uppercase;
             font-weight:bold;
-            font-size:10px;
-            border-style:inset;
-            border-width:medium;
+            font-size:17px;
         }
 
 #bleibtn {
     background-color:#74E1E9;
     border-color:#A4FFFF;
     margin-left:-5px;
+    text-transform:unset;
 }
     #bleibtn:hover {
         background-color:#54C1C9;
@@ -330,6 +349,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     background-color:#44B1B9;
     border-color:#74E1E9;
     margin-left:-5px;
+    text-transform:unset;
 }
     #buntbtn:hover {
         background-color:#249199;
@@ -337,6 +357,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 #pastbtn {
     background-color:#147179;
     border-color:#44B1B9;
+    text-transform:unset;
 }
     #pastbtn:hover {
         background-color:#045159;
@@ -429,8 +450,18 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
         font-weight:bold;
         font-size: 17px;
     }
+
+.blei > li > h4, .bunt > li > h4, .past > li > h4 {
+    margin-top:92px;
+}
+
 .examples-container > .col-sm-4 > a {
-    margin-top:82px;
+    margin-top:142px;
+}
+
+hr {
+    background-image:linear-gradient(to right, rgba(20, 113, 121, 0), rgba(20, 113, 121, 0.75), rgba(20, 113, 121, 0));
+    height:2px;
 }
 
 .row-single {

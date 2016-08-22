@@ -9,10 +9,10 @@ indem Sie diese MSBuild-Datei bearbeiten. Besuchen Sie "http://go.microsoft.com/
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/about.cshtml.a8d08dba.compiled">
-      <publishTime>07/12/2016 07:59:37</publishTime>
+      <publishTime>08/22/2016 06:33:53</publishTime>
     </File>
     <File Include="bin/addphonenumber.cshtml.68f676f.compiled">
-      <publishTime>07/12/2016 07:59:38</publishTime>
+      <publishTime>08/22/2016 06:33:54</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>09/22/2015 11:27:28</publishTime>
@@ -21,13 +21,19 @@ indem Sie diese MSBuild-Datei bearbeiten. Besuchen Sie "http://go.microsoft.com/
       <publishTime>09/22/2015 11:27:28</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>07/12/2016 07:59:33</publishTime>
+      <publishTime>08/22/2016 06:33:50</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>07/12/2016 07:59:33</publishTime>
+      <publishTime>08/22/2016 06:33:50</publishTime>
     </File>
     <File Include="bin/App_Web_04ve03vt.dll">
       <publishTime>06/25/2016 14:40:38</publishTime>
+    </File>
+    <File Include="bin/App_Web_0ccoelid.dll">
+      <publishTime>08/22/2016 06:33:53</publishTime>
+    </File>
+    <File Include="bin/App_Web_0kafhtst.dll">
+      <publishTime>08/22/2016 06:33:54</publishTime>
     </File>
     <File Include="bin/App_Web_0owc1sfr.dll">
       <publishTime>06/25/2016 15:08:15</publishTime>
@@ -65,6 +71,9 @@ indem Sie diese MSBuild-Datei bearbeiten. Besuchen Sie "http://go.microsoft.com/
     <File Include="bin/App_Web_2fdeyvld.dll">
       <publishTime>07/01/2016 08:00:03</publishTime>
     </File>
+    <File Include="bin/App_Web_2s0ohwcf.dll">
+      <publishTime>08/22/2016 06:33:52</publishTime>
+    </File>
     <File Include="bin/App_Web_3bhps2un.dll">
       <publishTime>07/01/2016 08:00:05</publishTime>
     </File>
@@ -89,6 +98,9 @@ indem Sie diese MSBuild-Datei bearbeiten. Besuchen Sie "http://go.microsoft.com/
     <File Include="bin/App_Web_4nvyg34b.dll">
       <publishTime>07/12/2016 07:59:37</publishTime>
     </File>
+    <File Include="bin/App_Web_4qfl1v4k.dll">
+      <publishTime>08/22/2016 06:33:55</publishTime>
+    </File>
     <File Include="bin/App_Web_4sj4i1wu.dll">
       <publishTime>07/01/2016 08:00:07</publishTime>
     </File>
@@ -97,6 +109,9 @@ indem Sie diese MSBuild-Datei bearbeiten. Besuchen Sie "http://go.microsoft.com/
     </File>
     <File Include="bin/App_Web_4wfazqzp.dll">
       <publishTime>07/12/2016 07:59:39</publishTime>
+    </File>
+    <File Include="bin/App_Web_52zooosm.dll">
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="bin/App_Web_53lcg51o.dll">
       <publishTime>07/01/2016 07:46:48</publishTime>
@@ -112,6 +127,9 @@ indem Sie diese MSBuild-Datei bearbeiten. Besuchen Sie "http://go.microsoft.com/
     </File>
     <File Include="bin/App_Web_5v4k1res.dll">
       <publishTime>06/30/2016 07:54:34</publishTime>
+    </File>
+    <File Include="bin/App_Web_afmu422k.dll">
+      <publishTime>08/22/2016 06:33:52</publishTime>
     </File>
     <File Include="bin/App_Web_afqyrqer.dll">
       <publishTime>06/30/2016 07:38:44</publishTime>
@@ -137,6 +155,9 @@ indem Sie diese MSBuild-Datei bearbeiten. Besuchen Sie "http://go.microsoft.com/
     <File Include="bin/App_Web_bw5yzoos.dll">
       <publishTime>07/01/2016 07:46:50</publishTime>
     </File>
+    <File Include="bin/App_Web_by55p5q3.dll">
+      <publishTime>08/22/2016 06:33:52</publishTime>
+    </File>
     <File Include="bin/App_Web_c3uk3djr.dll">
       <publishTime>06/25/2016 14:40:40</publishTime>
     </File>
@@ -160,6 +181,12 @@ indem Sie diese MSBuild-Datei bearbeiten. Besuchen Sie "http://go.microsoft.com/
     </File>
     <File Include="bin/App_Web_doiwd2wo.dll">
       <publishTime>07/12/2016 07:59:36</publishTime>
+    </File>
+    <File Include="bin/App_Web_dv2x2nv3.dll">
+      <publishTime>08/22/2016 06:33:53</publishTime>
+    </File>
+    <File Include="bin/App_Web_dxvsyifh.dll">
+      <publishTime>08/22/2016 06:33:54</publishTime>
     </File>
     <File Include="bin/App_Web_dykmz3or.dll">
       <publishTime>06/25/2016 15:08:14</publishTime>
@@ -197,11 +224,17 @@ indem Sie diese MSBuild-Datei bearbeiten. Besuchen Sie "http://go.microsoft.com/
     <File Include="bin/App_Web_fxcqzgy5.dll">
       <publishTime>06/25/2016 15:08:15</publishTime>
     </File>
+    <File Include="bin/App_Web_fz5uueqt.dll">
+      <publishTime>08/22/2016 06:33:55</publishTime>
+    </File>
     <File Include="bin/App_Web_gesuxklv.dll">
       <publishTime>07/03/2016 15:08:55</publishTime>
     </File>
     <File Include="bin/App_Web_ggbnz541.dll">
       <publishTime>07/01/2016 07:46:52</publishTime>
+    </File>
+    <File Include="bin/App_Web_he2qkpgz.dll">
+      <publishTime>08/22/2016 06:33:53</publishTime>
     </File>
     <File Include="bin/App_Web_hx1juokp.dll">
       <publishTime>07/01/2016 07:46:51</publishTime>
@@ -281,11 +314,17 @@ indem Sie diese MSBuild-Datei bearbeiten. Besuchen Sie "http://go.microsoft.com/
     <File Include="bin/App_Web_mu2i33vw.dll">
       <publishTime>07/01/2016 08:00:03</publishTime>
     </File>
+    <File Include="bin/App_Web_mvumcyfz.dll">
+      <publishTime>08/22/2016 06:33:54</publishTime>
+    </File>
     <File Include="bin/App_Web_mxdinvnq.dll">
       <publishTime>06/30/2016 07:38:44</publishTime>
     </File>
     <File Include="bin/App_Web_ncctjtyk.dll">
       <publishTime>07/01/2016 07:46:46</publishTime>
+    </File>
+    <File Include="bin/App_Web_ngvv5s0f.dll">
+      <publishTime>08/22/2016 06:33:53</publishTime>
     </File>
     <File Include="bin/App_Web_nio4pll3.dll">
       <publishTime>07/01/2016 07:46:47</publishTime>
@@ -344,6 +383,9 @@ indem Sie diese MSBuild-Datei bearbeiten. Besuchen Sie "http://go.microsoft.com/
     <File Include="bin/App_Web_rzoviq0k.dll">
       <publishTime>06/25/2016 15:08:16</publishTime>
     </File>
+    <File Include="bin/App_Web_sahis3mo.dll">
+      <publishTime>08/22/2016 06:33:56</publishTime>
+    </File>
     <File Include="bin/App_Web_seuzkuic.dll">
       <publishTime>06/25/2016 15:08:17</publishTime>
     </File>
@@ -380,11 +422,17 @@ indem Sie diese MSBuild-Datei bearbeiten. Besuchen Sie "http://go.microsoft.com/
     <File Include="bin/App_Web_uoejdufx.dll">
       <publishTime>07/01/2016 08:00:05</publishTime>
     </File>
+    <File Include="bin/App_Web_uqtjen31.dll">
+      <publishTime>08/22/2016 06:33:52</publishTime>
+    </File>
     <File Include="bin/App_Web_uv3meean.dll">
       <publishTime>06/25/2016 14:40:42</publishTime>
     </File>
     <File Include="bin/App_Web_vif2rnie.dll">
       <publishTime>06/25/2016 15:08:17</publishTime>
+    </File>
+    <File Include="bin/App_Web_vmzt0ujr.dll">
+      <publishTime>08/22/2016 06:33:55</publishTime>
     </File>
     <File Include="bin/App_Web_vv2fsk4y.dll">
       <publishTime>06/25/2016 15:08:16</publishTime>
@@ -406,6 +454,9 @@ indem Sie diese MSBuild-Datei bearbeiten. Besuchen Sie "http://go.microsoft.com/
     </File>
     <File Include="bin/App_Web_x5yqqspl.dll">
       <publishTime>06/30/2016 07:38:45</publishTime>
+    </File>
+    <File Include="bin/App_Web_xpjlu2jn.dll">
+      <publishTime>08/22/2016 06:33:55</publishTime>
     </File>
     <File Include="bin/App_Web_xziakfr5.dll">
       <publishTime>07/01/2016 08:00:04</publishTime>
@@ -444,7 +495,7 @@ indem Sie diese MSBuild-Datei bearbeiten. Besuchen Sie "http://go.microsoft.com/
       <publishTime>02/01/2016 11:26:34</publishTime>
     </File>
     <File Include="bin/changepassword.cshtml.68f676f.compiled">
-      <publishTime>07/12/2016 07:59:38</publishTime>
+      <publishTime>08/22/2016 06:33:54</publishTime>
     </File>
     <File Include="bin/ClientResourceManager.dll">
       <publishTime>09/22/2015 15:39:09</publishTime>
@@ -456,28 +507,28 @@ indem Sie diese MSBuild-Datei bearbeiten. Besuchen Sie "http://go.microsoft.com/
       <publishTime>09/22/2015 15:39:09</publishTime>
     </File>
     <File Include="bin/confirmemail.cshtml.5f83eb8c.compiled">
-      <publishTime>07/12/2016 07:59:35</publishTime>
+      <publishTime>08/22/2016 06:33:52</publishTime>
     </File>
     <File Include="bin/contact.cshtml.a8d08dba.compiled">
-      <publishTime>07/12/2016 07:59:37</publishTime>
+      <publishTime>08/22/2016 06:33:53</publishTime>
     </File>
     <File Include="bin/create.cshtml.1fa21915.compiled">
-      <publishTime>07/12/2016 07:59:36</publishTime>
+      <publishTime>08/22/2016 06:33:52</publishTime>
     </File>
     <File Include="bin/create.cshtml.66628809.compiled">
-      <publishTime>07/12/2016 07:59:40</publishTime>
+      <publishTime>08/22/2016 06:33:55</publishTime>
     </File>
     <File Include="bin/create.cshtml.9116b3b9.compiled">
-      <publishTime>07/12/2016 07:59:37</publishTime>
+      <publishTime>08/22/2016 06:33:53</publishTime>
     </File>
     <File Include="bin/create.cshtml.ce0b5a11.compiled">
-      <publishTime>07/12/2016 07:59:40</publishTime>
+      <publishTime>08/22/2016 06:33:55</publishTime>
     </File>
     <File Include="bin/create.cshtml.da937781.compiled">
-      <publishTime>07/12/2016 07:59:39</publishTime>
+      <publishTime>08/22/2016 06:33:54</publishTime>
     </File>
     <File Include="bin/createconfirm.cshtml.ce0b5a11.compiled">
-      <publishTime>07/12/2016 07:59:40</publishTime>
+      <publishTime>08/22/2016 06:33:55</publishTime>
     </File>
     <File Include="bin/de/EntityFramework.resources.dll">
       <publishTime>03/02/2015 09:32:36</publishTime>
@@ -537,16 +588,16 @@ indem Sie diese MSBuild-Datei bearbeiten. Besuchen Sie "http://go.microsoft.com/
       <publishTime>01/28/2015 04:04:34</publishTime>
     </File>
     <File Include="bin/detail.cshtml.1fa21915.compiled">
-      <publishTime>07/12/2016 07:59:36</publishTime>
+      <publishTime>08/22/2016 06:33:52</publishTime>
     </File>
     <File Include="bin/detail.cshtml.ce0b5a11.compiled">
-      <publishTime>07/12/2016 07:59:40</publishTime>
+      <publishTime>08/22/2016 06:33:55</publishTime>
     </File>
     <File Include="bin/detail.cshtml.da937781.compiled">
-      <publishTime>07/12/2016 07:59:39</publishTime>
+      <publishTime>08/22/2016 06:33:54</publishTime>
     </File>
     <File Include="bin/edit.cshtml.da937781.compiled">
-      <publishTime>07/12/2016 07:59:39</publishTime>
+      <publishTime>08/22/2016 06:33:54</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>12/17/2015 16:18:32</publishTime>
@@ -555,64 +606,64 @@ indem Sie diese MSBuild-Datei bearbeiten. Besuchen Sie "http://go.microsoft.com/
       <publishTime>12/17/2015 16:18:32</publishTime>
     </File>
     <File Include="bin/error.cshtml.639c3968.compiled">
-      <publishTime>07/12/2016 07:59:40</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="bin/externalloginconfirmation.cshtml.5f83eb8c.compiled">
-      <publishTime>07/12/2016 07:59:35</publishTime>
+      <publishTime>08/22/2016 06:33:52</publishTime>
     </File>
     <File Include="bin/externalloginfailure.cshtml.5f83eb8c.compiled">
-      <publishTime>07/12/2016 07:59:35</publishTime>
+      <publishTime>08/22/2016 06:33:52</publishTime>
     </File>
     <File Include="bin/filelist.cshtml.ce0b5a11.compiled">
-      <publishTime>07/12/2016 07:59:40</publishTime>
+      <publishTime>08/22/2016 06:33:55</publishTime>
     </File>
     <File Include="bin/forgotpassword.cshtml.5f83eb8c.compiled">
-      <publishTime>07/12/2016 07:59:35</publishTime>
+      <publishTime>08/22/2016 06:33:52</publishTime>
     </File>
     <File Include="bin/forgotpasswordconfirmation.cshtml.5f83eb8c.compiled">
-      <publishTime>07/12/2016 07:59:35</publishTime>
+      <publishTime>08/22/2016 06:33:52</publishTime>
     </File>
     <File Include="bin/gtc.cshtml.a8d08dba.compiled">
-      <publishTime>07/12/2016 07:59:37</publishTime>
+      <publishTime>08/22/2016 06:33:53</publishTime>
     </File>
     <File Include="bin/head.cshtml.d9728e2f.compiled">
-      <publishTime>07/12/2016 07:59:36</publishTime>
+      <publishTime>08/22/2016 06:33:52</publishTime>
     </File>
     <File Include="bin/imprint.cshtml.a8d08dba.compiled">
-      <publishTime>07/12/2016 07:59:37</publishTime>
+      <publishTime>08/22/2016 06:33:53</publishTime>
     </File>
     <File Include="bin/index.cshtml.1fa21915.compiled">
-      <publishTime>07/12/2016 07:59:36</publishTime>
+      <publishTime>08/22/2016 06:33:52</publishTime>
     </File>
     <File Include="bin/index.cshtml.68f676f.compiled">
-      <publishTime>07/12/2016 07:59:38</publishTime>
+      <publishTime>08/22/2016 06:33:54</publishTime>
     </File>
     <File Include="bin/index.cshtml.a8d08dba.compiled">
-      <publishTime>07/12/2016 07:59:37</publishTime>
+      <publishTime>08/22/2016 06:33:53</publishTime>
     </File>
     <File Include="bin/index.cshtml.ce0b5a11.compiled">
-      <publishTime>07/12/2016 07:59:40</publishTime>
+      <publishTime>08/22/2016 06:33:55</publishTime>
     </File>
     <File Include="bin/index.cshtml.da937781.compiled">
-      <publishTime>07/12/2016 07:59:39</publishTime>
+      <publishTime>08/22/2016 06:33:54</publishTime>
     </File>
     <File Include="bin/item.cshtml.44910869.compiled">
-      <publishTime>07/12/2016 07:59:36</publishTime>
+      <publishTime>08/22/2016 06:33:52</publishTime>
     </File>
     <File Include="bin/item.cshtml.d0d61500.compiled">
-      <publishTime>07/12/2016 07:59:39</publishTime>
+      <publishTime>08/22/2016 06:33:55</publishTime>
     </File>
     <File Include="bin/item.cshtml.d9728e2f.compiled">
-      <publishTime>07/12/2016 07:59:36</publishTime>
+      <publishTime>08/22/2016 06:33:52</publishTime>
     </File>
     <File Include="bin/lockout.cshtml.639c3968.compiled">
-      <publishTime>07/12/2016 07:59:40</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="bin/login.cshtml.5f83eb8c.compiled">
-      <publishTime>07/12/2016 07:59:35</publishTime>
+      <publishTime>08/22/2016 06:33:52</publishTime>
     </File>
     <File Include="bin/managelogins.cshtml.68f676f.compiled">
-      <publishTime>07/12/2016 07:59:38</publishTime>
+      <publishTime>08/22/2016 06:33:54</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
       <publishTime>01/13/2016 09:19:29</publishTime>
@@ -669,28 +720,28 @@ indem Sie diese MSBuild-Datei bearbeiten. Besuchen Sie "http://go.microsoft.com/
       <publishTime>11/13/2012 12:19:34</publishTime>
     </File>
     <File Include="bin/product.cshtml.1710e429.compiled">
-      <publishTime>07/12/2016 07:59:38</publishTime>
+      <publishTime>08/22/2016 06:33:54</publishTime>
     </File>
     <File Include="bin/product.cshtml.20e916df.compiled">
-      <publishTime>07/12/2016 07:59:38</publishTime>
+      <publishTime>08/22/2016 06:33:54</publishTime>
     </File>
     <File Include="bin/product.cshtml.2e1a4375.compiled">
-      <publishTime>07/12/2016 07:59:39</publishTime>
+      <publishTime>08/22/2016 06:33:55</publishTime>
     </File>
     <File Include="bin/product.cshtml.fb3173f8.compiled">
-      <publishTime>07/12/2016 07:59:37</publishTime>
+      <publishTime>08/22/2016 06:33:53</publishTime>
     </File>
     <File Include="bin/productlistitem.cshtml.1710e429.compiled">
-      <publishTime>07/12/2016 07:59:38</publishTime>
+      <publishTime>08/22/2016 06:33:54</publishTime>
     </File>
     <File Include="bin/register.cshtml.5f83eb8c.compiled">
-      <publishTime>07/12/2016 07:59:35</publishTime>
+      <publishTime>08/22/2016 06:33:52</publishTime>
     </File>
     <File Include="bin/resetpassword.cshtml.5f83eb8c.compiled">
-      <publishTime>07/12/2016 07:59:35</publishTime>
+      <publishTime>08/22/2016 06:33:52</publishTime>
     </File>
     <File Include="bin/resetpasswordconfirmation.cshtml.5f83eb8c.compiled">
-      <publishTime>07/12/2016 07:59:35</publishTime>
+      <publishTime>08/22/2016 06:33:52</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>05/13/2016 17:51:30</publishTime>
@@ -771,16 +822,16 @@ indem Sie diese MSBuild-Datei bearbeiten. Besuchen Sie "http://go.microsoft.com/
       <publishTime>05/13/2016 17:51:30</publishTime>
     </File>
     <File Include="bin/sendcode.cshtml.5f83eb8c.compiled">
-      <publishTime>07/12/2016 07:59:35</publishTime>
+      <publishTime>08/22/2016 06:33:52</publishTime>
     </File>
     <File Include="bin/setpassword.cshtml.68f676f.compiled">
-      <publishTime>07/12/2016 07:59:38</publishTime>
+      <publishTime>08/22/2016 06:33:54</publishTime>
     </File>
     <File Include="bin/sizeslider.cshtml.2e1a4375.compiled">
-      <publishTime>07/12/2016 07:59:39</publishTime>
+      <publishTime>08/22/2016 06:33:55</publishTime>
     </File>
     <File Include="bin/slider.cshtml.2e1a4375.compiled">
-      <publishTime>07/12/2016 07:59:39</publishTime>
+      <publishTime>08/22/2016 06:33:55</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>09/16/2015 07:40:47</publishTime>
@@ -804,31 +855,31 @@ indem Sie diese MSBuild-Datei bearbeiten. Besuchen Sie "http://go.microsoft.com/
       <publishTime>09/16/2015 07:40:47</publishTime>
     </File>
     <File Include="bin/TuRM.Portrait.dll">
-      <publishTime>07/12/2016 07:45:38</publishTime>
+      <publishTime>08/22/2016 06:33:34</publishTime>
     </File>
     <File Include="bin/TuRM.Portrait.pdb">
-      <publishTime>07/12/2016 07:45:38</publishTime>
+      <publishTime>08/22/2016 06:33:34</publishTime>
     </File>
     <File Include="bin/verifycode.cshtml.5f83eb8c.compiled">
-      <publishTime>07/12/2016 07:59:35</publishTime>
+      <publishTime>08/22/2016 06:33:52</publishTime>
     </File>
     <File Include="bin/verifyphonenumber.cshtml.68f676f.compiled">
-      <publishTime>07/12/2016 07:59:38</publishTime>
+      <publishTime>08/22/2016 06:33:54</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>09/22/2015 11:42:52</publishTime>
     </File>
     <File Include="bin/_externalloginslistpartial.cshtml.5f83eb8c.compiled">
-      <publishTime>07/12/2016 07:59:35</publishTime>
+      <publishTime>08/22/2016 06:33:52</publishTime>
     </File>
     <File Include="bin/_layout.cshtml.639c3968.compiled">
-      <publishTime>07/12/2016 07:59:40</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="bin/_loginpartial.cshtml.639c3968.compiled">
-      <publishTime>07/12/2016 07:59:40</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="bin/_viewstart.cshtml.65a2d1ee.compiled">
-      <publishTime>07/12/2016 07:59:41</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="BingSiteAuth.xml">
       <publishTime>03/21/2016 08:32:57</publishTime>
@@ -864,22 +915,64 @@ indem Sie diese MSBuild-Datei bearbeiten. Besuchen Sie "http://go.microsoft.com/
       <publishTime>02/25/2016 13:25:33</publishTime>
     </File>
     <File Include="Content/images/Bleistift1.jpg">
-      <publishTime>06/25/2016 07:55:23</publishTime>
+      <publishTime>07/22/2016 18:56:14</publishTime>
     </File>
     <File Include="Content/images/Buntstift2.jpg">
-      <publishTime>06/25/2016 07:56:29</publishTime>
+      <publishTime>07/22/2016 18:46:33</publishTime>
+    </File>
+    <File Include="Content/images/button.jpg">
+      <publishTime>07/23/2016 14:24:05</publishTime>
     </File>
     <File Include="Content/images/carousel.jpg">
-      <publishTime>06/25/2016 07:57:15</publishTime>
+      <publishTime>07/16/2016 15:25:35</publishTime>
+    </File>
+    <File Include="Content/images/examples/bild1.jpg">
+      <publishTime>07/18/2016 06:54:01</publishTime>
+    </File>
+    <File Include="Content/images/examples/bild10.jpg">
+      <publishTime>07/18/2016 07:04:57</publishTime>
+    </File>
+    <File Include="Content/images/examples/bild11.jpg">
+      <publishTime>07/18/2016 07:05:42</publishTime>
+    </File>
+    <File Include="Content/images/examples/bild12.jpg">
+      <publishTime>07/18/2016 07:06:29</publishTime>
+    </File>
+    <File Include="Content/images/examples/bild13.jpg">
+      <publishTime>07/22/2016 18:32:03</publishTime>
+    </File>
+    <File Include="Content/images/examples/bild14.jpg">
+      <publishTime>07/18/2016 07:08:51</publishTime>
+    </File>
+    <File Include="Content/images/examples/bild2.jpg">
+      <publishTime>07/18/2016 06:55:46</publishTime>
+    </File>
+    <File Include="Content/images/examples/bild3.jpg">
+      <publishTime>07/18/2016 06:57:10</publishTime>
+    </File>
+    <File Include="Content/images/examples/bild5.jpg">
+      <publishTime>07/18/2016 06:59:09</publishTime>
+    </File>
+    <File Include="Content/images/examples/bild6.jpg">
+      <publishTime>07/18/2016 07:01:34</publishTime>
+    </File>
+    <File Include="Content/images/examples/bild7.jpg">
+      <publishTime>07/18/2016 07:02:27</publishTime>
+    </File>
+    <File Include="Content/images/examples/bild8.jpg">
+      <publishTime>07/18/2016 07:03:16</publishTime>
+    </File>
+    <File Include="Content/images/examples/bild9.jpg">
+      <publishTime>07/18/2016 07:04:17</publishTime>
     </File>
     <File Include="Content/images/movie.jpg">
       <publishTime>07/05/2016 06:38:59</publishTime>
     </File>
     <File Include="Content/images/Pastel3.jpg">
-      <publishTime>06/25/2016 07:56:52</publishTime>
+      <publishTime>07/22/2016 18:58:13</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>07/05/2016 06:38:59</publishTime>
+      <publishTime>08/20/2016 15:27:50</publishTime>
     </File>
     <File Include="Content/themes/base/accordion.css">
       <publishTime>04/14/2016 10:58:49</publishTime>
@@ -1005,7 +1098,7 @@ indem Sie diese MSBuild-Datei bearbeiten. Besuchen Sie "http://go.microsoft.com/
       <publishTime>07/05/2016 06:39:01</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>07/12/2016 07:59:21</publishTime>
+      <publishTime>08/22/2016 06:33:43</publishTime>
     </File>
     <File Include="Scripts/bootstrap-slider.min.js">
       <publishTime>04/14/2016 10:58:49</publishTime>
@@ -1065,169 +1158,169 @@ indem Sie diese MSBuild-Datei bearbeiten. Besuchen Sie "http://go.microsoft.com/
       <publishTime>07/05/2016 06:39:01</publishTime>
     </File>
     <File Include="Views/Account/ConfirmEmail.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Account/ExternalLoginConfirmation.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Account/ExternalLoginFailure.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Account/ForgotPassword.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Account/ForgotPasswordConfirmation.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Account/Login.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Account/Register.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Account/ResetPassword.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Account/ResetPasswordConfirmation.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Account/SendCode.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Account/VerifyCode.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Account/_ExternalLoginsListPartial.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Bill/Create.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Bill/Detail.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Bill/DisplayTemplates/Head.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Bill/DisplayTemplates/Item.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Bill/EditorTemplates/Item.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Bill/Index.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/BillCancellation/Create.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Home/DisplayTemplates/Product.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Home/GTC.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Home/Imprint.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Manage/AddPhoneNumber.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Manage/ChangePassword.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Manage/Index.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Manage/ManageLogins.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Manage/SetPassword.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Manage/VerifyPhoneNumber.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Product/Create.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Product/Detail.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Product/DisplayTemplates/Product.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Product/DisplayTemplates/ProductListItem.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Product/Edit.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Product/EditorTemplates/Product.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Product/Index.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Request/Create.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Request/CreateConfirm.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Request/Detail.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Request/DisplayTemplates/Item.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Request/EditorTemplates/Product.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Request/EditorTemplates/SizeSlider.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Request/EditorTemplates/Slider.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Request/FileList.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Request/Index.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/RequestCancellation/Create.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Shared/Lockout.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>03/14/2016 10:49:02</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
-      <publishTime>07/12/2016 07:59:42</publishTime>
+      <publishTime>08/22/2016 06:33:56</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/12/2016 07:59:19</publishTime>
+      <publishTime>08/22/2016 06:23:21</publishTime>
     </File>
   </ItemGroup>
 </Project>

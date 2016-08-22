@@ -10,6 +10,8 @@ using System.Web.Mvc;
 using System.Threading.Tasks;
 using System.Net.Mail;
 using System.Net;
+using System.Text;
+using System.IO;
 
 namespace TuRM.Portrait.Controllers
 {
@@ -90,41 +92,11 @@ namespace TuRM.Portrait.Controllers
         }
 
         [HttpGet]
-        public ActionResult Create(int? productId)
+        public ActionResult Create()
         {
             ViewModels.Request.Create viewModel;
-            IQueryable<Product> collection; 
 
-            using (ApplicationDbContext db = new ApplicationDbContext())
-            {
-                MapperConfiguration config = new MapperConfiguration(cfg =>
-                {
-                    cfg.CreateMap<Product, ViewModels.Product.Product>()
-                        .ForMember(m => m.Image, opt => opt.MapFrom(src => src.Image == null ? null : new WebImage(src.Image)));
-                });
-                IMapper mapper = config.CreateMapper();
-
-                viewModel = new ViewModels.Request.Create();
-
-                collection = db.Products.Where(w => w.ProductCategoryId == 1);
-                if (productId != null)
-                {
-                    collection = collection.Where(w => w.Id == productId);
-                }
-                viewModel.Products = collection.ToList().AsQueryable().ProjectTo<ViewModels.Product.Product>(config).ToList().AsQueryable();
-                viewModel.ProductId = viewModel.Products.First().Id;
-
-                collection = db.Products.Where(w => w.ProductCategoryId == 2);
-                viewModel.Sizes = collection.ToList().AsQueryable().ProjectTo<ViewModels.Product.Product>(config).ToList().AsQueryable();
-                viewModel.SizeId = viewModel.Sizes.First().Id;
-
-                viewModel.SubjectProduct = mapper.Map<ViewModels.Product.Product>(db.Products.Where(w => w.ProductCategoryId == 3).First());
-
-                viewModel.TotalAmount = viewModel.Products.First().Price
-                    + viewModel.Sizes.First().Price
-                    + (viewModel.SubjectProduct.Price * (viewModel.CountSubjects - 1));
-            }
-
+            viewModel = new ViewModels.Request.Create();
             viewModel.Files = HttpContext.Session["Files"] as SortedList<string, WebImage> ?? new SortedList<string, WebImage>();
 
             return View(viewModel);
@@ -147,86 +119,81 @@ namespace TuRM.Portrait.Controllers
             }
         }
 
-        public async Task<ActionResult> Create(ViewModels.Request.Create viewModel)
+        public ActionResult Create(ViewModels.Request.Create viewModel)
         {
-            if (ModelState.IsValid)
-            {
-                using (ApplicationDbContext db = new ApplicationDbContext())
-                {
-                    MapperConfiguration config = new MapperConfiguration(cfg =>
-                    {
-                        cfg.CreateMap<ViewModels.Request.Create, RequestHead>()
-                            .ForMember(m=>m.CreatedOn, opt=> opt.UseValue(DateTime.Now));
-                    });
-                    IMapper mapper = config.CreateMapper();
-                    RequestHead head = mapper.Map<RequestHead>(viewModel);
-                    RequestItem item;
-                    RequestImage image;
-                    Product product;
 
-                    db.RequestHeads.Add(head);
+            viewModel.Files = HttpContext.Session["Files"] as SortedList<string, WebImage> ?? new SortedList<string, WebImage>();
 
-                    db.SaveChanges();
+            HttpContext.Session["Files"] = null;
 
-                    db.Entry(head).Reload();
+            RedirectToAction(nameof(Index));
 
-                    product = db.Products.Where(w => w.Id == viewModel.ProductId).First();
-                    item = new RequestItem();
-                    item.RequestHeadId = head.Id;
-                    item.Name = product.Name;
-                    item.Amount = 1;
-                    item.Price = product.Price;
-                    db.RequestItems.Add(item);
-
-                    loadAdjustments(product, db, head);
-
-                    product = db.Products.Where(w => w.Id == viewModel.SizeId).First();
-                    item = new RequestItem();
-                    item.RequestHeadId = head.Id;
-                    item.Name = product.Name;
-                    item.Amount = 1;
-                    item.Price = product.Price;
-                    db.RequestItems.Add(item);
-
-                    loadAdjustments(product, db, head);
-
-                    product = db.Products.Where(w => w.ProductCategoryId == 3).First();
-                    item = new RequestItem();
-                    item.RequestHeadId = head.Id;
-                    item.Name = product.Name;
-                    item.Amount = viewModel.CountSubjects;
-                    item.Price = product.Price;
-                    db.RequestItems.Add(item);
-
-                    loadAdjustments(product, db, head);
-
-                    viewModel.Files = HttpContext.Session["Files"] as SortedList<string, WebImage> ?? new SortedList<string, WebImage>();
-                    for (int i = 0; i < viewModel.Files.Values.Count; i++)
-                    {
-                        image = new RequestImage();
-                        image.RequestHeadId = head.Id;
-                        image.Data = viewModel.Files.Values[i].GetBytes();
-                        db.RequestImages.Add(image);
-                    }
-
-                    await db.SaveChangesAsync();
-
-                }
-                HttpContext.Session["Files"] = null;
-
-                RedirectToAction(nameof(Index));
-
-                sendNotificationEmail();
-            }
+            sendNotificationEmail(viewModel);
 
             return View("CreateConfirm");
         }
 
-        private void sendNotificationEmail()//string firstName, string secondName
+        private void sendNotificationEmail(ViewModels.Request.Create viewModel)//string firstName, string secondName
         {
             try
             {
                 Object token = new object();
+                StringBuilder builder = new StringBuilder();
+                int price = 0;
+
+                builder.AppendLine("<table style=\"border-style:solid;\"><tbody>");
+
+                switch (viewModel.ProductId)
+                {
+                    case 0:
+                        builder.AppendLine($"<tr><td><b>Produkt:</b></td><td>Bleistiftporträt</td><td>60,00€</td></tr>");
+                        price = 60;
+                        break;
+
+                    case 1:
+                        builder.AppendLine($"<tr><td><b>Produkt:</b></td><td>Buntstiftporträt</td><td>80,00€</td></tr>");
+                        price = 80;
+                        break;
+
+                    case 2:
+                        builder.AppendLine($"<tr><td><b>Produkt:</b></td><td>Pastellporträt</td><td>100,00€</td></tr>");
+                        price = 100;
+                        break;
+
+                    default:
+                        break;
+                }
+
+                switch (viewModel.SizeId)
+                {
+                    case 0:
+                        builder.AppendLine($"<tr><td><b>Größe:</b></td><td>A4</td><td>0,00€</td></tr>");
+                        break;
+
+                    case 1:
+                        builder.AppendLine($"<tr><td><b>Größe:</b></td><td>A3</td><td>30,00€</td></tr>");
+                        price += 30;
+                        break;
+
+                    case 2:
+                        builder.AppendLine($"<tr><td><b>Größe:</b></td><td>A2</td><td>60,00€</td></tr>");
+                        price += 60;
+                        break;
+
+                    default:
+                        break;
+                }
+
+                price += (viewModel.CountSubjects - 1) * 20;
+                builder.AppendLine($"<tr><td><b>Anzahl Subjekte:</b></td><td>{viewModel.CountSubjects}</td><td>{(viewModel.CountSubjects - 1) * 20},00 €</td></tr>");
+                builder.AppendLine($"<tr><td colspan=\"2\">Gesamt:</td><td>{price},00 €</td></tr></tbody></table>");
+
+                builder.AppendLine($"<table style=\"border-style:solid;\"><tbody><tr><td>Name:</td><td>{viewModel.FirstName} {viewModel.LastName}</td></tr>");
+                builder.AppendLine($"<tr><td>Adresse:</td><td>{viewModel.StreetPostOfficeBox} {viewModel.HouseNumber}</td></tr>");
+                builder.AppendLine($"<tr><td></td><td>{viewModel.PostalCode} {viewModel.City}</td></tr>");
+                builder.AppendLine($"<tr><td>Email:</td><td>{viewModel.Email}</td></tr>");
+                builder.AppendLine($"<tr><td>Bemerkung:</td><td>{viewModel.Remarks}</td></tr></tbody></table>");
+
                 using (SmtpClient client = new SmtpClient("smtp.strato.de", 587))
                 {
                     MailMessage message = new MailMessage();
@@ -234,8 +201,13 @@ namespace TuRM.Portrait.Controllers
                     message.From = new MailAddress("webmaster@tm-portraits.de");
                     message.To.Add("kontakt@tm-portraits.de");
                     message.Subject = "Neue Bestellung eingetroffen";
-                    message.Body = $"{Server.MachineName}: Es ist eine neue Bestellung eingetroffen";//von {firstName} {secondName} 
-                    message.IsBodyHtml = false;
+                    message.Body = builder.ToString(); 
+                    message.IsBodyHtml = true;
+
+                    foreach (var item in viewModel.Files)
+                    {
+                        message.Attachments.Add(new Attachment(new MemoryStream(item.Value.GetBytes()), $"{item.Value.FileName}.{item.Value.ImageFormat}", $"image/{item.Value.ImageFormat}"));
+                    }
 
                     client.UseDefaultCredentials = false;
                     client.Credentials = new NetworkCredential("webmaster@tm-portraits.de", "architekTur25");
