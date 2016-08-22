@@ -1,7 +1,15 @@
 ﻿
+@font-face {
+    font-family:Britanic;
+    src:url(fonts/BRITANIC.TTF)
+}
+@font-face {
+    font-family:Rage;
+    src:url(fonts/RAGE.TTF);
+}
 
 body {
-    font-family: Britannic;
+    font-family: Britanic;
     color: #147179;
 }
 
