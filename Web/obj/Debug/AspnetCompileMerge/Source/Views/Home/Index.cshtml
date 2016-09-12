@@ -7,124 +7,207 @@
     <meta name="description" content="Handgezeichnetes Porträt vom Foto. Schenken Sie Erinnerung. Portraits schon ab 60,- €" />
     <meta name="keywords" content="geschenke, geschenkideen, geschenk, geschenkidee, schenken, geschenk ideen, ausgefallene geschenke, geschenk idee">
 }
-<div class="row">
-    <div class="col-xs-12">
-        <img src="/Content/images/carousel.JPG" alt="Tamara Martens - Portraitstudio" class="img-responsive" />
+<div class="container">
+    <a href="/Request/Create" role="button" class="btn btn-danger btn-lg left-docked hidden-xs">Bestellen &#187;</a>
+    <a href="/Request/Create" role="button" class="btn btn-danger left-docked visible-xs">Bestellen &#187;</a>
+    <div class="carousel-label">
+        <div class="row">
+            <div class="col-xs-11 col-xs-offset-1 col-sm-8 col-sm-offset-4">
+                <span class="author">Tamara Martens</span>
+                <ul>
+                    <li>Die <u>besondere</u> Geschenkidee für Geburtstage, Hochzeiten, Weinachten, Kommunion... und viele andere Anlässe</li>
+                    <li>Liebevoll <u>handgezeichnete</u> Porträts nach Ihrer persönlichen Fotovorlage</li>
+                    <li><u>Detaillierte</u> und <u>sorgfälltige</u> Arbeitsweise</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-galery">
+            <div class="galery-wrapper">
+                <button class="btn btn-lg" id="previous">&lt;</button>
+
+                <div class="galery">
+                    <ul>
+                        <li><img src="~/Content/images/examples/Pastelportrait1.jpg" alt="Pastelporträt" /></li>
+                        <li><img src="~/Content/images/examples/Bleistiftportrait1.jpg" alt="Bleistiftporträt" /></li>
+                        <li><img src="~/Content/images/examples/Buntstiftportrait2.jpg" alt="Buntstiftporträt" /></li>
+                        <li><img src="~/Content/images/examples/Pastelportrait2.jpg" alt="Pastelporträt" /></li>
+                        <li><img src="~/Content/images/examples/Buntstiftportrait1.jpg" alt="Buntstiftporträt" /></li>
+                        <li><img src="~/Content/images/examples/Bleistiftportrait3.jpg" alt="Bleistiftporträt" /></li>
+                        <li><img src="~/Content/images/examples/Bleistiftportrait4.jpg" alt="Bleistiftporträt" /></li>
+                        <li><img src="~/Content/images/examples/Bleistiftportrait5.jpg" alt="Bleistiftporträt" /></li>
+                        @*<li><img src="~/Content/images/examples/bild9.jpg" alt="Beispiel 9" /></li>
+                        <li><img src="~/Content/images/examples/bild10.jpg" alt="Beispiel 10" /></li>*@
+                        <li><img src="~/Content/images/examples/Bleistiftportrait2.jpg" alt="Bleistiftportrait" /></li>
+                        <li><img src="~/Content/images/examples/Buntstiftportrait3.jpg" alt="Buntstiftporträt" /></li>
+                    </ul>
+                </div>
+
+                <button class="btn btn-lg" id="next">&gt;</button>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="row  row-single">
-    <div class="col-xs-2 col-sm-1">
-        <a href="/Request/Create" role="button" class="btn btn-danger btn-lg left-docked">Bestellen</a>
-
+<div class="container">
+    <div class="row examples-container">
+        <div class="col-sm-4">
+            <ul class="tabs-buttons">
+                <li><button id="pastbtn" class="btn">Pastell</button></li><li>
+                    <button id="buntbtn" class="btn">Buntstift</button></li><li>
+                    <button id="bleibtn" class="btn">Bleistift</button></li>
+            </ul>
+            <ul class="tabs-content blei">
+                <li id="bleiimg"><img src="~/Content/images/Bleistift1.jpg" alt="Bleistift" /></li>
+                <li id="buntimg"><img src="~/Content/images/Buntstift2.jpg" alt="Buntstift" /></li>
+                <li id="pastimg"><img src="~/Content/images/Pastel3.jpg" alt="Pastel" /></li>
+            </ul>
+        </div>
+        <div class="col-sm-4">
+            <ul class="blei">
+                <li id="bleitext" class="selectedText">
+                    <h4>Bleistifporträt</h4>
+                    <p>Bei einer Bleistiftzeichnung arbeitet man mit Bleistiften verschiedener Grautöne.</p>
+                </li>
+                <li id="bunttext" class="hidden">
+                    <h4>Buntstiftporträt</h4>
+                    <p>Mit einer breiten Palette an farbigen Buntstiften kommt man der Vorlage erstaunlich nahe.</p>
+                </li>
+                <li id="pasttext" class="hidden">
+                    <h4>Pastellporträt</h4>
+                    <p>Leuchtende und lebendige Farben zeichnen ein Pastell-Porträt aus</p>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-4 text-center">
+            <a href="/Request/Create" role="button" class="btn btn-danger btn-lg">Bestellen &#187;</a>
+        </div>
     </div>
-    <div class="col-xs-10 col-sm-11">
-        <h4>Liebevoll handgezeichnete Portraits nach Ihrer Fotovorlage!</h4>
-        <p>Sind Sie auf der Suche nach einem ausgefallenen Geschenk? Wissen Sie nicht was Sie schenken sollen? Sie sehen sich tausende Geschenkideen, aber keine sagt Ihnen zu? Wie wäre es mit etwas Persönlichem, einer einzigartigen Geschenkidee?</p>
-        <p>Mit einem handgezeichnetem Portrait können Sie nichts falsch machen. Eine Zeichnung eines geliebten Menschen oder eines geschätzten Kollegen, ist eine Geschenkidee, an die man nicht sofort denkt. Genau deshalb, wird der Geschenkte positiv und angenehm überrascht sein. Sie sollten allerdings mindestens eine Woche im Voraus bestellen, denn je nach Auftragslage kann sich die Fertigstellung Ihres Portraits etwas hinausziehen.</p>
-    </div>
-</div>
- 
-  <div class="row hidden-xs">
-         <div class="col-sm-4">
-                 <img src="~/Content/images/Bleistift1.jpg"
-                        width="360" alt="Bleistiftporträt" class="img-thumbnail" />
-        
-    </div>
-         <div class="col-sm-4">
-                 <img src="~/Content/images/Buntstift2.jpg"
-                        width="200" alt="Buntstift-Portrait" class="img-thumbnail" />
-        
-    </div>
-         <div class="col-sm-4">
-                 <img src="~/Content/images/Pastel3.jpg" width="200" alt="Pastell-Zeichnung" class="img-thumbnail" />
-        
-    </div>
-</div>
- 
-  <div class="row hidden-xs">
-         <div class="col-sm-4">
-                 <h4>Bleistiftporträt</h4>
-                 <p>Bei einer Portr&#228;tzeichnung arbeitet man mit Bleistiften verschiedener Graut&#246;ne. Das Ergebnis ist eine schwarz-wei&#223;e Zeichnung.</p>
-        
-    </div>
-         <div class="col-sm-4">
-                 <h4>Buntstift-Portr&auml;t</h4>
-                 <p>Mit einer breiten Palette an farbigen Buntstiften kommt man der Vorlage erstaunlich nahe.</p>
-                 <p>Hier wurde auf einem grauen Papier gezeichnet.</p>
-        
-    </div>
-         <div class="col-sm-4">
-                 <h4>Pastell-Zeichnung</h4>
-                 <p>Leuchtende und lebendige Farben zeichnen ein Pastell-Portr&#228;t aus.</p>
-        
-    </div>
-    
-</div>
- 
-  <div class="row hidden-xs">
-         <div class="col-sm-4">
-                 <h6 class="text-right">ab 60,00 €</h6>
-        
-                 <p><a class="btn btn-danger" href="/Request/Create?productId=1" role="button">Jetzt bestellen &#187;</a></p>
-        
-    </div>
-         <div class="col-sm-4 hidden-xs">
-                 <h6 class="text-right">ab 80,00 €</h6>
-        
-                 <p><a class="btn btn-danger" href="/Request/Create?productId=2" role="button">Jetzt bestellen &#187;</a></p>
-        
-    </div>
-         <div class="col-sm-4 hidden-xs">
-                 <h6 class="text-right">ab 100,00 €</h6>
-        
-                 <p><a class="btn btn-danger" href="/Request/Create?productId=3" role="button">Jetzt bestellen &#187;</a></p>
-        
-        
-    </div>
-    
-</div>
- 
-  <div class="row hidden-sm hidden-md hidden-lg">
-         <div class="col-sm-4">
-                 <img src="~/Content/images/Bleistift1.jpg"
-                        width="360" alt="Bleistiftporträt" class="img-thumbnail" />
-                 <h4>Bleistiftporträt</h4>
-                 <p>Bei einer Portr&#228;tzeichnung arbeitet man mit Bleistiften verschiedener Graut&#246;ne. Das Ergebnis ist eine schwarz-wei&#223;e Zeichnung.</p>
-        
-                 <h6 class="text-right">ab 60,00 €</h6>
-        
-                 <p><a class="btn btn-danger" href="/Request/Create?productId=1" role="button">Jetzt bestellen &#187;</a></p>
-        
-    </div>
-         <div class="col-sm-4">
-                 <img src="~/Content/images/Buntstift2.jpg"
-                        width="200" alt="Buntstift-Portrait" class="img-thumbnail" />
-                 <h4>Buntstift-Portr&auml;t</h4>
-                 <p>Mit einer breiten Palette an farbigen Buntstiften kommt man der Vorlage erstaunlich nahe.</p>
-                 <p>Hier wurde auf einem grauen Papier gezeichnet.</p>
-        
-                 <h6 class="text-right">ab 80,00 €</h6>
-        
-                 <p><a class="btn btn-danger" href="/Request/Create?productId=2" role="button">Jetzt bestellen &#187;</a></p>
-        
-    </div>
-         <div class="col-sm-4">
-                 <img src="~/Content/images/Pastel3.jpg" width="200" alt="Pastell-Zeichnung" class="img-thumbnail" />
-                 <h4>Pastell-Zeichnung</h4>
-                 <p>Leuchtende und lebendige Farben zeichnen ein Pastell-Portr&#228;t aus.</p>
-        
-                 <h6 class="text-right">ab 100,00 €</h6>
-        
-                 <p><a class="btn btn-danger" href="/Request/Create?productId=3" role="button">Jetzt bestellen &#187;</a></p>
-        
-    </div>
-    
 </div>
 
+@section Scripts{
+    <script type="text/javascript" async>
+        var oWrapper = $('.galery-wrapper')[0],
+            oGalery = $('.galery')[0],
+            oImages = $('.galery > ul > li > img');
 
-<div class="row row-single">
-    <div class="col-xs-12">
-        <img src="~/Content/images/movie.jpg" alt="Galerie" class="img-responsive" />
-    </div>
-</div>
+        function getPreviousPos() {
+            var pos,
+                left,
+                margin;
+
+            for (var i = 0; i < oImages.length; i++) {
+                if (!left) {
+                    if (($(oImages[i]).offset().left - $(oGalery).offset().left) >= 0) {
+                        //komplett sichtbar
+                        left = -oGalery.clientWidth;
+                        i = -1;
+                    } else if (Math.abs($(oImages[i]).offset().left - $(oGalery).offset().left) < oImages[i].width) {
+                        left = $(oImages[i < oImages.length ? i + 1 : i]).offset().left - $(oGalery).offset().left - oGalery.clientWidth;
+                        i = -1;
+                    }
+                } else if (($(oImages[i]).offset().left - $(oGalery).offset().left) >= left) {
+                    break;
+                }
+            }
+
+            if (i == oImages.length) {
+                return;
+            }
+
+            if (document.defaultView && document.defaultView.getComputedStyle) {
+                margin = parseInt(document.defaultView.getComputedStyle(oImages[i].parentElement, "").getPropertyValue("margin-Left"));
+            }
+
+            pos = $(oImages[i]).offset().left - $(oGalery).offset().left;
+            pos -= margin;
+            pos = oGalery.scrollLeft + pos;
+            return pos > 0 ? pos : 0;
+        }
+
+        function getNextPos() {
+            var margin = 0,
+                right,
+                left;
+
+
+            for (var i = 0; i < oImages.length; i++) {
+                left = $(oImages[i]).offset().left - $(oGalery).offset().left;
+                right = left + oImages[i].width;
+                if (right > oGalery.clientWidth) {
+                    break;
+                }
+            }
+            if (i == oImages.length) {
+                return;
+            }
+
+            if (document.defaultView && document.defaultView.getComputedStyle) {
+                margin = parseInt(document.defaultView.getComputedStyle(oImages[i].parentElement, "").getPropertyValue("margin-Left"));
+            }
+
+            return oGalery.scrollLeft + left - margin;
+        }
+
+        if (getNextPos()) {
+            $('#next').show();
+        }
+
+        $('#next').click(function (oEvent) {
+            var pos = getNextPos();
+
+            if (!pos) {
+                return;
+            }
+            $(oGalery).animate({
+                scrollLeft: pos
+            },
+            'slow',
+            function () {
+                if (!getNextPos()) {
+                    $('#next').hide();
+                }
+                $('#previous').show();
+            });
+        });
+
+        $('#previous').click(function (oEvent) {
+            var pos = getPreviousPos();
+
+            if (pos == oGalery.scrollLeft) {
+                return;
+            }
+
+            $(oGalery).animate({
+                scrollLeft: pos
+            },
+                        'slow',
+                        function () {
+                            if (!oGalery.scrollLeft) {
+                                $('#previous').hide();
+                            }
+                            $('#next').show();
+                        });
+        });
+
+        var sSelected = 'blei';
+
+        $('.tabs-buttons > li > button').click(function (oEvent) {
+            var oTabPages = $('.tabs-content')[0],
+                oTextOld = $('#' + sSelected + 'text')[0],
+                oSelectedText = $('#' + oEvent.target.id.substring(0, 4) + 'text')[0];
+
+            $(oTabPages).removeClass(sSelected);
+            $(oTextOld).addClass('hidden');
+            $(oTextOld).removeClass('selectedText');
+
+            sSelected = oEvent.target.id.substring(0, 4);
+
+            $(oTabPages).addClass(sSelected);
+            $(oSelectedText).addClass('selectedText');
+            $(oSelectedText).removeClass('hidden');
+
+        });
+    </script>
+}

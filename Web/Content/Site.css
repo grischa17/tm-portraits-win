@@ -323,7 +323,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     background-color:#02AFB5;
 }
     .examples-container > .col-sm-4 {
-        min-height:330px;
+        min-height:100px;
     }
 
     .examples-container > .col-sm-4 > ul > li > h4 {
@@ -376,7 +376,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 .tabs-content {
     display:inline-flex;
     width:226px;
-    min-height:300px;
+    min-height:320px;
     margin-top:20px;
 }
 
@@ -390,8 +390,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
         }
 
 .blei > li > img {
-    width:229px;
-    height:265px;
+    width:185px;
+    height:300px;
 }
 .blei > #bleiimg {
     z-index:3;
@@ -409,8 +409,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 }
 
 .bunt > li > img {
-    width:160px;
-    height:265px;
+    width:156px;
+    height:278px;
 }
 .bunt > #bleiimg {
     z-index:2;
@@ -428,8 +428,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 }
 
 .past > li > img {
-    width:175px;
-    height:265px;
+    width:192px;
+    height:278px;
 }
 .past > #bleiimg {
     z-index:1;
@@ -458,13 +458,14 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
         font-weight:bold;
         font-size: 17px;
     }
+@media(min-width:768px) {
+    .blei > li > h4, .bunt > li > h4, .past > li > h4 {
+        margin-top: 92px;
+    }
 
-.blei > li > h4, .bunt > li > h4, .past > li > h4 {
-    margin-top:92px;
-}
-
-.examples-container > .col-sm-4 > a {
-    margin-top:142px;
+    .examples-container > .col-sm-4 > a {
+        margin-top: 142px;
+    }
 }
 
 hr {
