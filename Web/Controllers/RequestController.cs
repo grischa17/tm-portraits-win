@@ -193,7 +193,7 @@ namespace TuRM.Portrait.Controllers
                 builder.AppendLine($"<tr><td></td><td>{viewModel.PostalCode} {viewModel.City}</td></tr>");
                 builder.AppendLine($"<tr><td>Email:</td><td>{viewModel.Email}</td></tr>");
                 builder.AppendLine($"<tr><td>Bemerkung:</td><td>{viewModel.Remarks}</td></tr></tbody></table>");
-
+                
                 using (SmtpClient client = new SmtpClient("smtp.strato.de", 587))
                 {
                     MailMessage message = new MailMessage();
@@ -215,7 +215,7 @@ namespace TuRM.Portrait.Controllers
                     client.EnableSsl = true;
                     client.SendCompleted += Client_SendCompleted;
 
-                    client.Send(message);
+                    client.SendAsync(message, token);
                 }
             }
             catch (Exception ex)
