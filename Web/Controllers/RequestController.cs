@@ -12,6 +12,8 @@ using System.Net.Mail;
 using System.Net;
 using System.Text;
 using System.IO;
+using System.Diagnostics;
+using System.Threading;
 
 namespace TuRM.Portrait.Controllers
 {
@@ -128,7 +130,12 @@ namespace TuRM.Portrait.Controllers
 
             RedirectToAction(nameof(Index));
 
-            sendNotificationEmail(viewModel);
+            var sendMailThread = new Thread(() => {
+
+                sendNotificationEmail(viewModel);
+            });
+
+            sendMailThread.Start();
 
             return View("CreateConfirm");
         }
@@ -220,7 +227,10 @@ namespace TuRM.Portrait.Controllers
             }
             catch (Exception ex)
             {
-                
+                if (Debugger.IsAttached)
+                {
+                    Debugger.Break();
+                }
             }
         }
         
