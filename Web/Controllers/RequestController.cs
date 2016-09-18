@@ -74,7 +74,7 @@ namespace TuRM.Portrait.Controllers
 
                 db.Entry(head).Collection(c => c.RequestImages).Load();
                 viewModel.Images = mapper.Map<List<ViewModels.Request.Image>>(head.RequestImages);
-              
+
             }
 
             return View(viewModel);
@@ -121,119 +121,116 @@ namespace TuRM.Portrait.Controllers
             }
         }
 
-        public ActionResult Create(ViewModels.Request.Create viewModel)
+        public async Task<ActionResult> Create(ViewModels.Request.Create viewModel)
         {
 
             viewModel.Files = HttpContext.Session["Files"] as SortedList<string, WebImage> ?? new SortedList<string, WebImage>();
 
             HttpContext.Session["Files"] = null;
 
+            await toDb(viewModel);
+
             RedirectToAction(nameof(Index));
-
-            var sendMailThread = new Thread(() => {
-
-                sendNotificationEmail(viewModel);
-            });
-
-            sendMailThread.Start();
 
             return View("CreateConfirm");
         }
 
-        private void sendNotificationEmail(ViewModels.Request.Create viewModel)//string firstName, string secondName
+        private string getBody(ViewModels.Request.Create viewModel)
         {
-            try
+            StringBuilder builder = new StringBuilder();
+            int price = 0;
+
+            builder.AppendLine("<table style=\"border-style:solid;\"><tbody>");
+
+            switch (viewModel.ProductId)
             {
-                Object token = new object();
-                StringBuilder builder = new StringBuilder();
-                int price = 0;
+                case 0:
+                    builder.AppendLine($"<tr><td><b>Produkt:</b></td><td>Bleistiftporträt</td><td>60,00€</td></tr>");
+                    price = 60;
+                    break;
 
-                builder.AppendLine("<table style=\"border-style:solid;\"><tbody>");
+                case 1:
+                    builder.AppendLine($"<tr><td><b>Produkt:</b></td><td>Buntstiftporträt</td><td>80,00€</td></tr>");
+                    price = 80;
+                    break;
 
-                switch (viewModel.ProductId)
-                {
-                    case 0:
-                        builder.AppendLine($"<tr><td><b>Produkt:</b></td><td>Bleistiftporträt</td><td>60,00€</td></tr>");
-                        price = 60;
-                        break;
+                case 2:
+                    builder.AppendLine($"<tr><td><b>Produkt:</b></td><td>Pastellporträt</td><td>100,00€</td></tr>");
+                    price = 100;
+                    break;
 
-                    case 1:
-                        builder.AppendLine($"<tr><td><b>Produkt:</b></td><td>Buntstiftporträt</td><td>80,00€</td></tr>");
-                        price = 80;
-                        break;
-
-                    case 2:
-                        builder.AppendLine($"<tr><td><b>Produkt:</b></td><td>Pastellporträt</td><td>100,00€</td></tr>");
-                        price = 100;
-                        break;
-
-                    default:
-                        break;
-                }
-
-                switch (viewModel.SizeId)
-                {
-                    case 0:
-                        builder.AppendLine($"<tr><td><b>Größe:</b></td><td>A4</td><td>0,00€</td></tr>");
-                        break;
-
-                    case 1:
-                        builder.AppendLine($"<tr><td><b>Größe:</b></td><td>A3</td><td>30,00€</td></tr>");
-                        price += 30;
-                        break;
-
-                    case 2:
-                        builder.AppendLine($"<tr><td><b>Größe:</b></td><td>A2</td><td>60,00€</td></tr>");
-                        price += 60;
-                        break;
-
-                    default:
-                        break;
-                }
-
-                price += (viewModel.CountSubjects - 1) * 20;
-                builder.AppendLine($"<tr><td><b>Anzahl Subjekte:</b></td><td>{viewModel.CountSubjects}</td><td>{(viewModel.CountSubjects - 1) * 20},00 €</td></tr>");
-                builder.AppendLine($"<tr><td colspan=\"2\">Gesamt:</td><td>{price},00 €</td></tr></tbody></table>");
-
-                builder.AppendLine($"<table style=\"border-style:solid;\"><tbody><tr><td>Name:</td><td>{viewModel.FirstName} {viewModel.LastName}</td></tr>");
-                builder.AppendLine($"<tr><td>Adresse:</td><td>{viewModel.StreetPostOfficeBox} {viewModel.HouseNumber}</td></tr>");
-                builder.AppendLine($"<tr><td></td><td>{viewModel.PostalCode} {viewModel.City}</td></tr>");
-                builder.AppendLine($"<tr><td>Email:</td><td>{viewModel.Email}</td></tr>");
-                builder.AppendLine($"<tr><td>Bemerkung:</td><td>{viewModel.Remarks}</td></tr></tbody></table>");
-                
-                using (SmtpClient client = new SmtpClient("smtp.strato.de", 587))
-                {
-                    MailMessage message = new MailMessage();
-
-                    message.From = new MailAddress("webmaster@tm-portraits.de");
-                    message.To.Add("kontakt@tm-portraits.de");
-                    message.Subject = "Neue Bestellung eingetroffen";
-                    message.Body = builder.ToString(); 
-                    message.IsBodyHtml = true;
-
-                    foreach (var item in viewModel.Files)
-                    {
-                        message.Attachments.Add(new Attachment(new MemoryStream(item.Value.GetBytes()), $"{item.Value.FileName}.{item.Value.ImageFormat}", $"image/{item.Value.ImageFormat}"));
-                    }
-
-                    client.UseDefaultCredentials = false;
-                    client.Credentials = new NetworkCredential("webmaster@tm-portraits.de", "architekTur25");
-                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    client.EnableSsl = true;
-                    client.SendCompleted += Client_SendCompleted;
-
-                    client.SendAsync(message, token);
-                }
+                default:
+                    break;
             }
-            catch (Exception ex)
+
+            switch (viewModel.SizeId)
             {
-                if (Debugger.IsAttached)
-                {
-                    Debugger.Break();
-                }
+                case 0:
+                    builder.AppendLine($"<tr><td><b>Größe:</b></td><td>A4</td><td>0,00€</td></tr>");
+                    break;
+
+                case 1:
+                    builder.AppendLine($"<tr><td><b>Größe:</b></td><td>A3</td><td>30,00€</td></tr>");
+                    price += 30;
+                    break;
+
+                case 2:
+                    builder.AppendLine($"<tr><td><b>Größe:</b></td><td>A2</td><td>60,00€</td></tr>");
+                    price += 60;
+                    break;
+
+                default:
+                    break;
             }
+
+            price += (viewModel.CountSubjects - 1) * 20;
+            builder.AppendLine($"<tr><td><b>Anzahl Subjekte:</b></td><td>{viewModel.CountSubjects}</td><td>{(viewModel.CountSubjects - 1) * 20},00 €</td></tr>");
+            builder.AppendLine($"<tr><td colspan=\"2\">Gesamt:</td><td>{price},00 €</td></tr></tbody></table>");
+
+            builder.AppendLine($"<table style=\"border-style:solid;\"><tbody><tr><td>Name:</td><td>{viewModel.FirstName} {viewModel.LastName}</td></tr>");
+            builder.AppendLine($"<tr><td>Adresse:</td><td>{viewModel.StreetPostOfficeBox} {viewModel.HouseNumber}</td></tr>");
+            builder.AppendLine($"<tr><td></td><td>{viewModel.PostalCode} {viewModel.City}</td></tr>");
+            builder.AppendLine($"<tr><td>Email:</td><td>{viewModel.Email}</td></tr>");
+            builder.AppendLine($"<tr><td>Bemerkung:</td><td>{viewModel.Remarks}</td></tr></tbody></table>");
+
+            return builder.ToString();
         }
-        
+
+        private async Task toDb(ViewModels.Request.Create viewModel)
+        {
+            int i = 0; 
+            using (EmailDbContext db = new EmailDbContext())
+            {
+                OutBoxMail mail = new OutBoxMail();
+                OutBoxAttachment attachment;
+
+                mail.Body = getBody(viewModel);
+
+                db.OutBox.Add(mail);
+
+                await db.SaveChangesAsync();
+
+                db.Entry(mail).Reload();
+                
+                foreach (var item in viewModel.Files)
+                {
+                    attachment = new OutBoxAttachment();
+
+                    attachment.MailId = mail.Id;
+
+                    attachment.Data = item.Value.GetBytes();
+                    attachment.FileName = $"{(string.IsNullOrWhiteSpace(item.Value.FileName)? ("image" + (++i).ToString()) : item.Value.FileName)}.{item.Value.ImageFormat}";
+                    attachment.MediaType = $"image/{item.Value.ImageFormat}";
+
+                    db.OutBoxAttachments.Add(attachment);
+                }
+                
+                await db.SaveChangesAsync();
+
+            }
+
+        }
+
         private void Client_SendCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
             return;

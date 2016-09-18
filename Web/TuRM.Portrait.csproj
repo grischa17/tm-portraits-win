@@ -240,6 +240,7 @@
     <Compile Include="Models\BillHead.cs" />
     <Compile Include="Models\BillItem.cs" />
     <Compile Include="Models\ApplicationIdentityDbContext.cs" />
+    <Compile Include="Models\EmailDbContext.cs" />
     <Compile Include="Models\IApplicationDbContext.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PriceAdjustment.cs" />
@@ -330,6 +331,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="googlea3f37bae6695c597.html" />
+    <Content Include="robots.txt" />
     <Content Include="Scripts\bootstrap-slider.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

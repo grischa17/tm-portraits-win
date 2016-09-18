@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuRM.Portrait", "Web\TuRM.Portrait.csproj", "{E0808112-6DD7-42DD-B55D-E6F546A2AF3E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuRM.Portrait.Test", "TuRM.Portrait.Test\TuRM.Portrait.Test.csproj", "{98CE356B-6B04-4EB3-A40F-27EE22EB5ED4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sendMail", "sendMail\sendMail.csproj", "{568F2923-0C69-4CAE-85B1-64D0953D9710}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,22 @@ Global
 		{98CE356B-6B04-4EB3-A40F-27EE22EB5ED4}.Release|x64.Build.0 = Release|Any CPU
 		{98CE356B-6B04-4EB3-A40F-27EE22EB5ED4}.Release|x86.ActiveCfg = Release|Any CPU
 		{98CE356B-6B04-4EB3-A40F-27EE22EB5ED4}.Release|x86.Build.0 = Release|Any CPU
+		{568F2923-0C69-4CAE-85B1-64D0953D9710}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{568F2923-0C69-4CAE-85B1-64D0953D9710}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{568F2923-0C69-4CAE-85B1-64D0953D9710}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{568F2923-0C69-4CAE-85B1-64D0953D9710}.Debug|ARM.Build.0 = Debug|Any CPU
+		{568F2923-0C69-4CAE-85B1-64D0953D9710}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{568F2923-0C69-4CAE-85B1-64D0953D9710}.Debug|x64.Build.0 = Debug|Any CPU
+		{568F2923-0C69-4CAE-85B1-64D0953D9710}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{568F2923-0C69-4CAE-85B1-64D0953D9710}.Debug|x86.Build.0 = Debug|Any CPU
+		{568F2923-0C69-4CAE-85B1-64D0953D9710}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{568F2923-0C69-4CAE-85B1-64D0953D9710}.Release|Any CPU.Build.0 = Release|Any CPU
+		{568F2923-0C69-4CAE-85B1-64D0953D9710}.Release|ARM.ActiveCfg = Release|Any CPU
+		{568F2923-0C69-4CAE-85B1-64D0953D9710}.Release|ARM.Build.0 = Release|Any CPU
+		{568F2923-0C69-4CAE-85B1-64D0953D9710}.Release|x64.ActiveCfg = Release|Any CPU
+		{568F2923-0C69-4CAE-85B1-64D0953D9710}.Release|x64.Build.0 = Release|Any CPU
+		{568F2923-0C69-4CAE-85B1-64D0953D9710}.Release|x86.ActiveCfg = Release|Any CPU
+		{568F2923-0C69-4CAE-85B1-64D0953D9710}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
