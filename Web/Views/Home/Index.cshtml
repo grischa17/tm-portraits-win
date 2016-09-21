@@ -5,7 +5,7 @@
 
 @section Head{
     <meta name="description" content="Handgezeichnetes Porträt vom Foto. Schenken Sie Erinnerung. Portraits schon ab 60,- €" />
-    <meta name="keywords" content="geschenke, geschenkideen, geschenk, geschenkidee, schenken, geschenk ideen, ausgefallene geschenke, geschenk idee">
+    <meta name="keywords" content="geschenke, geschenkideen, geschenk, geschenkidee, persoenliche geschenke, geburtstagsgeschenke, schenken, geschenke fuer maenner">
 }
 <div class="container">
     <a href="/Request/Create" role="button" class="btn btn-danger btn-lg left-docked hidden-xs">Bestellen &#187;</a>
@@ -59,23 +59,23 @@
                     <button id="bleibtn" class="btn">Bleistift</button></li>
             </ul>
             <ul class="tabs-content blei">
-                <li id="bleiimg"><img src="~/Content/images/Bleistift1.jpg" alt="Bleistift" /></li>
-                <li id="buntimg"><img src="~/Content/images/Buntstift2.jpg" alt="Buntstift" /></li>
-                <li id="pastimg"><img src="~/Content/images/Pastel3.jpg" alt="Pastel" /></li>
+                <li id="bleiimg"><img src="~/Content/images/Bleistiftportrait.jpg" alt="Bleistiftporträt vom Foto" /></li>
+                <li id="buntimg"><img src="~/Content/images/Buntstiftportrait.jpg" alt="Buntstiftporträt vom Foto" /></li>
+                <li id="pastimg"><img src="~/Content/images/Pastelportrait.jpg" alt="Pastelporträt vom Foto" /></li>
             </ul>
         </div>
         <div class="col-sm-4">
             <ul class="blei">
                 <li id="bleitext" class="selectedText">
-                    <h4>Bleistifporträt</h4>
+                    <h2>Bleistifporträt</h2>
                     <p>Bei einer Bleistiftzeichnung arbeitet man mit Bleistiften verschiedener Grautöne.</p>
                 </li>
                 <li id="bunttext" class="hidden">
-                    <h4>Buntstiftporträt</h4>
+                    <h2>Buntstiftporträt</h2>
                     <p>Mit einer breiten Palette an farbigen Buntstiften kommt man der Vorlage erstaunlich nahe.</p>
                 </li>
                 <li id="pasttext" class="hidden">
-                    <h4>Pastellporträt</h4>
+                    <h2>Pastellporträt</h2>
                     <p>Leuchtende und lebendige Farben zeichnen ein Pastell-Porträt aus</p>
                 </li>
             </ul>
@@ -86,128 +86,29 @@
     </div>
 </div>
 
+<div class="hidden" itemscope itemtype="http://data-vocabulary.org/Product">
+    <div>
+        <strong>
+            <span itemprop="name">Porträt vom Foto</span>
+            <span itemprop="description">Liebevoll handgezeichnetes Porträt von Ihrer Fotovorlage</span>
+        </strong>
+    </div>
+    <div itemprop="offerDetails" itemscope itemtype="http://data-vocabulary.org/Offer-Aggregate">
+        <meta itemprop="currency" content="EUR" />
+        <div>
+            <strong>Preis ab:</strong> <span itemprop="lowPrice">60.00</span>€
+        </div>
+        <div>
+            <strong>Bestellen unter:</strong> <span itemprop="offerURL">http://www.tm-portraits.de/Request/Create</span>
+        </div>
+    </div>
+</div>
+<script type="application/ld+json" src="~/Scripts/website.js">
+</script>
+<script type="application/ld+json" src="~/Scripts/product.js">
+</script>
 @section Scripts{
-    <script type="text/javascript" async>
-        var oWrapper = $('.galery-wrapper')[0],
-            oGalery = $('.galery')[0],
-            oImages = $('.galery > ul > li > img');
+    <script type="text/javascript" src="~/Scripts/index.js" async>
 
-        function getPreviousPos() {
-            var pos,
-                left,
-                margin;
-
-            for (var i = 0; i < oImages.length; i++) {
-                if (!left) {
-                    if (($(oImages[i]).offset().left - $(oGalery).offset().left) >= 0) {
-                        //komplett sichtbar
-                        left = -oGalery.clientWidth;
-                        i = -1;
-                    } else if (Math.abs($(oImages[i]).offset().left - $(oGalery).offset().left) < oImages[i].width) {
-                        left = $(oImages[i < oImages.length ? i + 1 : i]).offset().left - $(oGalery).offset().left - oGalery.clientWidth;
-                        i = -1;
-                    }
-                } else if (($(oImages[i]).offset().left - $(oGalery).offset().left) >= left) {
-                    break;
-                }
-            }
-
-            if (i == oImages.length) {
-                return;
-            }
-
-            if (document.defaultView && document.defaultView.getComputedStyle) {
-                margin = parseInt(document.defaultView.getComputedStyle(oImages[i].parentElement, "").getPropertyValue("margin-Left"));
-            }
-
-            pos = $(oImages[i]).offset().left - $(oGalery).offset().left;
-            pos -= margin;
-            pos = oGalery.scrollLeft + pos;
-            return pos > 0 ? pos : 0;
-        }
-
-        function getNextPos() {
-            var margin = 0,
-                right,
-                left;
-
-
-            for (var i = 0; i < oImages.length; i++) {
-                left = $(oImages[i]).offset().left - $(oGalery).offset().left;
-                right = left + oImages[i].width;
-                if (right > oGalery.clientWidth) {
-                    break;
-                }
-            }
-            if (i == oImages.length) {
-                return;
-            }
-
-            if (document.defaultView && document.defaultView.getComputedStyle) {
-                margin = parseInt(document.defaultView.getComputedStyle(oImages[i].parentElement, "").getPropertyValue("margin-Left"));
-            }
-
-            return oGalery.scrollLeft + left - margin;
-        }
-
-        if (getNextPos()) {
-            $('#next').show();
-        }
-
-        $('#next').click(function (oEvent) {
-            var pos = getNextPos();
-
-            if (!pos) {
-                return;
-            }
-            $(oGalery).animate({
-                scrollLeft: pos
-            },
-            'slow',
-            function () {
-                if (!getNextPos()) {
-                    $('#next').hide();
-                }
-                $('#previous').show();
-            });
-        });
-
-        $('#previous').click(function (oEvent) {
-            var pos = getPreviousPos();
-
-            if (pos == oGalery.scrollLeft) {
-                return;
-            }
-
-            $(oGalery).animate({
-                scrollLeft: pos
-            },
-                        'slow',
-                        function () {
-                            if (!oGalery.scrollLeft) {
-                                $('#previous').hide();
-                            }
-                            $('#next').show();
-                        });
-        });
-
-        var sSelected = 'blei';
-
-        $('.tabs-buttons > li > button').click(function (oEvent) {
-            var oTabPages = $('.tabs-content')[0],
-                oTextOld = $('#' + sSelected + 'text')[0],
-                oSelectedText = $('#' + oEvent.target.id.substring(0, 4) + 'text')[0];
-
-            $(oTabPages).removeClass(sSelected);
-            $(oTextOld).addClass('hidden');
-            $(oTextOld).removeClass('selectedText');
-
-            sSelected = oEvent.target.id.substring(0, 4);
-
-            $(oTabPages).addClass(sSelected);
-            $(oSelectedText).addClass('selectedText');
-            $(oSelectedText).removeClass('hidden');
-
-        });
     </script>
 }

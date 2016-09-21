@@ -275,8 +275,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\icon.ico" />
-    <Content Include="Content\images\Bleistift1.jpg" />
-    <Content Include="Content\images\Buntstift2.jpg" />
+    <Content Include="Content\images\Bleistiftportrait.jpg" />
+    <Content Include="Content\images\Buntstiftportrait.jpg" />
     <Content Include="Content\images\button.jpg" />
     <Content Include="Content\images\carousel.jpg" />
     <Content Include="Content\images\examples\bild10.jpg" />
@@ -291,7 +291,8 @@
     <Content Include="Content\images\examples\Pastelportrait1.jpg" />
     <Content Include="Content\images\examples\bild9.jpg" />
     <Content Include="Content\images\examples\Pastelportrait2.jpg" />
-    <Content Include="Content\images\Pastel3.jpg" />
+    <Content Include="Content\images\Pastelportrait.jpg" />
+    <Content Include="Content\images\Portrait_vom_foto.jpg" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -347,6 +348,8 @@
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\google.analytics.js" />
+    <Content Include="Scripts\index.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
@@ -358,10 +361,12 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\product.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\website.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

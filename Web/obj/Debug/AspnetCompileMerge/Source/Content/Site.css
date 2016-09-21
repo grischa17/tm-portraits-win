@@ -326,7 +326,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
         min-height:100px;
     }
 
-    .examples-container > .col-sm-4 > ul > li > h4 {
+    .examples-container > .col-sm-4 > ul > li > h2 {
         color:#147179;
     }
 .tabs-buttons {
@@ -448,7 +448,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 .selectedText {
     display:block;
 }
-    .selectedText > h4 {
+    .selectedText > h2 {
         text-transform:initial;
         margin-top: 40px;
         font-size:23px;
@@ -459,7 +459,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
         font-size: 17px;
     }
 @media(min-width:768px) {
-    .blei > li > h4, .bunt > li > h4, .past > li > h4 {
+    .blei > li > h2, .bunt > li > h2, .past > li > h2 {
         margin-top: 92px;
     }
 
