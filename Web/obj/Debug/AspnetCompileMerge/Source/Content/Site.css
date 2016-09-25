@@ -11,6 +11,7 @@
 body {
     font-family: Britanic;
     color: #147179;
+    font-size:17px;
 }
 
 @media print {
@@ -27,6 +28,9 @@ body {
     }
 }
 
+p {
+    padding: 20px 0;
+}
 
 .slider-handle {
     background-image: linear-gradient(to bottom,#520203 0,#621213 100%);
@@ -341,7 +345,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
             color:white;
             text-transform:uppercase;
             font-weight:bold;
-            font-size:17px;
+            /*font-size:17px;*/
         }
 
 #bleibtn {
@@ -456,7 +460,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     .selectedText > p {
         color:white;
         font-weight:bold;
-        font-size: 17px;
+        /*font-size: 17px;*/
     }
 @media(min-width:768px) {
     .blei > li > h2, .bunt > li > h2, .past > li > h2 {
