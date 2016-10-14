@@ -10,22 +10,12 @@
 <div class="container">
     <a href="/Request/Create" role="button" class="btn btn-danger btn-lg left-docked hidden-xs">Bestellen &#187;</a>
     <a href="/Request/Create" role="button" class="btn btn-danger left-docked visible-xs">Bestellen &#187;</a>
-    <div class="carousel-label">
+    <div class="container carousel-label">
         <div class="row">
             <div class="col-xs-11 col-xs-offset-1 col-sm-8 col-sm-offset-4">
                 <span class="author">Tamara Martens</span>
-                <ul>
-                    <li>Die <u>besondere</u> Geschenkidee für Geburtstage, Hochzeiten, Weinachten, Kommunion... und viele andere Anlässe</li>
-                    <li>Liebevoll <u>handgezeichnete</u> Porträts nach Ihrer persönlichen Fotovorlage</li>
-                    <li><u>Detaillierte</u> und <u>sorgfälltige</u> Arbeitsweise</li>
-                </ul>
+                <p>Sie sind auf der Suche nach einem sehr <u>ausgefallenen Geschenk</u>? Für Ihre Liebsten, Ihre Freunde und Bekannte? Wie wäre mit einer Original-Porträtzeichnung? Liebevoll <u>handgezeichnete Porträts</u> nach Ihrer Fotovorlage. Detaillierte und sorgfältige Arbeitsweise. Die <u>exklusivste Geschenkidee</u> für Hochzeiten, Weinachten, Kommunion oder Konfirmation und viele andere Anlässe.</p>
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <p>Sie sind auf der Suche nach einem wirklich ausgefallenen Geschenk, welches persönlicher und individueller nicht sein kann? Für Ihre Liebsten, Ihre Freunde und Bekannte? Wie wäre es mit einer Original- Porträtzeichnung?</p>
-            <p>Liebevoll handgezeichnete Porträts nach Ihrer persönlichen Fotovorlage. Detaillierte und sorgfältige Arbeitsweise. Die exklusive Geschenkidee für viele Anlässe (Hochzeiten, Weinachten, Kommunion und viele andere Anlässe).</p>
         </div>
     </div>
     <div class="row">
@@ -56,44 +46,56 @@
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <h2>Der Bestellvorgang</h2>
-            <p>Auf der Seite finden Sie den Punkt „Bestellen“, dort finden Sie ein Bestellformular. Füllen Sie dieses mit Ihren persönlichen Angaben und Wünschen aus. Sie können direkt Ihre zeichnende <b>Fotovorlage hochladen</b> oder mir diese per Email schicken. Beachten Sie, dass der Formular sich nur mit einem hochgeladenem Bild abschicken lässt. Die E-Mail-Adresse finden Sie unter dem Menüpunkt „Kontakt“.</p>
+            <p>Neben Menschenporträts erstelle ich Ihnen gerne auch Bilder von Ihrem Hund, Ihrer Katze, Ihrem Pferd oder Ihrem Auto. Es werden nur <u>hochwertige Künstler-Materialien</u> verwendet und somit wird Ihr Bild in leuchtenden Farben erstrahlen. Alle Zeichnungen werden <u>fixiert</u>. Fixiert bedeutet, dass nach der Fertigstellung das Porträt mit speziellem Spray besprüht wird, welches die Zeichnung von dem Verwischen schützt. Es ist möglich auch <u>zwei oder mehrere Fotos</u> zu einem Porträt zusammen zu fügen. Die Porträts werden ohne Hintergrund gezeichnet. Ich kann Ihnen auch ein <u>Hintergrund nach Ihrer Wahl</u> gegen Aufpreis zeichnen. Nehmen Sie unverbindlich Kontakt mit mir auf und wir sprechen darüber. Natürlich können Sie mich auch per Email anschreiben.</p>
         </div>
     </div>
 </div>
 
 <div class="container">
     <div class="row examples-container">
-        <div class="col-sm-4">
+        <div class="col-lg-7">
             <ul class="tabs-buttons">
                 <li><button id="pastbtn" class="btn">Pastell</button></li><li>
                     <button id="buntbtn" class="btn">Buntstift</button></li><li>
-                    <button id="bleibtn" class="btn">Bleistift</button></li>
+                    <button id="bleibtn" class="btn active">Bleistift</button></li>
             </ul>
             <ul class="tabs-content blei">
-                <li id="bleiimg"><img src="~/Content/images/Bleistiftportrait.jpg" alt="Bleistiftporträt vom Foto" /></li>
-                <li id="buntimg"><img src="~/Content/images/Buntstiftportrait.jpg" alt="Buntstiftporträt vom Foto" /></li>
-                <li id="pastimg"><img src="~/Content/images/Pastelportrait.jpg" alt="Pastelporträt vom Foto" /></li>
+                <li id="bleiimg">
+                    <img src="~/Content/images/Portrait_vom_foto.jpg" class="img-responsive visible-xs" alt="Bleistiftporträt vom Foto" />
+                    <img src="~/Content/images/Portrait_vom_foto.jpg" class="hidden-xs" alt="Bleistiftporträt vom Foto" />
+                </li>
+                <li id="buntimg">
+                    <img src="~/Content/images/Buntstiftportrait.jpg" class="img-responsive visible-xs" alt="Buntstiftporträt vom Foto" />
+                    <img src="~/Content/images/Buntstiftportrait.jpg" class="hidden-xs" alt="Buntstiftporträt vom Foto" />
+                </li>
+                <li id="pastimg">
+                    <img src="~/Content/images/Pastelportrait.jpg" class="img-responsive visible-xs" alt="Pastelporträt vom Foto" />
+                    <img src="~/Content/images/Pastelportrait.jpg" class="hidden-xs" alt="Pastelporträt vom Foto" />
+                </li>
             </ul>
         </div>
-        <div class="col-sm-4">
+        <div class="col-lg-5 text-center">
             <ul class="blei">
                 <li id="bleitext" class="selectedText">
-                    <h2>Bleistifporträt</h2>
-                    <p>Bei einer Bleistiftzeichnung arbeitet man mit Bleistiften verschiedener Grautöne.</p>
+                    <h1>Bleistift</h1>
+                    <p>Ein Bleistiftporträt wirkt durch tolle hell/dunkel Kontraste sehr zeitlos, edel und elegant. Durch die verschiedenen Härtegrade der Minen(Grautöne) kann man die glatte Haut von Menschen und auch jedes einzelne Tierhaar sehr gut auf das Papier bringen.</p>
                 </li>
                 <li id="bunttext" class="hidden">
-                    <h2>Buntstiftporträt</h2>
-                    <p>Mit einer breiten Palette an farbigen Buntstiften kommt man der Vorlage erstaunlich nahe.</p>
+                    <h1>Buntstift</h1>
+                    <p>Bei Buntstiftzeichnungen arbeitet man meistens in Schichten. Von hellen Farben zu den Dunkleren. Durch diese kräftige Farbmischung sehen die Bilder, vor allem Tierporträts sehr lebensecht aus. Man kommt der Vorlage erstaunlich nahe.</p>
                 </li>
                 <li id="pasttext" class="hidden">
-                    <h2>Pastellporträt</h2>
-                    <p>Leuchtende und lebendige Farben zeichnen ein Pastell-Porträt aus</p>
+                    <h1>Pastell</h1>
+                    <p>Pastell-Malerei ist eine wunderbare Mal-Technik um Menschen und Tierporträts anzugehen. Hierbei werden spezielle Kreiden und Pastellstifte verwendet. Man zeichnet mit Kreiden und hebt anschließend die Details mit Pastellstiften hervor. Sehr farbintensiv und realistisch. Sie zeichnet sich durch eine gewisse Lebendigkeit und Leuchtkraft aus.</p>
                 </li>
             </ul>
-        </div>
-        <div class="col-sm-4 text-center">
             <a href="/Request/Create" role="button" class="btn btn-danger btn-lg">Bestellen &#187;</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <h2>Der Bestellvorgang</h2>
+            <p>Auf der Seite finden Sie den Punkt „Bestellen“, dort gibt es ein Bestellformular. Füllen Sie dieses mit Ihren persönlichen Angaben und Wünschen aus. Ihr  Foto bzw. Ihre Fotos können Sie direkt hochladen oder mir per Email schicken. Beachten Sie bitte, dass das Formular das Abschicken nur dann erlaubt, wenn Sie <u>mindestens ein Foto</u> hochgeladen haben. Meine Emailadresse finden Sie unter dem Menüpunkt „Kontakt“. Das Foto sollte von <u>guter Qualität</u> sein und eine hohe Auflösung haben. Je höher die Auflösung desto besser wird das Bild, weil ich mehr Details einbringen kann.  Wenn zum Beispiel auf dem Foto die Augen im Schatten und nicht zu erkennen sind, kann ich sie auch nicht zeichnen. Auch wenn Sie nur eine Person auf nur einem Porträt haben wollen, schicken Sie ruhig mehrere Fotos. <u>Nahaufnahmen</u> eignen sich eher als Fotos, auf denen die Menschen in voller Größe abgebildet sind. Je nach Auftragslage dauert es ein <u>bis zwei Wochen</u> bis Ihr Porträt fertig wird.</p>
         </div>
     </div>
 </div>

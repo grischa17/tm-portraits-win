@@ -112,7 +112,9 @@ $('.tabs-buttons > li > button').click(function (oEvent) {
     $(oTextOld).addClass('hidden');
     $(oTextOld).removeClass('selectedText');
 
+    $('#' + sSelected + 'btn').removeClass('active');
     sSelected = oEvent.target.id.substring(0, 4);
+    $(oEvent.target).addClass('active');
 
     $(oTabPages).addClass(sSelected);
     $(oSelectedText).addClass('selectedText');

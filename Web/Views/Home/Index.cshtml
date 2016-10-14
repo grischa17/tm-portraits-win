@@ -10,7 +10,7 @@
 <div class="container">
     <a href="/Request/Create" role="button" class="btn btn-danger btn-lg left-docked hidden-xs">Bestellen &#187;</a>
     <a href="/Request/Create" role="button" class="btn btn-danger left-docked visible-xs">Bestellen &#187;</a>
-    <div class="carousel-label">
+    <div class="container carousel-label">
         <div class="row">
             <div class="col-xs-11 col-xs-offset-1 col-sm-8 col-sm-offset-4">
                 <span class="author">Tamara Martens</span>
@@ -53,19 +53,28 @@
 
 <div class="container">
     <div class="row examples-container">
-        <div class="col-sm-4">
+        <div class="col-lg-7">
             <ul class="tabs-buttons">
                 <li><button id="pastbtn" class="btn">Pastell</button></li><li>
                     <button id="buntbtn" class="btn">Buntstift</button></li><li>
-                    <button id="bleibtn" class="btn">Bleistift</button></li>
+                    <button id="bleibtn" class="btn active">Bleistift</button></li>
             </ul>
             <ul class="tabs-content blei">
-                <li id="bleiimg"><img src="~/Content/images/Bleistiftportrait.jpg" alt="Bleistiftporträt vom Foto" /></li>
-                <li id="buntimg"><img src="~/Content/images/Buntstiftportrait.jpg" alt="Buntstiftporträt vom Foto" /></li>
-                <li id="pastimg"><img src="~/Content/images/Pastelportrait.jpg" alt="Pastelporträt vom Foto" /></li>
+                <li id="bleiimg">
+                    <img src="~/Content/images/Portrait_vom_foto.jpg" class="img-responsive visible-xs" alt="Bleistiftporträt vom Foto" />
+                    <img src="~/Content/images/Portrait_vom_foto.jpg" class="hidden-xs" alt="Bleistiftporträt vom Foto" />
+                </li>
+                <li id="buntimg">
+                    <img src="~/Content/images/Buntstiftportrait.jpg" class="img-responsive visible-xs" alt="Buntstiftporträt vom Foto" />
+                    <img src="~/Content/images/Buntstiftportrait.jpg" class="hidden-xs" alt="Buntstiftporträt vom Foto" />
+                </li>
+                <li id="pastimg">
+                    <img src="~/Content/images/Pastelportrait.jpg" class="img-responsive visible-xs" alt="Pastelporträt vom Foto" />
+                    <img src="~/Content/images/Pastelportrait.jpg" class="hidden-xs" alt="Pastelporträt vom Foto" />
+                </li>
             </ul>
         </div>
-        <div class="col-sm-4">
+        <div class="col-lg-5 text-center">
             <ul class="blei">
                 <li id="bleitext" class="selectedText">
                     <h1>Bleistift</h1>
@@ -80,8 +89,6 @@
                     <p>Pastell-Malerei ist eine wunderbare Mal-Technik um Menschen und Tierporträts anzugehen. Hierbei werden spezielle Kreiden und Pastellstifte verwendet. Man zeichnet mit Kreiden und hebt anschließend die Details mit Pastellstiften hervor. Sehr farbintensiv und realistisch. Sie zeichnet sich durch eine gewisse Lebendigkeit und Leuchtkraft aus.</p>
                 </li>
             </ul>
-        </div>
-        <div class="col-sm-4 text-center">
             <a href="/Request/Create" role="button" class="btn btn-danger btn-lg">Bestellen &#187;</a>
         </div>
     </div>
