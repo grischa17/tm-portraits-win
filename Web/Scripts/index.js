@@ -62,6 +62,7 @@ function getNextPos() {
 
 if (getNextPos()) {
     $('#next').show();
+    $('#previous').hide();
 }
 
 $('#next').click(function (oEvent) {
@@ -105,19 +106,21 @@ var sSelected = 'blei';
 
 $('.tabs-buttons > li > button').click(function (oEvent) {
     var oTabPages = $('.tabs-content')[0],
-        oTextOld = $('#' + sSelected + 'text')[0],
-        oSelectedText = $('#' + oEvent.target.id.substring(0, 4) + 'text')[0];
+        oTextOld = $('#' + sSelected)[0],
+        oSelectedText = $('#' + oEvent.target.id.substring(0, 4))[0];
 
-    $(oTabPages).removeClass(sSelected);
+    //$(oTabPages).removeClass(sSelected);
     $(oTextOld).addClass('hidden');
-    $(oTextOld).removeClass('selectedText');
+    //$(oTextOld).removeClass('selectedText');
 
-    $('#' + sSelected + 'btn').removeClass('active');
+    $('#' + sSelected + 'btn1').removeClass('active');
+    $('#' + sSelected + 'btn2').removeClass('active');
+    $('#' + sSelected + 'btn3').removeClass('active');
     sSelected = oEvent.target.id.substring(0, 4);
     $(oEvent.target).addClass('active');
 
-    $(oTabPages).addClass(sSelected);
-    $(oSelectedText).addClass('selectedText');
+    //$(oTabPages).addClass(sSelected);
+    //$(oSelectedText).addClass('selectedText');
     $(oSelectedText).removeClass('hidden');
 
 });
