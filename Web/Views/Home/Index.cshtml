@@ -1,10 +1,12 @@
 ﻿@model List<TuRM.Portrait.ViewModels.Product.Product>
 @{
     ViewBag.Title = "Porträt vom Foto. Die Geschnekidee mit Errinnerungswert.";
+    ViewBag.MinPrice = DateTime.Now < new DateTime(2017, 4, 1) ? 30 : 60;
+    ViewBag.ActionText = DateTime.Now < new DateTime(2017, 4, 1) ? "nur noch bis zum 31.03" : "";
 }
 
 @section Head{
-    <meta name="description" content="Handgezeichnetes Porträt vom Foto. Schenken Sie Erinnerung. Portraits schon ab 60,- €" />
+    <meta name="description" content="Handgezeichnetes Porträt vom Foto. Schenken Sie Erinnerung. Portraits @ViewBag.ActionText schon ab @ViewBag.MinPrice,- €" />
     <meta name="keywords" content="geschenke, geschenkideen, geschenk, geschenkidee, persoenliche geschenke, geburtstagsgeschenke, schenken, geschenke fuer maenner">
 }
 <div class="container">
@@ -23,18 +25,21 @@
             <div class="galery-wrapper">
                 <div class="galery">
                     <ul>
+                        <li><img src="~/Content/images/Pastelportrait.jpg" alt="Pastelporträt vom Foto" /></li>
+                        <li><img src="~/Content/images/examples/Bleistiftportrait3.jpg" alt="Bleistiftporträt" /></li>
                         <li><img src="~/Content/images/examples/Pastelportrait1.jpg" alt="Pastelporträt" /></li>
+                        <li><img src="~/Content/images/examples/Bleistiftportrait6.jpg" alt="Bleistiftporträt" /></li>
                         <li><img src="~/Content/images/examples/Bleistiftportrait1.jpg" alt="Bleistiftporträt" /></li>
+                        <li><img src="~/Content/images/examples/Pastelportrait4.jpg" alt="Pastelporträt" /></li>
                         <li><img src="~/Content/images/examples/Buntstiftportrait2.jpg" alt="Buntstiftporträt" /></li>
                         <li><img src="~/Content/images/examples/Pastelportrait2.jpg" alt="Pastelporträt" /></li>
                         <li><img src="~/Content/images/examples/Buntstiftportrait1.jpg" alt="Buntstiftporträt" /></li>
-                        <li><img src="~/Content/images/examples/Bleistiftportrait3.jpg" alt="Bleistiftporträt" /></li>
-                        <li><img src="~/Content/images/examples/Bleistiftportrait4.jpg" alt="Bleistiftporträt" /></li>
                         <li><img src="~/Content/images/examples/Bleistiftportrait5.jpg" alt="Bleistiftporträt" /></li>
+                        <li><img src="~/Content/images/examples/Bleistiftportrait4.jpg" alt="Bleistiftporträt" /></li>
+                        <!--<li><img src="~/Content/images/examples/Pastelportrait6.jpg" alt="Pastelporträt" /></li>-->
                         <li><img src="~/Content/images/Buntstiftportrait.jpg" alt="Buntstiftporträt vom Foto" /></li>
-                        <li><img src="~/Content/images/Pastelportrait.jpg" alt="Pastelporträt vom Foto" /></li>
-                        <li><img src="~/Content/images/examples/Bleistiftportrait2.jpg" alt="Bleistiftportrait" /></li>
-                        <li><img src="~/Content/images/examples/Buntstiftportrait3.jpg" alt="Buntstiftporträt" /></li>
+                        <!--<li><img src="~/Content/images/examples/Bleistiftportrait2.jpg" alt="Bleistiftportrait" /></li>
+                        <li><img src="~/Content/images/examples/Pastelportrait3.jpg" alt="Pastelporträt" /></li>-->
                     </ul>
                 </div>
                 <a class="left carousel-control" id="previous" href="#myCarousel" role="button" data-slide="prev">
@@ -48,11 +53,14 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <!--<div class="row">
         <div class="col-xs-12">
+            <div id="preview" class="hidden">
+                <img id="preview-img" class="img-responsive" />
+            </div>
             <p>Neben Menschenporträts erstelle ich Ihnen gerne auch Bilder von Ihrem Hund, Ihrer Katze, Ihrem Pferd oder Ihrem Auto. Es werden nur <u>hochwertige Künstler-Materialien</u> verwendet und somit wird Ihr Bild in leuchtenden Farben erstrahlen. Alle Zeichnungen werden <u>fixiert</u>. Fixiert bedeutet, dass nach der Fertigstellung das Porträt mit speziellem Spray besprüht wird, welches die Zeichnung von dem Verwischen schützt. Es ist möglich auch <u>zwei oder mehrere Fotos</u> zu einem Porträt zusammen zu fügen. Die Porträts werden ohne Hintergrund gezeichnet. Ich kann Ihnen auch ein <u>Hintergrund nach Ihrer Wahl</u> gegen Aufpreis zeichnen. Nehmen Sie unverbindlich Kontakt mit mir auf und wir sprechen darüber. Natürlich können Sie mich auch per Email anschreiben.</p>
         </div>
-    </div>
+    </div>-->
 </div>
 
 <div class="container">
@@ -143,7 +151,7 @@
     <div itemprop="offerDetails" itemscope itemtype="http://data-vocabulary.org/Offer-Aggregate">
         <meta itemprop="currency" content="EUR" />
         <div>
-            <strong>Preis ab:</strong> <span itemprop="lowPrice">60.00</span>€
+            <strong>Preis @ViewBag.ActionText ab:</strong> <span itemprop="lowPrice">@ViewBag.MinPrice.00</span>€
         </div>
         <div>
             <strong>Bestellen unter:</strong> <span itemprop="offerURL">http://www.tm-portraits.de/Request/Create</span>

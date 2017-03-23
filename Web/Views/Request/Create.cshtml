@@ -248,10 +248,26 @@
                 </button>
             </div>
             <div class="col-md-2">
-                <span class="control-label">Gesamtbetrag:</span>
+                @if (DateTime.Now < new DateTime(2017, 4, 1))
+                {
+                    <span class="control-label">Gesamtbetrag:</span>
+                    <h5 style="color:red;line-height:1">Nur noch bis zum 31.03 zum halben Preis:</h5>
+                }
+                else
+                {
+                    <span class="control-label">Gesamtbetrag:</span>
+                }
             </div>
             <div class="col-md-6">
-                <span id="TotalAmount" class="control-label">@($"{Model.TotalAmount:C}")</span>
+                <span id="TotalAmount" class="control-label"
+                      @if (DateTime.Now < new DateTime(2017, 4, 1))
+                      {
+                          <text>style="text-decoration: line-through;"</text>
+                      }>@($"{Model.TotalAmount:C}")</span>
+                @if (DateTime.Now < new DateTime(2017, 4, 1))
+                {
+                    <h2 style="color:red;" id="ActionAmount">@($"{Model.TotalAmount * 0.5:C}")</h2>
+                }
             </div>
         </div>
     </div>
@@ -428,6 +444,14 @@
             $('#TotalAmount').text(((countSubjects - 1) * 20 +
                                     sizeValue +
                                     getProductPrice()) + ',00 €');
+            @{ 
+                if (DateTime.Now < new DateTime(2017, 4, 1))
+                {
+            <text>$('#ActionAmount').text(((countSubjects - 1) * 20 +
+                                    sizeValue +
+                                    getProductPrice())*0.5 + ',00 €');</text>
+                }
+            }
         }
     </script>
 }

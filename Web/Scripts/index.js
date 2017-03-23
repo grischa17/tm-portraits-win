@@ -101,6 +101,51 @@ $('#previous').click(function (oEvent) {
                     $('#next').show();
                 });
 });
+function getBrowserSize() {
+    return {
+        width: document.documentElement.clientWidth,
+        height: document.documentElement.clientHeight
+    };
+}
+/*
+$('.galery > ul > li > img').hover(function (event) {
+    var screenSize = getBrowserSize(),
+        targetPosition = {},
+        availableSpace = {},
+        size = {};
+
+    availableSpace.top = event.target.y - (event.pageY - event.clientY);
+    //availableSpace.left = event.target.x - (event.pageX - event.clientX);
+    //availableSpace.right = screenSize.width - availableSpace.left - event.target.width;
+    availableSpace.bottom = screenSize.height - availableSpace.top - event.target.height;
+
+    size.height = availableSpace.top > availableSpace.bottom ? availableSpace.top : availableSpace.bottom;
+    size.factorImage = 1.0 * event.target.width / event.target.height;
+
+    targetPosition.top = event.pageY - event.clientY;//go into screen 
+    targetPosition.top += availableSpace.top > availableSpace.bottom ? 0 : availableSpace.top + event.target.height;
+    if (size.height > event.target.naturalHeight && availableSpace.top > availableSpace.bottom) {
+        targetPosition.top += size.height - event.target.naturalHeight;
+    }
+
+    $('#preview-img').attr({
+        src: event.target.src,
+        alt: event.target.alt
+    });
+
+    $('#preview').removeClass('hidden');
+    $('#preview').show();
+
+    $('#preview').width();
+    $('#preview').height(size.height > event.target.naturalHeight ? event.target.naturalHeight : size.height);
+
+    $('#preview').offset({
+        top: targetPosition.top
+    });
+
+}, function (event) {
+    $('#preview').hide();
+});*/
 
 var sSelected = 'blei';
 

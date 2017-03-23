@@ -100,7 +100,7 @@ namespace TuRM.Portrait.Controllers
 
             viewModel = new ViewModels.Request.Create();
             viewModel.Files = HttpContext.Session["Files"] as SortedList<string, WebImage> ?? new SortedList<string, WebImage>();
-
+            viewModel.TotalAmount = 60;
             return View(viewModel);
         }
 

@@ -1,10 +1,12 @@
 ﻿@model List<TuRM.Portrait.ViewModels.Product.Product>
 @{
     ViewBag.Title = "Porträt vom Foto. Die Geschnekidee mit Errinnerungswert.";
+    ViewBag.MinPrice = DateTime.Now < new DateTime(2017, 4, 1) ? 30 : 60;
+    ViewBag.ActionText = DateTime.Now < new DateTime(2017, 4, 1) ? "nur noch bis zum 31.03" : "";
 }
 
 @section Head{
-    <meta name="description" content="Handgezeichnetes Porträt vom Foto. Schenken Sie Erinnerung. Portraits schon ab 60,- €" />
+    <meta name="description" content="Handgezeichnetes Porträt vom Foto. Schenken Sie Erinnerung. Portraits @ViewBag.ActionText schon ab @ViewBag.MinPrice,- €" />
     <meta name="keywords" content="geschenke, geschenkideen, geschenk, geschenkidee, persoenliche geschenke, geburtstagsgeschenke, schenken, geschenke fuer maenner">
 }
 <div class="container">
@@ -21,75 +23,114 @@
     <div class="row">
         <div class="col-xs-12 col-galery">
             <div class="galery-wrapper">
-                <button class="btn btn-lg" id="previous">&lt;</button>
-
                 <div class="galery">
                     <ul>
+                        <li><img src="~/Content/images/Pastelportrait.jpg" alt="Pastelporträt vom Foto" /></li>
+                        <li><img src="~/Content/images/examples/Bleistiftportrait3.jpg" alt="Bleistiftporträt" /></li>
                         <li><img src="~/Content/images/examples/Pastelportrait1.jpg" alt="Pastelporträt" /></li>
+                        <li><img src="~/Content/images/examples/Bleistiftportrait6.jpg" alt="Bleistiftporträt" /></li>
                         <li><img src="~/Content/images/examples/Bleistiftportrait1.jpg" alt="Bleistiftporträt" /></li>
+                        <li><img src="~/Content/images/examples/Pastelportrait4.jpg" alt="Pastelporträt" /></li>
                         <li><img src="~/Content/images/examples/Buntstiftportrait2.jpg" alt="Buntstiftporträt" /></li>
                         <li><img src="~/Content/images/examples/Pastelportrait2.jpg" alt="Pastelporträt" /></li>
                         <li><img src="~/Content/images/examples/Buntstiftportrait1.jpg" alt="Buntstiftporträt" /></li>
-                        <li><img src="~/Content/images/examples/Bleistiftportrait3.jpg" alt="Bleistiftporträt" /></li>
-                        <li><img src="~/Content/images/examples/Bleistiftportrait4.jpg" alt="Bleistiftporträt" /></li>
                         <li><img src="~/Content/images/examples/Bleistiftportrait5.jpg" alt="Bleistiftporträt" /></li>
-                        @*<li><img src="~/Content/images/examples/bild9.jpg" alt="Beispiel 9" /></li>
-                        <li><img src="~/Content/images/examples/bild10.jpg" alt="Beispiel 10" /></li>*@
-                        <li><img src="~/Content/images/examples/Bleistiftportrait2.jpg" alt="Bleistiftportrait" /></li>
-                        <li><img src="~/Content/images/examples/Buntstiftportrait3.jpg" alt="Buntstiftporträt" /></li>
+                        <li><img src="~/Content/images/examples/Bleistiftportrait4.jpg" alt="Bleistiftporträt" /></li>
+                        <!--<li><img src="~/Content/images/examples/Pastelportrait6.jpg" alt="Pastelporträt" /></li>-->
+                        <li><img src="~/Content/images/Buntstiftportrait.jpg" alt="Buntstiftporträt vom Foto" /></li>
+                        <!--<li><img src="~/Content/images/examples/Bleistiftportrait2.jpg" alt="Bleistiftportrait" /></li>
+                        <li><img src="~/Content/images/examples/Pastelportrait3.jpg" alt="Pastelporträt" /></li>-->
                     </ul>
                 </div>
-
-                <button class="btn btn-lg" id="next">&gt;</button>
+                <a class="left carousel-control" id="previous" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" id="next" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
         </div>
     </div>
-    <div class="row">
+    <!--<div class="row">
         <div class="col-xs-12">
+            <div id="preview" class="hidden">
+                <img id="preview-img" class="img-responsive" />
+            </div>
             <p>Neben Menschenporträts erstelle ich Ihnen gerne auch Bilder von Ihrem Hund, Ihrer Katze, Ihrem Pferd oder Ihrem Auto. Es werden nur <u>hochwertige Künstler-Materialien</u> verwendet und somit wird Ihr Bild in leuchtenden Farben erstrahlen. Alle Zeichnungen werden <u>fixiert</u>. Fixiert bedeutet, dass nach der Fertigstellung das Porträt mit speziellem Spray besprüht wird, welches die Zeichnung von dem Verwischen schützt. Es ist möglich auch <u>zwei oder mehrere Fotos</u> zu einem Porträt zusammen zu fügen. Die Porträts werden ohne Hintergrund gezeichnet. Ich kann Ihnen auch ein <u>Hintergrund nach Ihrer Wahl</u> gegen Aufpreis zeichnen. Nehmen Sie unverbindlich Kontakt mit mir auf und wir sprechen darüber. Natürlich können Sie mich auch per Email anschreiben.</p>
         </div>
-    </div>
+    </div>-->
 </div>
 
 <div class="container">
-    <div class="row examples-container">
-        <div class="col-lg-7">
+    <div id="blei" class="row examples-container">
+        <div class="col-md-7 col-lg-6">
             <ul class="tabs-buttons">
-                <li><button id="pastbtn" class="btn">Pastell</button></li><li>
-                    <button id="buntbtn" class="btn">Buntstift</button></li><li>
-                    <button id="bleibtn" class="btn active">Bleistift</button></li>
+                <li><button id="pastbtn1" class="btn">Pastell</button></li><li>
+                    <button id="buntbtn1" class="btn">Buntstift</button></li><li>
+                    <button id="bleibtn1" class="btn active">Bleistift</button></li>
             </ul>
-            <ul class="tabs-content blei">
-                <li id="bleiimg">
-                    <img src="~/Content/images/Portrait_vom_foto.jpg" class="img-responsive visible-xs" alt="Bleistiftporträt vom Foto" />
-                    <img src="~/Content/images/Portrait_vom_foto.jpg" class="hidden-xs" alt="Bleistiftporträt vom Foto" />
-                </li>
-                <li id="buntimg">
-                    <img src="~/Content/images/Buntstiftportrait.jpg" class="img-responsive visible-xs" alt="Buntstiftporträt vom Foto" />
-                    <img src="~/Content/images/Buntstiftportrait.jpg" class="hidden-xs" alt="Buntstiftporträt vom Foto" />
-                </li>
-                <li id="pastimg">
-                    <img src="~/Content/images/Pastelportrait.jpg" class="img-responsive visible-xs" alt="Pastelporträt vom Foto" />
-                    <img src="~/Content/images/Pastelportrait.jpg" class="hidden-xs" alt="Pastelporträt vom Foto" />
-                </li>
-            </ul>
+
+            <img src="~/Content/images/Bleistiftportrait.jpg" class="img-responsive" alt="Bleistiftporträt vom Foto" />
+
         </div>
-        <div class="col-lg-5 text-center">
-            <ul class="blei">
-                <li id="bleitext" class="selectedText">
-                    <h1>Bleistift</h1>
-                    <p>Ein Bleistiftporträt wirkt durch tolle hell/dunkel Kontraste sehr zeitlos, edel und elegant. Durch die verschiedenen Härtegrade der Minen(Grautöne) kann man die glatte Haut von Menschen und auch jedes einzelne Tierhaar sehr gut auf das Papier bringen.</p>
+        <div class="col-md-5 text-center">
+
+            <h1>Bleistift</h1>
+            <p>Ein Bleistiftporträt wirkt durch tolle hell/dunkel Kontraste sehr zeitlos, edel und elegant. Durch die verschiedenen Härtegrade der Minen(Grautöne) kann man die glatte Haut von Menschen und auch jedes einzelne Tierhaar sehr gut auf das Papier bringen.</p>
+
+            <a href="/Request/Create" role="button" class="btn btn-danger btn-lg">Bestellen &#187;</a>
+
+        </div>
+    </div>
+    <div id="bunt" class="row examples-container hidden">
+        <div class="col-md-7 col-lg-6">
+            <ul class="tabs-buttons">
+                <li><button id="pastbtn2" class="btn">Pastell</button></li>
+                <li>
+                    <button id="buntbtn2" class="btn active">Buntstift</button>
                 </li>
-                <li id="bunttext" class="hidden">
-                    <h1>Buntstift</h1>
-                    <p>Bei Buntstiftzeichnungen arbeitet man meistens in Schichten. Von hellen Farben zu den Dunkleren. Durch diese kräftige Farbmischung sehen die Bilder, vor allem Tierporträts sehr lebensecht aus. Man kommt der Vorlage erstaunlich nahe.</p>
-                </li>
-                <li id="pasttext" class="hidden">
-                    <h1>Pastell</h1>
-                    <p>Pastell-Malerei ist eine wunderbare Mal-Technik um Menschen und Tierporträts anzugehen. Hierbei werden spezielle Kreiden und Pastellstifte verwendet. Man zeichnet mit Kreiden und hebt anschließend die Details mit Pastellstiften hervor. Sehr farbintensiv und realistisch. Sie zeichnet sich durch eine gewisse Lebendigkeit und Leuchtkraft aus.</p>
+                <li>
+                    <button id="bleibtn2" class="btn">Bleistift</button>
                 </li>
             </ul>
+
+            <img src="~/Content/images/Buntstiftportrait.jpg" class="img-responsive" alt="Buntstiftporträt vom Foto" />
+
+        </div>
+        <div class="col-md-5 text-center">
+
+            <h1>Buntstift</h1>
+            <p>Bei Buntstiftzeichnungen arbeitet man meistens in Schichten. Von hellen Farben zu den Dunkleren. Durch diese kräftige Farbmischung sehen die Bilder, vor allem Tierporträts sehr lebensecht aus. Man kommt der Vorlage erstaunlich nahe.</p>
+
             <a href="/Request/Create" role="button" class="btn btn-danger btn-lg">Bestellen &#187;</a>
+
+        </div>
+    </div>
+    <div id="past" class="row examples-container hidden">
+        <div class="col-md-7 col-lg-6">
+            <ul class="tabs-buttons">
+                <li><button id="pastbtn3" class="btn active">Pastell</button></li>
+                <li>
+                    <button id="buntbtn3" class="btn">Buntstift</button>
+                </li>
+                <li>
+                    <button id="bleibtn3" class="btn">Bleistift</button>
+                </li>
+            </ul>
+
+            <img src="~/Content/images/Pastelportrait.jpg" class="img-responsive visible-xs" alt="Pastelporträt vom Foto" />
+            <img src="~/Content/images/Pastelportrait.jpg" class="hidden-xs" alt="Pastelporträt vom Foto" />
+
+        </div>
+        <div class="col-md-5 text-center">
+
+            <h1>Pastell</h1>
+            <p>Pastell-Malerei ist eine wunderbare Mal-Technik um Menschen und Tierporträts anzugehen. Hierbei werden spezielle Kreiden und Pastellstifte verwendet. Man zeichnet mit Kreiden und hebt anschließend die Details mit Pastellstiften hervor. Sehr farbintensiv und realistisch. Sie zeichnet sich durch eine gewisse Lebendigkeit und Leuchtkraft aus.</p>
+
+            <a href="/Request/Create" role="button" class="btn btn-danger btn-lg">Bestellen &#187;</a>
+
         </div>
     </div>
     <div class="row">
@@ -110,7 +151,7 @@
     <div itemprop="offerDetails" itemscope itemtype="http://data-vocabulary.org/Offer-Aggregate">
         <meta itemprop="currency" content="EUR" />
         <div>
-            <strong>Preis ab:</strong> <span itemprop="lowPrice">60.00</span>€
+            <strong>Preis @ViewBag.ActionText ab:</strong> <span itemprop="lowPrice">@ViewBag.MinPrice.00</span>€
         </div>
         <div>
             <strong>Bestellen unter:</strong> <span itemprop="offerURL">http://www.tm-portraits.de/Request/Create</span>
