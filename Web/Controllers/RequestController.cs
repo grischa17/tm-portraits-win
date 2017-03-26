@@ -185,7 +185,7 @@ namespace TuRM.Portrait.Controllers
 
             price += (viewModel.CountSubjects - 1) * 20;
             builder.AppendLine($"<tr><td><b>Anzahl Subjekte:</b></td><td>{viewModel.CountSubjects}</td><td>{(viewModel.CountSubjects - 1) * 20},00 €</td></tr>");
-            builder.AppendLine($"<tr><td colspan=\"2\">Gesamt:</td><td>{price},00 €</td></tr></tbody></table>");
+            builder.AppendLine($"<tr><td colspan=\"2\">Gesamt{(DateTime.Now < new DateTime(2017, 4, 1) ?" nur noch bis zum 01.04":"")}:</td><td>{(DateTime.Now < new DateTime(2017, 4, 1)?price/2:price)},00 €</td></tr></tbody></table>");
 
             builder.AppendLine($"<table style=\"border-style:solid;\"><tbody><tr><td>Name:</td><td>{viewModel.FirstName} {viewModel.LastName}</td></tr>");
             builder.AppendLine($"<tr><td>Adresse:</td><td>{viewModel.StreetPostOfficeBox} {viewModel.HouseNumber}</td></tr>");

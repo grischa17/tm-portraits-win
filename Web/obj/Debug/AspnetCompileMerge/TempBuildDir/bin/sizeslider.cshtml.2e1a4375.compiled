@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<preserve resultType="2" virtualPath="/Views/Request/EditorTemplates/SizeSlider.cshtml" hash="62dd92a8" filehash="3dde51696125" flags="110000" assembly="App_Web_flehsqwy" type="ASP._Page_Views_Request_EditorTemplates_SizeSlider_cshtml">
+<preserve resultType="2" virtualPath="/Views/Request/EditorTemplates/SizeSlider.cshtml" hash="1626a5ce" filehash="17624885eeaa" flags="110000" assembly="App_Web_4e0han53" type="ASP._Page_Views_Request_EditorTemplates_SizeSlider_cshtml">
     <filedeps>
         <filedep name="/Views/Request/EditorTemplates/SizeSlider.cshtml" />
     </filedeps>

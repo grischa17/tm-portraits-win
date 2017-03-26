@@ -6,252 +6,18 @@
 
 <div class="container">
 
-<h2>Anfrage</h2>
+    <h2>Anfrage</h2>
 
-<h4>Daten zur Anfrage angeben</h4>
-<hr />
-
-@using (Html.BeginForm("AddFile", "Request", FormMethod.Post, new { enctype = "multipart/form-data", id = "fileUploadForm" }))
-{
-    <div class="form-horizontal">
-        <div class="form-group">
-            @Html.LabelFor(model => model.Files, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <!-- The fileinput-button span is used to style the file input field as button -->
-                <label class="btn btn-default btn-file">
-                    <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
-                    <span>Datei hochladen...</span>
-                    <!-- The file input field used as target for the file upload widget -->
-                    <input id="Files" name="Files" type="file" accept=".gif,.jpg,.jpeg,.png,.bpm,.tiff" />
-                </label>
-                @Html.ValidationMessageFor(model => model.Files, "", new { @class = "text-danger" })
-                <!-- The container for the uploaded files -->
-                <div id="files" class="row"></div>
-            </div>
-        </div>
-    </div>
-
-}
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+    <h4>Daten zur Anfrage angeben</h4>
+    <hr />
 
     <div class="form-horizontal">
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.ProductId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-3">
-                <div class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-default active">
-                        <input type="radio" name="@Html.NameFor(model => model.ProductId)" id="0" value="0" autocomplete="off" checked> Bleistiftporträt
-                    </label>
-                    <label class="btn btn-default">
-                        <input type="radio" name="@Html.NameFor(model => model.ProductId)" id="1" value="1" autocomplete="off"> Buntstiftporträt
-                    </label>
-                    <label class="btn btn-default">
-                        <input type="radio" name="@Html.NameFor(model => model.ProductId)" id="2" value="2" autocomplete="off"> Pastellporträt
-                    </label>
-                </div>
-                @Html.ValidationMessageFor(model => model.ProductId, "", new { @class = "text-danger" })
-            </div>
-            <div class="col-md-6 col-md-offset-1 col-lg-offset-1">
-                <span id="ProductPrice" name="ProductPrice">60,00 €</span>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CountSubjects, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-4">
-                <div class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-default active">
-                        <input type="radio" name="@Html.NameFor(model => model.CountSubjects)" id="1" value="1" autocomplete="off" checked> 1
-                    </label>
-                    <label class="btn btn-default">
-                        <input type="radio" name="@Html.NameFor(model => model.CountSubjects)" id="2" value="2" autocomplete="off"> 2
-                    </label>
-                    <label class="btn btn-default">
-                        <input type="radio" name="@Html.NameFor(model => model.CountSubjects)" id="3" value="3" autocomplete="off"> 3
-                    </label>
-                    <label class="btn btn-default">
-                        <input type="radio" name="@Html.NameFor(model => model.CountSubjects)" id="4" value="4" autocomplete="off"> 4
-                    </label>
-                    <label class="btn btn-default">
-                        <input type="radio" name="@Html.NameFor(model => model.CountSubjects)" id="5" value="5" autocomplete="off"> 5
-                    </label>
-                </div>
-                @Html.ValidationMessageFor(model => model.CountSubjects, "", new { @class = "text-danger" })
-            </div>
-            <div class="col-md-6">
-                +&nbsp;<span id="SubjectPrice" name="SubjectPrice">@($"{((Model.CountSubjects - 1) * 20f):C}")</span>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SizeId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-4">
-                <div class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-default active">
-                        <input type="radio" name="@Html.NameFor(model => model.SizeId)" id="0" value="0" autocomplete="off" checked> A4
-                    </label>
-                    <label class="btn btn-default">
-                        <input type="radio" name="@Html.NameFor(model => model.SizeId)" id="1" value="1" autocomplete="off"> A3
-                    </label>
-                    <label class="btn btn-default">
-                        <input type="radio" name="@Html.NameFor(model => model.SizeId)" id="2" value="2" autocomplete="off"> A2
-                    </label>
-                </div>
-                @Html.ValidationMessageFor(model => model.SizeId, "", new { @class = "text-danger" })
-            </div>
-            <div class="col-md-6">
-                +&nbsp;<span id="SizePrice" name="SizePrice">0,00 €</span>
-            </div>
-        </div>
-
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FirstName, new
-           {
-               htmlAttributes = new
-               {
-                   @class = "form-control",
-                   placeholder = "Pflichtfeld",
-                   maxlength = 64
-               }
-           })
-                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LastName, new
-           {
-               htmlAttributes = new
-               {
-                   @class = "form-control",
-                   placeholder = "Pflichtfeld",
-                   maxlength = 64
-               }
-           })
-                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.StreetPostOfficeBox, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="row">
-                    <div class="col-sm-9 col-xs-8">
-                        @Html.EditorFor(model => model.StreetPostOfficeBox, new
-                   {
-                       htmlAttributes = new
-                       {
-                           @class = "form-control",
-                           maxlength = 64
-                       }
-                   })
-                    </div>
-                    <div class="col-sm-3 col-xs-4">
-                        @Html.EditorFor(model => model.HouseNumber, new
-                   {
-                       htmlAttributes = new
-                       {
-                           @class = "form-control",
-                           maxlength = 8
-                       }
-                   })
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    @Html.ValidationMessageFor(model => model.StreetPostOfficeBox, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PostalCode, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="row">
-                    <div class="col-sm-3 col-xs-4">
-                        @Html.EditorFor(model => model.PostalCode, new
-                   {
-                       htmlAttributes = new
-                       {
-                           @class = "form-control",
-                           placeholder = "Pflichtfeld",
-                           maxlength = 16
-                       }
-                   })
-                    </div>
-                    <div class="col-sm-9 col-xs-8">
-                        @Html.EditorFor(model => model.City, new
-                   {
-                       htmlAttributes = new
-                       {
-                           @class = "form-control",
-                           placeholder = "Pflichtfeld",
-                           maxlength = 64
-                       }
-                   })
-                    </div>
-
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    @Html.ValidationMessageFor(model => model.PostalCode, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Email, new
-           {
-               htmlAttributes = new
-               {
-                   @class = "form-control",
-                   placeholder = "Pflichtfeld",
-                   maxlength = 256
-               }
-           })
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Remarks, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Remarks, new
-           {
-               htmlAttributes = new
-               {
-                   @class = "form-control",
-                   maxlength = 256
-               }
-           })
-                @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-2">
-                <button type="submit" class="btn btn-primary" disabled>
-                    Bestellen <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
-                </button>
-            </div>
-            <div class="col-md-2">
+            <div class="col-md-offset-2 col-md-4">
                 @if (DateTime.Now < new DateTime(2017, 4, 1))
                 {
                     <span class="control-label">Gesamtbetrag:</span>
-                    <h5 style="color:red;line-height:1">Nur noch bis zum 31.03 zum halben Preis:</h5>
+                            <h5 style="color:red;line-height:1">Nur noch bis zum 31.03 zum halben Preis:</h5>
                 }
                 else
                 {
@@ -260,18 +26,256 @@
             </div>
             <div class="col-md-6">
                 <span id="TotalAmount" class="control-label"
-                      @if (DateTime.Now < new DateTime(2017, 4, 1))
-                      {
-                          <text>style="text-decoration: line-through;"</text>
-                      }>@($"{Model.TotalAmount:C}")</span>
-                @if (DateTime.Now < new DateTime(2017, 4, 1))
-                {
-                    <h2 style="color:red;" id="ActionAmount">@($"{Model.TotalAmount * 0.5:C}")</h2>
-                }
+                      @if (DateTime.Now < new DateTime(2017, 4, 1)) { <text> style="text-decoration: line-through;" </text>     }>@($"{Model.TotalAmount:C}")</span>
+                    @if (DateTime.Now < new DateTime(2017, 4, 1))
+                    {
+                        <h2 style="color:red;" id="ActionAmount">@($"{Model.TotalAmount * 0.5:C}")</h2>
+                    }
+                </div>
+            </div>
+    </div>
+
+    @using (Html.BeginForm("AddFile", "Request", FormMethod.Post, new { enctype = "multipart/form-data", id = "fileUploadForm" }))
+    {
+        <div class="form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Files, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <!-- The fileinput-button span is used to style the file input field as button -->
+                    <label class="btn btn-default btn-file">
+                        <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
+                        <span>Datei hochladen...</span>
+                        <!-- The file input field used as target for the file upload widget -->
+                        <input id="Files" name="Files" type="file" accept=".gif,.jpg,.jpeg,.png,.bpm,.tiff" />
+                    </label>
+                    @Html.ValidationMessageFor(model => model.Files, "", new { @class = "text-danger" })
+                    <!-- The container for the uploaded files -->
+                    <div id="files" class="row"></div>
+                </div>
             </div>
         </div>
-    </div>
-}
+
+    }
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ProductId, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-default active">
+                                <input type="radio" name="@Html.NameFor(model => model.ProductId)" id="0" value="0" autocomplete="off" checked> Bleistiftporträt
+                            </label>
+                            <label class="btn btn-default">
+                                <input type="radio" name="@Html.NameFor(model => model.ProductId)" id="1" value="1" autocomplete="off"> Buntstiftporträt
+                            </label>
+                            <label class="btn btn-default">
+                                <input type="radio" name="@Html.NameFor(model => model.ProductId)" id="2" value="2" autocomplete="off"> Pastellporträt
+                            </label>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.ProductId, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-6 col-md-offset-1 col-lg-offset-1">
+                        <span id="ProductPrice" name="ProductPrice">60,00 €</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CountSubjects, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-default active">
+                                <input type="radio" name="@Html.NameFor(model => model.CountSubjects)" id="1" value="1" autocomplete="off" checked> 1
+                            </label>
+                            <label class="btn btn-default">
+                                <input type="radio" name="@Html.NameFor(model => model.CountSubjects)" id="2" value="2" autocomplete="off"> 2
+                            </label>
+                            <label class="btn btn-default">
+                                <input type="radio" name="@Html.NameFor(model => model.CountSubjects)" id="3" value="3" autocomplete="off"> 3
+                            </label>
+                            <label class="btn btn-default">
+                                <input type="radio" name="@Html.NameFor(model => model.CountSubjects)" id="4" value="4" autocomplete="off"> 4
+                            </label>
+                            <label class="btn btn-default">
+                                <input type="radio" name="@Html.NameFor(model => model.CountSubjects)" id="5" value="5" autocomplete="off"> 5
+                            </label>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.CountSubjects, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-6">
+                        +&nbsp;<span id="SubjectPrice" name="SubjectPrice">@($"{((Model.CountSubjects - 1) * 20f):C}")</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SizeId, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-default active">
+                                <input type="radio" name="@Html.NameFor(model => model.SizeId)" id="0" value="0" autocomplete="off" checked> A4
+                            </label>
+                            <label class="btn btn-default">
+                                <input type="radio" name="@Html.NameFor(model => model.SizeId)" id="1" value="1" autocomplete="off"> A3
+                            </label>
+                            <label class="btn btn-default">
+                                <input type="radio" name="@Html.NameFor(model => model.SizeId)" id="2" value="2" autocomplete="off"> A2
+                            </label>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.SizeId, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-6">
+                        +&nbsp;<span id="SizePrice" name="SizePrice">0,00 €</span>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.FirstName, new
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control",
+                   placeholder = "Pflichtfeld",
+                   maxlength = 64
+               }
+           })
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.LastName, new
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control",
+                   placeholder = "Pflichtfeld",
+                   maxlength = 64
+               }
+           })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.StreetPostOfficeBox, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-sm-9 col-xs-8">
+                                @Html.EditorFor(model => model.StreetPostOfficeBox, new
+                   {
+                       htmlAttributes = new
+                       {
+                           @class = "form-control",
+                           maxlength = 64
+                       }
+                   })
+                            </div>
+                            <div class="col-sm-3 col-xs-4">
+                                @Html.EditorFor(model => model.HouseNumber, new
+                   {
+                       htmlAttributes = new
+                       {
+                           @class = "form-control",
+                           maxlength = 8
+                       }
+                   })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            @Html.ValidationMessageFor(model => model.StreetPostOfficeBox, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PostalCode, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-sm-3 col-xs-4">
+                                @Html.EditorFor(model => model.PostalCode, new
+                   {
+                       htmlAttributes = new
+                       {
+                           @class = "form-control",
+                           placeholder = "Pflichtfeld",
+                           maxlength = 16
+                       }
+                   })
+                            </div>
+                            <div class="col-sm-9 col-xs-8">
+                                @Html.EditorFor(model => model.City, new
+                   {
+                       htmlAttributes = new
+                       {
+                           @class = "form-control",
+                           placeholder = "Pflichtfeld",
+                           maxlength = 64
+                       }
+                   })
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            @Html.ValidationMessageFor(model => model.PostalCode, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control",
+                   placeholder = "Pflichtfeld",
+                   maxlength = 256
+               }
+           })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Remarks, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Remarks, new
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control",
+                   maxlength = 256
+               }
+           })
+                        @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-2">
+                        <button type="submit" class="btn btn-primary" disabled>
+                            Bestellen <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+    }
 </div>
 
 @section Scripts {
@@ -293,7 +297,7 @@
 
 
         $('input[name=ProductId]').change(function(e){
-            
+
             $('#ProductPrice').text(60 + 20 * e.target.id + ',00 €');
             setTotal($('#SubjectValue').val(), $('#SizeValue').val());
         });
@@ -444,7 +448,7 @@
             $('#TotalAmount').text(((countSubjects - 1) * 20 +
                                     sizeValue +
                                     getProductPrice()) + ',00 €');
-            @{ 
+            @{
                 if (DateTime.Now < new DateTime(2017, 4, 1))
                 {
             <text>$('#ActionAmount').text(((countSubjects - 1) * 20 +

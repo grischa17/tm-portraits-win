@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 14.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
-<FxCopReport Version="14.0">
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio\2017\community\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="15.0">
  <Localized>
   <String Key="Category">Kategorie</String>
   <String Key="Certainty">Sicherheit</String>
-  <String Key="CollapseAll">Alle reduzieren</String>
+  <String Key="CollapseAll">Alle zuklappen</String>
   <String Key="CheckId">Prüf-ID</String>
   <String Key="Error">Fehler</String>
   <String Key="Errors">Fehler</String>
-  <String Key="ExpandAll">Alle erweitern</String>
+  <String Key="ExpandAll">Alle aufklappen</String>
   <String Key="Help">Hilfe</String>
   <String Key="Line">Zeile</String>
   <String Key="Messages">Meldung(en)</String>
