@@ -7,7 +7,12 @@ namespace TuRM.Portrait.Models
         public ApplicationDbContext(string connection)
             : base(connection)
         {
+<<<<<<< HEAD
 
+=======
+            Database.SetInitializer(new CreateDatabaseIfNotExists<ApplicationIdentityDbContext>());
+            Database.SetInitializer(new ApplicationDbContextInitializier());
+>>>>>>> tabs-fluid
         }
 
         public virtual DbSet<BillCancellation> BillCancellations { get; set; }

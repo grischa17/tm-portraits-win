@@ -1,51 +1,61 @@
-﻿<!DOCTYPE html lang="de-de">
-<html>
+﻿<!DOCTYPE html>
+<html lang="de-de">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="author" content="Richard Martens" />
     <meta name="creator" content="Richard Martens" />
-    <meta http-equiv="language" content="de-de">
-    @RenderSection("Head", required:false)
-    <!-- Registrierkarten-Icon -->
+    <meta http-equiv="language" content="DE">
+    @RenderSection("Head", required: false)
     <link rel="shortcut icon" media="all" href="@Url.Content("~/content/icon.ico")" type="image/x-icon" />
-    <title>@ViewBag.Title - TM Portraits</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.1.0/css/bootstrap-slider.min.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="~/Scripts/google.analytics.js">
 
+    </script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+    <div class="container">
+        <div class="row text-right">
+            <h1>
+                <u>Porträtstudio</u><br />
+                <small>Die Geschenkidee mit Erinnerungswert</small>
+            </h1>
+        </div>
+        <div class="navbar navbar-inverse">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+<<<<<<< HEAD
                 @Html.ActionLink("TM Portraits", "Index", "Home", new { @class = "navbar-brand" })
+=======
+>>>>>>> tabs-fluid
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Startseite", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Bestellen", "Create", "Request")</li>
                     @if (Request.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Anfragen", "Index", "Request")</li>
-                        <li>@Html.ActionLink("Rechnungen", "Index", "Bill")</li>
-                        <li>@Html.ActionLink("Produkte", "Index", "Product")</li>
+                            <li>@Html.ActionLink("Rechnungen", "Index", "Bill")</li>
+                                <li>@Html.ActionLink("Produkte", "Index", "Product")</li>
                     }
-                    <!--<li>@Html.ActionLink("Info", "About", "Home")</li>-->
                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
                 </ul>
-                @Html.Partial("_LoginPartial")
             </div>
         </div>
-    </div>
 
-    <div class="container body-content">
-        @RenderBody()
+    </div>
+    <div class="body-content">
+            @RenderBody()
 
         <footer class="footer hidden-print">
             <div class="container">
@@ -58,22 +68,17 @@
 
         <hr class="hidden-print" />
         <footer class="hidden-print">
-            <p>&copy; @DateTime.Now.Year - TM Portraits @typeof(MvcApplication).Assembly.GetName().Version.ToString().TrimEnd( '0', '.') Beta</p>
+            <div class="container">
+                <p>&copy; @DateTime.Now.Year - Tamara Martens Porträtstudio @typeof(MvcApplication).Assembly.GetName().Version.ToString().TrimEnd('0', '.')</p>
+            </div>
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-        @RenderSection("scripts", required: false)
-    <!--Google Analytics script-->
-    <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    @RenderSection("scripts", required: false)
 
-  ga('create', 'UA-75263244-1', 'auto');
-  ga('send', 'pageview');
-
-    </script>
 </body>
 </html>

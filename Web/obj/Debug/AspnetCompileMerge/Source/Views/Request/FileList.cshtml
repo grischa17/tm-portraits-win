@@ -1,0 +1,11 @@
+﻿@model List<WebImage>
+
+@{
+    WebImage image;
+    for (int i = 0; i < Model.Count; i++)
+    {
+        image = Model[i].Resize(100, 100).Crop(1, 1);
+
+        <img src="@($"data:image/{image.ImageFormat};base64,{Convert.ToBase64String(image.GetBytes())}")" alt="Bild" />
+    }
+}

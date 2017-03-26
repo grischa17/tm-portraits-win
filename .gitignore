@@ -1,0 +1,10 @@
+packages/
+LetPaintPictures/bin/
+Windows/LetPaintPictures.Windows/obj/
+LetPaintPictures/obj/
+*.mdf
+*.ldf
+LetPaintPictures/Scripts/jquery-2*
+.vs/config/applicationhost.config
+bin
+obj

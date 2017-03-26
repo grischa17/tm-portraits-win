@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/Views/RequestCancellation/Create.cshtml" hash="1626a5ce" filehash="ffffeb12d38d27dd" flags="110000" assembly="App_Web_acmgzfer" type="ASP._Page_Views_RequestCancellation_Create_cshtml">
+    <filedeps>
+        <filedep name="/Views/RequestCancellation/Create.cshtml" />
+    </filedeps>
+</preserve>

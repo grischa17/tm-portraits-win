@@ -11,26 +11,18 @@ namespace TuRM.Portrait.ViewModels.Request
 {
     public class Create
     {
-        [UIHint("Product")]
         [Display(Name = "Portrait-Typ:")]
         public int ProductId { get; set; }
 
         public IQueryable<Product.Product> Products { get; set; } = new List<Product.Product>().AsQueryable();
-
-        [UIHint("Slider")]
-        [AdditionalMetadata("Min", 1)]
-        [AdditionalMetadata("Max", 5)]
-        [AdditionalMetadata("Default", 1)]
+        
         [Range(1.0, 5.0)]
         [Display(Name = "Anzahl Personen oder Tiere:")]
         public int CountSubjects { get; set; } = 1;
-
-        [UIHint("SizeSlider")]
+        
         [Display(Name = "Größe:")]
         public int SizeId { get; set; }
-
-        public IQueryable<Product.Product> Sizes { get; set; } = new List<Product.Product>().AsQueryable();
-
+        
         [Required]
         [Display(Name = "Vorname:")]
         [MaxLength(64)]
@@ -73,8 +65,6 @@ namespace TuRM.Portrait.ViewModels.Request
         public SortedList<string, WebImage> Files { get; set; } = new SortedList<string, WebImage>();
 
         public float TotalAmount { get; set; }
-
-        public Product.Product SubjectProduct { get; set; }
 
         public int MaxFileSize
         {

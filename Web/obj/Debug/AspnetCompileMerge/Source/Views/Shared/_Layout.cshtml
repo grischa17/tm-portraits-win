@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="de-de">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Richard Martens" />
+    <meta name="creator" content="Richard Martens" />
+    <meta http-equiv="language" content="DE">
+    @RenderSection("Head", required: false)
+    <link rel="shortcut icon" media="all" href="@Url.Content("~/content/icon.ico")" type="image/x-icon" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.1.0/css/bootstrap-slider.min.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="~/Scripts/google.analytics.js">
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row text-right">
+            <h1>
+                <u>Porträtstudio</u><br />
+                <small>Die Geschenkidee mit Erinnerungswert</small>
+            </h1>
+        </div>
+        <div class="navbar navbar-inverse">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Startseite", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Bestellen", "Create", "Request")</li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Anfragen", "Index", "Request")</li>
+                            <li>@Html.ActionLink("Rechnungen", "Index", "Bill")</li>
+                                <li>@Html.ActionLink("Produkte", "Index", "Product")</li>
+                    }
+                    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div class="body-content">
+            @RenderBody()
+
+        <footer class="footer hidden-print">
+            <div class="container">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("AGB", "GTC", "Home")</li>
+                    <li>@Html.ActionLink("Impressum", "Imprint", "Home")</li>
+                </ul>
+            </div>
+        </footer>
+
+        <hr class="hidden-print" />
+        <footer class="hidden-print">
+            <div class="container">
+                <p>&copy; @DateTime.Now.Year - Tamara Martens Porträtstudio @typeof(MvcApplication).Assembly.GetName().Version.ToString().TrimEnd('0', '.')</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
